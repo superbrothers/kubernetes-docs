@@ -55,13 +55,16 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
 ### Options
 
 ```
-      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --attach                         If true, wait for the Pod to start running, and then attach to the Pod as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true. With '--restart=Never' the exit code of the container process is returned.
+      --cascade                        If true, cascade the deletion of the resources managed by this resource (e.g. Pods created by a ReplicationController).  Default true. (default true)
       --command                        If true and extra arguments are present, use them as the 'command' field in the container, rather than the 'args' field which is the default.
       --dry-run                        If true, only print the object that would be sent, without sending it.
       --env stringArray                Environment variables to set in the container
       --expose                         If true, a public, external service is created for the container(s) which are run
+  -f, --filename strings               to use to replace the resource.
+      --force                          Only used when grace-period=0. If true, immediately remove resources from API and bypass graceful deletion. Note that immediate deletion of some resources may result in inconsistency or data loss and requires confirmation.
       --generator string               The name of the API generator to use, see http://kubernetes.io/docs/user-guide/kubectl-conventions/#generators for a list.
+      --grace-period int               Period of time in seconds given to the resource to terminate gracefully. Ignored if negative. Set to 1 for immediate shutdown. Can only be set to 0 when --force is true (force deletion). (default -1)
   -h, --help                           help for run
       --hostport int                   The host port mapping for the container port. To demonstrate a single-machine container. (default -1)
       --image string                   The image for the container to run.
@@ -69,13 +72,13 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
   -l, --labels string                  Comma separated labels to apply to the pod(s). Will override previous values.
       --leave-stdin-open               If the pod is started in interactive mode or with stdin, leave stdin open after the first attach completes. By default, stdin will be closed after the first attach completes.
       --limits string                  The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that server side components may assign limits depending on the server configuration, such as limit ranges.
-      --no-headers                     When using the default or custom-column output format, don't print headers (default print headers).
   -o, --output string                  Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
       --overrides string               An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
       --port string                    The port that this container exposes.  If --expose is true, this is also the port used by the service that is created.
       --quiet                          If true, suppress prompt messages.
       --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -r, --replicas int                   Number of replicas to create for this container. Default is 1. (default 1)
       --requests string                The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
       --restart Never                  The restart policy for this Pod.  Legal values [Always, OnFailure, Never].  If set to 'Always' a deployment is created, if set to 'OnFailure' a job is created, if set to 'Never', a regular pod is created. For the latter two --replicas must be 1.  Default 'Always', for CronJobs Never. (default "Always")
@@ -85,11 +88,10 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
       --service-generator string       The name of the generator to use for creating a service.  Only used if --expose is true (default "service/v2")
       --service-overrides string       An inline JSON override for the generated service object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.  Only used if --expose is true.
       --serviceaccount string          Service account to set in the pod spec
-      --show-labels                    When printing, show all labels as the last column (default hide labels column)
-      --sort-by string                 If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string.
   -i, --stdin                          Keep stdin open on the container(s) in the pod, even if nothing is attached.
-      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration               The length of time to wait before giving up on a delete, zero means determine a timeout from the size of the object
   -t, --tty                            Allocated a TTY for each container in the pod.
+      --wait                           If true, wait for resources to be gone before returning. This waits for finalizers.
 ```
 
 ### Options inherited from parent commands
@@ -98,7 +100,7 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
       --alsologtostderr                  log to standard error as well as files
       --as string                        Username to impersonate for the operation
       --as-group stringArray             Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string                 Default HTTP cache directory (default "/home/username/.kube/http-cache")
+      --cache-dir string                 Default HTTP cache directory (default "/root/.kube/http-cache")
       --certificate-authority string     Path to a cert file for the certificate authority
       --client-certificate string        Path to a client certificate file for TLS
       --client-key string                Path to a client key file for TLS
@@ -111,13 +113,11 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
       --logtostderr                      log to standard error instead of files
       --match-server-version             Require server version to match client version
   -n, --namespace string                 If present, the namespace scope for this CLI request
-      --password string                  Password for basic authentication to the API server
       --request-timeout string           The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                    The address and port of the Kubernetes API server
       --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
       --token string                     Bearer token for authentication to the API server
       --user string                      The name of the kubeconfig user to use
-      --username string                  Username for basic authentication to the API server
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
 ```

@@ -1,33 +1,26 @@
-## kubectl create job
+## kubectl wait
 
-Create a job with the specified name.
+Experimental: Wait for one condition on one or many resources
 
 ### Synopsis
 
-Create a job with the specified name.
+Experimental: Wait for one condition on one or many resources
 
 ```
-kubectl create job NAME [--from=CRONJOB] [flags]
-```
-
-### Examples
-
-```
-  # Create a job from a CronJob named "a-cronjob"
-  kubectl create job test-job --from=cronjob/a-cronjob
+kubectl wait resource.group/name [--for=delete|--for condition=available]
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-      --from string                   The name of the resource to create a Job from (only cronjob is supported).
-  -h, --help                          help for job
-  -o, --output string                 Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate                      If true, use a schema to validate the input before sending it (default true)
+      --all-namespaces     If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+  -f, --filename strings   identifying the resource.
+      --for string         The condition to wait on: [delete|condition=condition-name].
+  -h, --help               help for wait
+  -o, --output string      Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
+  -l, --selector string    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --timeout duration   The length of time to wait before giving up.  Zero means check once and don't wait, negative means wait for a week. (default 30s)
 ```
 
 ### Options inherited from parent commands
@@ -60,5 +53,5 @@ kubectl create job NAME [--from=CRONJOB] [flags]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 

@@ -1,33 +1,44 @@
-## kubectl create job
+## kubectl api-resources
 
-Create a job with the specified name.
+Print the supported API resources on the server
 
 ### Synopsis
 
-Create a job with the specified name.
+Print the supported API resources on the server
 
 ```
-kubectl create job NAME [--from=CRONJOB] [flags]
+kubectl api-resources [flags]
 ```
 
 ### Examples
 
 ```
-  # Create a job from a CronJob named "a-cronjob"
-  kubectl create job test-job --from=cronjob/a-cronjob
+  # Print the supported API Resources
+  kubectl api-resources
+  
+  # Print the supported API Resources with more information
+  kubectl api-resources -o wide
+  
+  # Print the supported namespaced resources
+  kubectl api-resources --namespaced=true
+  
+  # Print the supported non-namespaced resources
+  kubectl api-resources --namespaced=false
+  
+  # Print the supported API Resources with specific APIGroup
+  kubectl api-resources --api-group=extensions
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-      --from string                   The name of the resource to create a Job from (only cronjob is supported).
-  -h, --help                          help for job
-  -o, --output string                 Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate                      If true, use a schema to validate the input before sending it (default true)
+      --api-group string   Limit to resources in the specified API group.
+      --cached             Use the cached list of resources if available.
+  -h, --help               help for api-resources
+      --namespaced         If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
+      --no-headers         When using the default or custom-column output format, don't print headers (default print headers).
+  -o, --output string      Output format. One of: wide|name.
+      --verbs strings      Limit to resources that support the specified verbs.
 ```
 
 ### Options inherited from parent commands
@@ -60,5 +71,5 @@ kubectl create job NAME [--from=CRONJOB] [flags]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 

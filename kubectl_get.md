@@ -12,48 +12,10 @@ Uninitialized objects are not shown unless --include-uninitialized is passed.
 
 By specifying the output as 'template' and providing a Go template as the value of the --template flag, you can filter the attributes of the fetched resources.
 
-Valid resource types include: 
-
-  * all  
-  * certificatesigningrequests (aka 'csr')  
-  * clusterrolebindings  
-  * clusterroles  
-  * componentstatuses (aka 'cs')  
-  * configmaps (aka 'cm')  
-  * controllerrevisions  
-  * cronjobs  
-  * customresourcedefinition (aka 'crd')  
-  * daemonsets (aka 'ds')  
-  * deployments (aka 'deploy')  
-  * endpoints (aka 'ep')  
-  * events (aka 'ev')  
-  * horizontalpodautoscalers (aka 'hpa')  
-  * ingresses (aka 'ing')  
-  * jobs  
-  * limitranges (aka 'limits')  
-  * namespaces (aka 'ns')  
-  * networkpolicies (aka 'netpol')  
-  * nodes (aka 'no')  
-  * persistentvolumeclaims (aka 'pvc')  
-  * persistentvolumes (aka 'pv')  
-  * poddisruptionbudgets (aka 'pdb')  
-  * podpreset  
-  * pods (aka 'po')  
-  * podsecuritypolicies (aka 'psp')  
-  * podtemplates  
-  * replicasets (aka 'rs')  
-  * replicationcontrollers (aka 'rc')  
-  * resourcequotas (aka 'quota')  
-  * rolebindings  
-  * roles  
-  * secrets  
-  * serviceaccounts (aka 'sa')  
-  * services (aka 'svc')  
-  * statefulsets (aka 'sts')  
-  * storageclasses (aka 'sc')
+Use "kubectl api-resources" for a complete list of supported resources.
 
 ```
-kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=...] (TYPE [NAME | -l label] | TYPE/NAME ...) [flags]
+kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=...] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
 ```
 
 ### Examples
@@ -67,6 +29,9 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
   
   # List a single replication controller with specified NAME in ps output format.
   kubectl get replicationcontroller web
+  
+  # List deployments in JSON output format, in the "v1" version of the "apps" API group:
+  kubectl get deployments.v1.apps -o json
   
   # List a single pod in JSON output format.
   kubectl get -o json pod web-pod-13je7
@@ -82,9 +47,6 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
   
   # List one or more resources by their type and names.
   kubectl get rc/web service/frontend pods/web-pod-13je7
-  
-  # List all resources with different types.
-  kubectl get all
 ```
 
 ### Options
@@ -93,7 +55,6 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
       --all-namespaces                If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --chunk-size int                Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future. (default 500)
-      --experimental-server-print     If true, have the server return the appropriate table output. Supports extension APIs and CRD. Experimental.
       --export                        If true, use 'export' for the resources.  Exported resources are stripped of cluster-specific information.
       --field-selector string         Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
@@ -106,11 +67,12 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
       --raw string                    Raw URI to request from the server.  Uses the transport specified by the kubeconfig file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --server-print                  If true, have the server return the appropriate table output. Supports extension APIs and CRDs. (default true)
       --show-kind                     If present, list the resource type for the requested object(s).
       --show-labels                   When printing, show all labels as the last column (default hide labels column)
       --sort-by string                If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --use-openapi-print-columns     If true, use x-kubernetes-print-column metadata (if present) from the OpenAPI schema for displaying a resource. (default true)
+      --use-openapi-print-columns     If true, use x-kubernetes-print-column metadata (if present) from the OpenAPI schema for displaying a resource.
   -w, --watch                         After listing/getting the requested object, watch for changes. Uninitialized objects are excluded if no object name is provided.
       --watch-only                    Watch for changes to the requested object(s), without listing/getting first.
 ```
@@ -121,7 +83,7 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
       --alsologtostderr                  log to standard error as well as files
       --as string                        Username to impersonate for the operation
       --as-group stringArray             Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string                 Default HTTP cache directory (default "/home/username/.kube/http-cache")
+      --cache-dir string                 Default HTTP cache directory (default "/root/.kube/http-cache")
       --certificate-authority string     Path to a cert file for the certificate authority
       --client-certificate string        Path to a client certificate file for TLS
       --client-key string                Path to a client key file for TLS
@@ -134,13 +96,11 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
       --logtostderr                      log to standard error instead of files
       --match-server-version             Require server version to match client version
   -n, --namespace string                 If present, the namespace scope for this CLI request
-      --password string                  Password for basic authentication to the API server
       --request-timeout string           The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                    The address and port of the Kubernetes API server
       --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
       --token string                     Bearer token for authentication to the API server
       --user string                      The name of the kubeconfig user to use
-      --username string                  Username for basic authentication to the API server
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
 ```

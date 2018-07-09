@@ -16,8 +16,11 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
   # Return snapshot logs from pod nginx with only one container
   kubectl logs nginx
   
-  # Return snapshot logs for the pods defined by label app=nginx
-  kubectl logs -lapp=nginx
+  # Return snapshot logs from pod nginx with multi containers
+  kubectl logs nginx --all-containers=true
+  
+  # Return snapshot logs from all containers in pods defined by label app=nginx
+  kubectl logs -lapp=nginx --all-containers=true
   
   # Return snapshot of previous terminated ruby container logs from pod web-1
   kubectl logs -p -c ruby web-1
@@ -41,6 +44,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
 ### Options
 
 ```
+      --all-containers                 Get all containers's logs in the pod(s).
   -c, --container string               Print the logs of this container
   -f, --follow                         Specify if the logs should be streamed.
   -h, --help                           help for logs
@@ -60,7 +64,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
       --alsologtostderr                  log to standard error as well as files
       --as string                        Username to impersonate for the operation
       --as-group stringArray             Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string                 Default HTTP cache directory (default "/home/username/.kube/http-cache")
+      --cache-dir string                 Default HTTP cache directory (default "/root/.kube/http-cache")
       --certificate-authority string     Path to a cert file for the certificate authority
       --client-certificate string        Path to a client certificate file for TLS
       --client-key string                Path to a client key file for TLS
@@ -73,13 +77,11 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
       --logtostderr                      log to standard error instead of files
       --match-server-version             Require server version to match client version
   -n, --namespace string                 If present, the namespace scope for this CLI request
-      --password string                  Password for basic authentication to the API server
       --request-timeout string           The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                    The address and port of the Kubernetes API server
       --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
       --token string                     Bearer token for authentication to the API server
       --user string                      The name of the kubeconfig user to use
-      --username string                  Username for basic authentication to the API server
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
 ```
