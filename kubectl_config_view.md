@@ -33,7 +33,7 @@ kubectl config view [flags]
   -h, --help                          help for view
       --merge tristate[=true]         Merge the full hierarchy of kubeconfig files (default true)
       --minify                        Remove all information not used by current-context from the output
-  -o, --output string                 Output format. One of: json|yaml|name|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath]. (default "yaml")
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file. (default "yaml")
       --raw                           Display raw byte data
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```

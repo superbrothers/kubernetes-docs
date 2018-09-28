@@ -36,7 +36,6 @@ kubectl exec POD [-c CONTAINER] -- COMMAND [args...]
 ```
   -c, --container string   Container name. If omitted, the first container in the pod will be chosen
   -h, --help               help for exec
-  -p, --pod string         Pod name
   -i, --stdin              Pass stdin to the container
   -t, --tty                Stdin is a TTY
 ```

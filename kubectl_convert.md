@@ -31,13 +31,15 @@ kubectl convert -f FILENAME
 ### Options
 
 ```
-  -f, --filename strings        Filename, directory, or URL to files to need to get converted.
-  -h, --help                    help for convert
-      --local                   If true, convert will NOT try to contact api-server but run locally. (default true)
-  -o, --output string           Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath]. (default "yaml")
-      --output-version string   Output the formatted object with the given group version (for ex: 'extensions/v1beta1').)
-  -R, --recursive               Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --validate                If true, use a schema to validate the input before sending it (default true)
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -f, --filename strings              Filename, directory, or URL to files to need to get converted.
+  -h, --help                          help for convert
+      --local                         If true, convert will NOT try to contact api-server but run locally. (default true)
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath-file|jsonpath. (default "yaml")
+      --output-version string         Output the formatted object with the given group version (for ex: 'extensions/v1beta1').
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate                      If true, use a schema to validate the input before sending it (default true)
 ```
 
 ### Options inherited from parent commands

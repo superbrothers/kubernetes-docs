@@ -71,7 +71,7 @@ kubectl [flags]
 * [kubectl logs](kubectl_logs.md)	 - Print the logs for a container in a pod
 * [kubectl options](kubectl_options.md)	 - Print the list of flags inherited by all commands
 * [kubectl patch](kubectl_patch.md)	 - Update field(s) of a resource using strategic merge patch
-* [kubectl plugin](kubectl_plugin.md)	 - Runs a command-line plugin
+* [kubectl plugin](kubectl_plugin.md)	 - Provides utilities for interacting with plugins.
 * [kubectl port-forward](kubectl_port-forward.md)	 - Forward one or more local ports to a pod
 * [kubectl proxy](kubectl_proxy.md)	 - Run a proxy to the Kubernetes API server
 * [kubectl replace](kubectl_replace.md)	 - Replace a resource by filename or stdin
@@ -83,5 +83,5 @@ kubectl [flags]
 * [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory/Storage) usage.
 * [kubectl uncordon](kubectl_uncordon.md)	 - Mark node as schedulable
 * [kubectl version](kubectl_version.md)	 - Print the client and server version information
-* [kubectl wait](kubectl_wait.md)	 - Experimental: Wait for one condition on one or many resources
+* [kubectl wait](kubectl_wait.md)	 - Experimental: Wait for a specific condition on one or many resources.
 

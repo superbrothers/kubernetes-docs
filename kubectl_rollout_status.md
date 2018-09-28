@@ -26,6 +26,7 @@ kubectl rollout status (TYPE NAME | TYPE/NAME) [flags]
   -h, --help               help for status
   -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --revision int       Pin to a specific revision for showing its status. Defaults to 0 (last revision).
+      --timeout duration   The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h).
   -w, --watch              Watch the status of the rollout until it's done. (default true)
 ```
 

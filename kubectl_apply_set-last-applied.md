@@ -26,11 +26,13 @@ kubectl apply set-last-applied -f FILENAME
 ### Options
 
 ```
-      --create-annotation   Will create 'last-applied-configuration' annotations if current objects doesn't have one
-      --dry-run             If true, only print the object that would be sent, without sending it.
-  -f, --filename strings    Filename, directory, or URL to files that contains the last-applied-configuration annotations
-  -h, --help                help for set-last-applied
-  -o, --output string       Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --create-annotation             Will create 'last-applied-configuration' annotations if current objects doesn't have one
+      --dry-run                       If true, only print the object that would be sent, without sending it.
+  -f, --filename strings              Filename, directory, or URL to files that contains the last-applied-configuration annotations
+  -h, --help                          help for set-last-applied
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands

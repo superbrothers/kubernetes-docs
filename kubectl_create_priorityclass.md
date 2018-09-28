@@ -14,7 +14,7 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
 
 ```
   # Create a priorityclass named high-priority
-  kubectl create priorityclass default-priority --value=1000 --description="high priority"
+  kubectl create priorityclass high-priority --value=1000 --description="high priority"
   
   # Create a priorityclass named default-priority that considered as the global default priority
   kubectl create priorityclass default-priority --value=1000 --global-default=true --description="default priority"
@@ -29,7 +29,7 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
       --generator string              The name of the API generator to use. (default "priorityclass/v1alpha1")
       --global-default                global-default specifies whether this PriorityClass should be considered as the default priority.
   -h, --help                          help for priorityclass
-  -o, --output string                 Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
       --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                      If true, use a schema to validate the input before sending it (default true)

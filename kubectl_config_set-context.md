@@ -9,7 +9,7 @@ Sets a context entry in kubeconfig
 Specifying a name that already exists will merge new fields on top of existing values for those fields.
 
 ```
-kubectl config set-context NAME [--cluster=cluster_nickname] [--user=user_nickname] [--namespace=namespace]
+kubectl config set-context [NAME | --current] [--cluster=cluster_nickname] [--user=user_nickname] [--namespace=namespace]
 ```
 
 ### Examples
@@ -22,7 +22,8 @@ kubectl config set-context NAME [--cluster=cluster_nickname] [--user=user_nickna
 ### Options
 
 ```
-  -h, --help   help for set-context
+      --current   Modify the current context
+  -h, --help      help for set-context
 ```
 
 ### Options inherited from parent commands

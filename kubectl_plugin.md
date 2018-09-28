@@ -1,15 +1,15 @@
 ## kubectl plugin
 
-Runs a command-line plugin
+Provides utilities for interacting with plugins.
 
 ### Synopsis
 
-Runs a command-line plugin. 
+Provides utilities for interacting with plugins. 
 
-Plugins are subcommands that are not part of the major command-line distribution and can even be provided by third-parties. Please refer to the documentation and examples for more information about how to install and write your own plugins.
+Plugins provide extended functionality that is not part of the major command-line distribution. Please refer to the documentation and examples for more information about how write your own plugins.
 
 ```
-kubectl plugin NAME
+kubectl plugin [flags]
 ```
 
 ### Options
@@ -49,4 +49,5 @@ kubectl plugin NAME
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl plugin list](kubectl_plugin_list.md)	 - list all visible plugin executables on a user's PATH
 

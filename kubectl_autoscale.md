@@ -25,18 +25,20 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
 ### Options
 
 ```
-      --cpu-percent int32   The target average CPU utilization (represented as a percent of requested CPU) over all the pods. If it's not specified or negative, a default autoscaling policy will be used. (default -1)
-      --dry-run             If true, only print the object that would be sent, without sending it.
-  -f, --filename strings    Filename, directory, or URL to files identifying the resource to autoscale.
-      --generator string    The name of the API generator to use. Currently there is only 1 generator. (default "horizontalpodautoscaler/v1")
-  -h, --help                help for autoscale
-      --max int32           The upper limit for the number of pods that can be set by the autoscaler. Required. (default -1)
-      --min int32           The lower limit for the number of pods that can be set by the autoscaler. If it's not specified or negative, the server will apply a default value. (default -1)
-      --name string         The name for the newly created object. If not specified, the name of the input resource will be used.
-  -o, --output string       Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-      --record              Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
-  -R, --recursive           Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --save-config         If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --cpu-percent int32             The target average CPU utilization (represented as a percent of requested CPU) over all the pods. If it's not specified or negative, a default autoscaling policy will be used. (default -1)
+      --dry-run                       If true, only print the object that would be sent, without sending it.
+  -f, --filename strings              Filename, directory, or URL to files identifying the resource to autoscale.
+      --generator string              The name of the API generator to use. Currently there is only 1 generator. (default "horizontalpodautoscaler/v1")
+  -h, --help                          help for autoscale
+      --max int32                     The upper limit for the number of pods that can be set by the autoscaler. Required. (default -1)
+      --min int32                     The lower limit for the number of pods that can be set by the autoscaler. If it's not specified or negative, the server will apply a default value. (default -1)
+      --name string                   The name for the newly created object. If not specified, the name of the input resource will be used.
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
+      --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands

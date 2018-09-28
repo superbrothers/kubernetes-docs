@@ -37,12 +37,14 @@ kubectl taint NODE NAME KEY_1=VAL_1:TAINT_EFFECT_1 ... KEY_N=VAL_N:TAINT_EFFECT_
 ### Options
 
 ```
-      --all               Select all nodes in the cluster
-  -h, --help              help for taint
-  -o, --output string     Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-      --overwrite         If true, allow taints to be overwritten, otherwise reject taint updates that overwrite existing taints.
-  -l, --selector string   Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
-      --validate          If true, use a schema to validate the input before sending it (default true)
+      --all                           Select all nodes in the cluster
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -h, --help                          help for taint
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
+      --overwrite                     If true, allow taints to be overwritten, otherwise reject taint updates that overwrite existing taints.
+  -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate                      If true, use a schema to validate the input before sending it (default true)
 ```
 
 ### Options inherited from parent commands

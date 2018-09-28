@@ -1,40 +1,22 @@
-## kubectl create job
+## kubectl plugin list
 
-Create a job with the specified name.
+list all visible plugin executables on a user's PATH
 
 ### Synopsis
 
-Create a job with the specified name.
+List all available plugin files on a user's PATH. 
+
+Available plugin files are those that are: - executable - anywhere on the user's PATH - begin with "kubectl-"
 
 ```
-kubectl create job NAME [--image=image --from=cronjob/name] -- [COMMAND] [args...] [flags]
-```
-
-### Examples
-
-```
-  # Create a job
-  kubectl create job my-job --image=busybox
-  
-  # Create a job with command
-  kubectl create job my-job --image=busybox -- date
-  
-  # Create a job from a CronJob named "a-cronjob"
-  kubectl create job test-job --from=cronjob/a-cronjob
+kubectl plugin list [flags]
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-      --from string                   The name of the resource to create a Job from (only cronjob is supported).
-  -h, --help                          help for job
-      --image string                  Image name to run.
-  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
-      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate                      If true, use a schema to validate the input before sending it (default true)
+  -h, --help        help for list
+      --name-only   If true, display only the binary name of each plugin, rather than its full path
 ```
 
 ### Options inherited from parent commands
@@ -67,5 +49,5 @@ kubectl create job NAME [--image=image --from=cronjob/name] -- [COMMAND] [args..
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl plugin](kubectl_plugin.md)	 - Provides utilities for interacting with plugins.
 

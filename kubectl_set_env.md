@@ -59,22 +59,24 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
 ### Options
 
 ```
-      --all                 If true, select all resources in the namespace of the specified resource types
-  -c, --containers string   The names of containers in the selected pod templates to change - may use wildcards (default "*")
-      --dry-run             If true, only print the object that would be sent, without sending it.
-  -e, --env stringArray     Specify a key-value pair for an environment variable to set into each container.
-  -f, --filename strings    Filename, directory, or URL to files the resource to update the env
-      --from string         The name of a resource from which to inject environment variables
-  -h, --help                help for env
-      --keys strings        Comma-separated list of keys to import from specified resource
-      --list                If true, display the environment and any changes in the standard format. this flag will removed when we have kubectl view env.
-      --local               If true, set env will NOT contact api-server but run locally.
-  -o, --output string       Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-      --overwrite           If true, allow environment to be overwritten, otherwise reject updates that overwrite existing environment. (default true)
-      --prefix string       Prefix to append to variable names
-  -R, --recursive           Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --resolve             If true, show secret or configmap references when listing variables
-  -l, --selector string     Selector (label query) to filter on
+      --all                           If true, select all resources in the namespace of the specified resource types
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -c, --containers string             The names of containers in the selected pod templates to change - may use wildcards (default "*")
+      --dry-run                       If true, only print the object that would be sent, without sending it.
+  -e, --env stringArray               Specify a key-value pair for an environment variable to set into each container.
+  -f, --filename strings              Filename, directory, or URL to files the resource to update the env
+      --from string                   The name of a resource from which to inject environment variables
+  -h, --help                          help for env
+      --keys strings                  Comma-separated list of keys to import from specified resource
+      --list                          If true, display the environment and any changes in the standard format. this flag will removed when we have kubectl view env.
+      --local                         If true, set env will NOT contact api-server but run locally.
+  -o, --output string                 Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
+      --overwrite                     If true, allow environment to be overwritten, otherwise reject updates that overwrite existing environment. (default true)
+      --prefix string                 Prefix to append to variable names
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --resolve                       If true, show secret or configmap references when listing variables
+  -l, --selector string               Selector (label query) to filter on
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands

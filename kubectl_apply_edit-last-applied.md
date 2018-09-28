@@ -31,13 +31,15 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
 ### Options
 
 ```
-  -f, --filename strings        Filename, directory, or URL to files to use to edit the resource
-  -h, --help                    help for edit-last-applied
-      --include-uninitialized   If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
-  -o, --output string           Output format. One of: yaml|json. (default "yaml")
-      --record                  Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
-  -R, --recursive               Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --windows-line-endings    Defaults to the line ending native to your platform.
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -f, --filename strings              Filename, directory, or URL to files to use to edit the resource
+  -h, --help                          help for edit-last-applied
+      --include-uninitialized         If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
+  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|templatefile|template|jsonpath|jsonpath-file.
+      --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --windows-line-endings          Defaults to the line ending native to your platform.
 ```
 
 ### Options inherited from parent commands

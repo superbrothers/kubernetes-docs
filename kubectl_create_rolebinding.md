@@ -26,7 +26,7 @@ kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME [--user=username]
       --generator string              The name of the API generator to use. (default "rolebinding.rbac.authorization.k8s.io/v1alpha1")
       --group stringArray             Groups to bind to the role
   -h, --help                          help for rolebinding
-  -o, --output string                 Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|templatefile|template|jsonpath|jsonpath-file.
       --role string                   Role this RoleBinding should reference
       --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --serviceaccount stringArray    Service accounts to bind to the role, in the format <namespace>:<name>

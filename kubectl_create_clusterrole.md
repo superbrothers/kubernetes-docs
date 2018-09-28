@@ -40,7 +40,7 @@ kubectl create clusterrole NAME --verb=verb --resource=resource.group [--resourc
       --dry-run                            If true, only print the object that would be sent, without sending it.
   -h, --help                               help for clusterrole
       --non-resource-url strings           A partial url that user should have access to.
-  -o, --output string                      Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+  -o, --output string                      Output format. One of: json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath|jsonpath-file.
       --resource strings                   Resource that the rule applies to
       --resource-name stringArray          Resource in the white list that the rule applies to, repeat this flag for multiple items
       --save-config                        If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.

@@ -23,6 +23,9 @@ kubectl port-forward TYPE/NAME [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_PORT_N:]REMOT
   # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the deployment
   kubectl port-forward deployment/mydeployment 5000 6000
   
+  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the service
+  kubectl port-forward service/myservice 5000 6000
+  
   # Listen on port 8888 locally, forwarding to 5000 in the pod
   kubectl port-forward pod/mypod 8888:5000
   

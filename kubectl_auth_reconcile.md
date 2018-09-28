@@ -22,11 +22,15 @@ kubectl auth reconcile -f FILENAME
 ### Options
 
 ```
-      --dry-run            If true, display results but do not submit changes
-  -f, --filename strings   Filename, directory, or URL to files identifying the resource to reconcile.
-  -h, --help               help for reconcile
-  -o, --output string      Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --dry-run                       If true, display results but do not submit changes
+  -f, --filename strings              Filename, directory, or URL to files identifying the resource to reconcile.
+  -h, --help                          help for reconcile
+  -o, --output string                 Output format. One of: json|yaml|name|templatefile|template|go-template|go-template-file|jsonpath|jsonpath-file.
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --remove-extra-permissions      If true, removes extra permissions added to roles
+      --remove-extra-subjects         If true, removes extra subjects added to rolebindings
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands

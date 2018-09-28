@@ -50,6 +50,7 @@ kubectl proxy [--port=PORT] [--www=static-dir] [--www-prefix=prefix] [--api-pref
       --api-prefix string       Prefix to serve the proxied API under. (default "/")
       --disable-filter          If true, disable request filtering in the proxy. This is dangerous, and can leave you vulnerable to XSRF attacks, when used with an accessible port.
   -h, --help                    help for proxy
+      --keepalive duration      keepalive specifies the keep-alive period for an active network connection. Set to 0 to disable keepalive.
   -p, --port int                The port on which to run the proxy. Set to 0 to pick a random port. (default 8001)
       --reject-methods string   Regular expression for HTTP methods that the proxy should reject (example --reject-methods='POST,PUT,PATCH').  (default "^$")
       --reject-paths string     Regular expression for paths that the proxy should reject. Paths specified here will be rejected even accepted by --accept-paths. (default "^/api/.*/pods/.*/exec,^/api/.*/pods/.*/attach")

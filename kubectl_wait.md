@@ -1,26 +1,45 @@
 ## kubectl wait
 
-Experimental: Wait for one condition on one or many resources
+Experimental: Wait for a specific condition on one or many resources.
 
 ### Synopsis
 
-Experimental: Wait for one condition on one or many resources
+Experimental: Wait for a specific condition on one or many resources. 
+
+The command takes multiple resources and waits until the specified condition is seen in the Status field of every given resource. 
+
+Alternatively, the command can wait for the given set of resources to be deleted by providing the "delete" keyword as the value to the --for flag. 
+
+A successful message will be printed to stdout indicating when the specified condition has been met. One can use -o option to change to output destination.
 
 ```
 kubectl wait resource.group/name [--for=delete|--for condition=available]
 ```
 
+### Examples
+
+```
+  # Wait for the pod "busybox1" to contain the status condition of type "Ready".
+  kubectl wait --for=condition=Ready pod/busybox1
+  
+  # Wait for the pod "busybox1" to be deleted, with a timeout of 60s, after having issued the "delete" command.
+  kubectl delete pod/busybox1
+  kubectl wait --for=delete pod/busybox1 --timeout=60s
+```
+
 ### Options
 
 ```
-      --all-namespaces     If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
-  -f, --filename strings   identifying the resource.
-      --for string         The condition to wait on: [delete|condition=condition-name].
-  -h, --help               help for wait
-  -o, --output string      Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
-  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
-  -l, --selector string    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
-      --timeout duration   The length of time to wait before giving up.  Zero means check once and don't wait, negative means wait for a week. (default 30s)
+      --all-namespaces                If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -f, --filename strings              identifying the resource.
+      --for string                    The condition to wait on: [delete|condition=condition-name].
+  -h, --help                          help for wait
+  -o, --output string                 Output format. One of: json|yaml|name|templatefile|template|go-template|go-template-file|jsonpath|jsonpath-file.
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
+  -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration              The length of time to wait before giving up.  Zero means check once and don't wait, negative means wait for a week. (default 30s)
 ```
 
 ### Options inherited from parent commands
