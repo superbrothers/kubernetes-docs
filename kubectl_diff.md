@@ -1,35 +1,35 @@
-## kubectl rollout history
+## kubectl diff
 
-View rollout history
+Diff live version against would-be applied version
 
 ### Synopsis
 
-View previous rollout revisions and configurations.
+Diff configurations specified by filename or stdin between the current online configuration, and the configuration as it would be if applied. 
+
+Output is always YAML. 
+
+KUBECTL EXTERNAL DIFF environment variable can be used to select your own diff command. By default, the "diff" command available in your path will be run with "-u" (unicode) and "-N" (treat new files as empty) options.
 
 ```
-kubectl rollout history (TYPE NAME | TYPE/NAME) [flags]
+kubectl diff -f FILENAME
 ```
 
 ### Examples
 
 ```
-  # View the rollout history of a deployment
-  kubectl rollout history deployment/abc
+  # Diff resources included in pod.json.
+  kubectl diff -f pod.json
   
-  # View the details of daemonset revision 3
-  kubectl rollout history daemonset/abc --revision=3
+  # Diff file read from stdin
+  cat service.yaml | kubectl diff -f -
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-  -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
-  -h, --help                          help for history
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --revision int                  See the details, including podTemplate of the revision specified
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+  -f, --filename strings   Filename, directory, or URL to files contains the configuration to diff
+  -h, --help               help for diff
+  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
 ```
 
 ### Options inherited from parent commands
@@ -57,5 +57,5 @@ kubectl rollout history (TYPE NAME | TYPE/NAME) [flags]
 
 ### SEE ALSO
 
-* [kubectl rollout](kubectl_rollout.md)	 - Manage the rollout of a resource
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 

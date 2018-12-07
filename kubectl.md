@@ -15,35 +15,29 @@ kubectl [flags]
 ### Options
 
 ```
-      --alsologtostderr                  log to standard error as well as files
-      --as string                        Username to impersonate for the operation
-      --as-group stringArray             Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string                 Default HTTP cache directory (default "/root/.kube/http-cache")
-      --certificate-authority string     Path to a cert file for the certificate authority
-      --client-certificate string        Path to a client certificate file for TLS
-      --client-key string                Path to a client key file for TLS
-      --cluster string                   The name of the kubeconfig cluster to use
-      --context string                   The name of the kubeconfig context to use
-  -h, --help                             help for kubectl
-      --insecure-skip-tls-verify         If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string                Path to the kubeconfig file to use for CLI requests.
-      --log-backtrace-at traceLocation   when logging hits line file:N, emit a stack trace (default :0)
-      --log-dir string                   If non-empty, write log files in this directory
-      --logtostderr                      log to standard error instead of files
-      --match-server-version             Require server version to match client version
-  -n, --namespace string                 If present, the namespace scope for this CLI request
-      --request-timeout string           The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
-  -s, --server string                    The address and port of the Kubernetes API server
-      --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
-      --token string                     Bearer token for authentication to the API server
-      --user string                      The name of the kubeconfig user to use
-  -v, --v Level                          log level for V logs
-      --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
+      --as string                      Username to impersonate for the operation
+      --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --cache-dir string               Default HTTP cache directory (default "/root/.kube/http-cache")
+      --certificate-authority string   Path to a cert file for the certificate authority
+      --client-certificate string      Path to a client certificate file for TLS
+      --client-key string              Path to a client key file for TLS
+      --cluster string                 The name of the kubeconfig cluster to use
+      --context string                 The name of the kubeconfig context to use
+  -h, --help                           help for kubectl
+      --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --match-server-version           Require server version to match client version
+  -n, --namespace string               If present, the namespace scope for this CLI request
+      --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
+      --profile-output string          Name of the file to write the profile to (default "profile.pprof")
+      --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
+  -s, --server string                  The address and port of the Kubernetes API server
+      --token string                   Bearer token for authentication to the API server
+      --user string                    The name of the kubeconfig user to use
 ```
 
 ### SEE ALSO
 
-* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
 * [kubectl annotate](kubectl_annotate.md)	 - Update the annotations on a resource
 * [kubectl api-resources](kubectl_api-resources.md)	 - Print the supported API resources on the server
 * [kubectl api-versions](kubectl_api-versions.md)	 - Print the supported API versions on the server, in the form of "group/version"
@@ -61,6 +55,7 @@ kubectl [flags]
 * [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
 * [kubectl delete](kubectl_delete.md)	 - Delete resources by filenames, stdin, resources and names, or by resources and label selector
 * [kubectl describe](kubectl_describe.md)	 - Show details of a specific resource or group of resources
+* [kubectl diff](kubectl_diff.md)	 - Diff live version against would-be applied version
 * [kubectl drain](kubectl_drain.md)	 - Drain node in preparation for maintenance
 * [kubectl edit](kubectl_edit.md)	 - Edit a resource on the server
 * [kubectl exec](kubectl_exec.md)	 - Execute a command in a container
