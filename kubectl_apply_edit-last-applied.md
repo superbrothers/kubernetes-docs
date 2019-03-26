@@ -4,15 +4,15 @@ Edit latest last-applied-configuration annotations of a resource/object
 
 ### Synopsis
 
-Edit the latest last-applied-configuration annotations of resources from the default editor. 
+Edit the latest last-applied-configuration annotations of resources from the default editor.
 
-The edit-last-applied command allows you to directly edit any API resource you can retrieve via the command line tools. It will open the editor defined by your KUBE _EDITOR, or EDITOR environment variables, or fall back to 'vi' for Linux or 'notepad' for Windows. You can edit multiple objects, although changes are applied one at a time. The command accepts filenames as well as command line arguments, although the files you point to must be previously saved versions of resources. 
+ The edit-last-applied command allows you to directly edit any API resource you can retrieve via the command line tools. It will open the editor defined by your KUBE_EDITOR, or EDITOR environment variables, or fall back to 'vi' for Linux or 'notepad' for Windows. You can edit multiple objects, although changes are applied one at a time. The command accepts filenames as well as command line arguments, although the files you point to must be previously saved versions of resources.
 
-The default format is YAML. To edit in JSON, specify "-o json". 
+ The default format is YAML. To edit in JSON, specify "-o json".
 
-The flag --windows-line-endings can be used to force Windows line endings, otherwise the default for your operating system will be used. 
+ The flag --windows-line-endings can be used to force Windows line endings, otherwise the default for your operating system will be used.
 
-In the event an error occurs while updating, a temporary file will be created on disk that contains your unapplied changes. The most common error when updating a resource is another editor changing the resource on the server. When this occurs, you will have to apply your changes to the newer version of the resource, or update your temporary saved copy to include the latest resource version.
+ In the event an error occurs while updating, a temporary file will be created on disk that contains your unapplied changes. The most common error when updating a resource is another editor changing the resource on the server. When this occurs, you will have to apply your changes to the newer version of the resource, or update your temporary saved copy to include the latest resource version.
 
 ```
 kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
@@ -34,7 +34,7 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -f, --filename strings              Filename, directory, or URL to files to use to edit the resource
   -h, --help                          help for edit-last-applied
-      --include-uninitialized         If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
       --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
@@ -57,12 +57,14 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

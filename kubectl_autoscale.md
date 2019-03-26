@@ -4,9 +4,9 @@ Auto-scale a Deployment, ReplicaSet, or ReplicationController
 
 ### Synopsis
 
-Creates an autoscaler that automatically chooses and sets the number of pods that run in a kubernetes cluster. 
+Creates an autoscaler that automatically chooses and sets the number of pods that run in a kubernetes cluster.
 
-Looks up a Deployment, ReplicaSet, StatefulSet, or ReplicationController by name and creates an autoscaler that uses the given resource as a reference. An autoscaler can automatically increase or decrease number of pods deployed within the system as needed.
+ Looks up a Deployment, ReplicaSet, StatefulSet, or ReplicationController by name and creates an autoscaler that uses the given resource as a reference. An autoscaler can automatically increase or decrease number of pods deployed within the system as needed.
 
 ```
 kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MAXPODS [--cpu-percent=CPU]
@@ -31,6 +31,7 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to autoscale.
       --generator string              The name of the API generator to use. Currently there is only 1 generator. (default "horizontalpodautoscaler/v1")
   -h, --help                          help for autoscale
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
       --max int32                     The upper limit for the number of pods that can be set by the autoscaler. Required. (default -1)
       --min int32                     The lower limit for the number of pods that can be set by the autoscaler. If it's not specified or negative, the server will apply a default value. (default -1)
       --name string                   The name for the newly created object. If not specified, the name of the input resource will be used.
@@ -56,12 +57,14 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

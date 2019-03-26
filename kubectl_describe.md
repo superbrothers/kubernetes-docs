@@ -4,13 +4,13 @@ Show details of a specific resource or group of resources
 
 ### Synopsis
 
-Show details of a specific resource or group of resources 
+Show details of a specific resource or group of resources
 
-Print a detailed description of the selected resources, including related resources such as events or controllers. You may select a single object by name, all objects of that type, provide a name prefix, or label selector. For example: 
+ Print a detailed description of the selected resources, including related resources such as events or controllers. You may select a single object by name, all objects of that type, provide a name prefix, or label selector. For example:
 
   $ kubectl describe TYPE NAME_PREFIX
   
-will first check for an exact match on TYPE and NAME PREFIX. If no such resource exists, it will output details for every resource that has a name prefixed with NAME PREFIX.
+ will first check for an exact match on TYPE and NAME_PREFIX. If no such resource exists, it will output details for every resource that has a name prefixed with NAME_PREFIX.
 
 Use "kubectl api-resources" for a complete list of supported resources.
 
@@ -44,13 +44,13 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
 ### Options
 
 ```
-      --all-namespaces          If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
-  -f, --filename strings        Filename, directory, or URL to files containing the resource to describe
-  -h, --help                    help for describe
-      --include-uninitialized   If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
-  -R, --recursive               Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-  -l, --selector string         Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
-      --show-events             If true, display events related to the described object. (default true)
+  -A, --all-namespaces     If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+  -f, --filename strings   Filename, directory, or URL to files containing the resource to describe
+  -h, --help               help for describe
+  -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.
+  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+  -l, --selector string    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --show-events        If true, display events related to the described object. (default true)
 ```
 
 ### Options inherited from parent commands
@@ -68,12 +68,14 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

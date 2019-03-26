@@ -4,11 +4,11 @@ Set a new size for a Deployment, ReplicaSet, Replication Controller, or Job
 
 ### Synopsis
 
-Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet. 
+Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet.
 
-Scale also allows users to specify one or more preconditions for the scale action. 
+ Scale also allows users to specify one or more preconditions for the scale action.
 
-If --current-replicas or --resource-version is specified, it is validated before the scale is attempted, and it is guaranteed that the precondition holds true when the scale is sent to the server.
+ If --current-replicas or --resource-version is specified, it is validated before the scale is attempted, and it is guaranteed that the precondition holds true when the scale is sent to the server.
 
 ```
 kubectl scale [--resource-version=version] [--current-replicas=count] --replicas=COUNT (-f FILENAME | TYPE NAME)
@@ -41,6 +41,7 @@ kubectl scale [--resource-version=version] [--current-replicas=count] --replicas
       --current-replicas int          Precondition for current size. Requires that the current size of the resource match this value in order to scale. (default -1)
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to set a new size
   -h, --help                          help for scale
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
       --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
@@ -66,12 +67,14 @@ kubectl scale [--resource-version=version] [--current-replicas=count] --replicas
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

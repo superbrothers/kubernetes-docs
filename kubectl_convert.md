@@ -4,11 +4,11 @@ Convert config files between different API versions
 
 ### Synopsis
 
-Convert config files between different API versions. Both YAML and JSON formats are accepted. 
+Convert config files between different API versions. Both YAML and JSON formats are accepted.
 
-The command takes filename, directory, or URL as input, and convert it into format of version specified by --output-version flag. If target version is not specified or not supported, convert to latest version. 
+ The command takes filename, directory, or URL as input, and convert it into format of version specified by --output-version flag. If target version is not specified or not supported, convert to latest version.
 
-The default output will be printed to stdout in YAML format. One can use -o option to change to output destination.
+ The default output will be printed to stdout in YAML format. One can use -o option to change to output destination.
 
 ```
 kubectl convert -f FILENAME
@@ -34,6 +34,7 @@ kubectl convert -f FILENAME
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -f, --filename strings              Filename, directory, or URL to files to need to get converted.
   -h, --help                          help for convert
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
       --local                         If true, convert will NOT try to contact api-server but run locally. (default true)
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file. (default "yaml")
       --output-version string         Output the formatted object with the given group version (for ex: 'extensions/v1beta1').
@@ -57,12 +58,14 @@ kubectl convert -f FILENAME
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

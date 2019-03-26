@@ -4,9 +4,9 @@ Sets a user entry in kubeconfig
 
 ### Synopsis
 
-Sets a user entry in kubeconfig 
+Sets a user entry in kubeconfig
 
-Specifying a name that already exists will merge new fields on top of existing values. 
+ Specifying a name that already exists will merge new fields on top of existing values.
 
   Client-certificate flags:
   --client-certificate=certfile --client-key=keyfile
@@ -17,7 +17,7 @@ Specifying a name that already exists will merge new fields on top of existing v
   Basic auth flags:
     --username=basic_user --password=basic_password
   
-Bearer token and basic auth are mutually exclusive.
+ Bearer token and basic auth are mutually exclusive.
 
 ```
 kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--client-key=path/to/keyfile] [--token=bearer_token] [--username=basic_user] [--password=basic_password] [--auth-provider=provider_name] [--auth-provider-arg=key=value]
@@ -53,8 +53,6 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
       --auth-provider-arg strings     'key=value' arguments for the auth provider
       --embed-certs tristate[=true]   Embed client cert/key for the user entry in kubeconfig
   -h, --help                          help for set-credentials
-      --password string               password for the user entry in kubeconfig
-      --username string               username for the user entry in kubeconfig
 ```
 
 ### Options inherited from parent commands
@@ -72,12 +70,14 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
       --kubeconfig string              use a particular kubeconfig file
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

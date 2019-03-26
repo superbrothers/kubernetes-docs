@@ -4,11 +4,11 @@ Display Resource (CPU/Memory/Storage) usage of pods
 
 ### Synopsis
 
-Display Resource (CPU/Memory/Storage) usage of pods. 
+Display Resource (CPU/Memory/Storage) usage of pods.
 
-The 'top pod' command allows you to see the resource consumption of pods. 
+ The 'top pod' command allows you to see the resource consumption of pods.
 
-Due to the metrics pipeline delay, they may be unavailable for a few minutes since pod creation.
+ Due to the metrics pipeline delay, they may be unavailable for a few minutes since pod creation.
 
 ```
 kubectl top pod [NAME | -l label]
@@ -33,7 +33,7 @@ kubectl top pod [NAME | -l label]
 ### Options
 
 ```
-      --all-namespaces              If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+  -A, --all-namespaces              If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --containers                  If present, print usage of containers within a pod.
       --heapster-namespace string   Namespace Heapster service is located in (default "kube-system")
       --heapster-port string        Port name in service to use
@@ -59,12 +59,14 @@ kubectl top pod [NAME | -l label]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

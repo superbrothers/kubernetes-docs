@@ -4,13 +4,13 @@ Modify kubeconfig files
 
 ### Synopsis
 
-Modify kubeconfig files using subcommands like "kubectl config set current-context my-context" 
+Modify kubeconfig files using subcommands like "kubectl config set current-context my-context"
 
-The loading order follows these rules: 
+ The loading order follows these rules:
 
-  1. If the --kubeconfig flag is set, then only that file is loaded. The flag may only be set once and no merging takes place.  
-  2. If $KUBECONFIG environment variable is set, then it is used as a list of paths (normal path delimitting rules for your system). These paths are merged. When a value is modified, it is modified in the file that defines the stanza. When a value is created, it is created in the first file that exists. If no files in the chain exist, then it creates the last file in the list.  
-  3. Otherwise, ${HOME}/.kube/config is used and no merging takes place.
+  1.  If the --kubeconfig flag is set, then only that file is loaded. The flag may only be set once and no merging takes place.
+  2.  If $KUBECONFIG environment variable is set, then it is used as a list of paths (normal path delimiting rules for your system). These paths are merged. When a value is modified, it is modified in the file that defines the stanza. When a value is created, it is created in the first file that exists. If no files in the chain exist, then it creates the last file in the list.
+  3.  Otherwise, ${HOME}/.kube/config is used and no merging takes place.
 
 ```
 kubectl config SUBCOMMAND
@@ -37,12 +37,14 @@ kubectl config SUBCOMMAND
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

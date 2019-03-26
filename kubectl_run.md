@@ -4,9 +4,9 @@ Run a particular image on the cluster
 
 ### Synopsis
 
-Create and run a particular image, possibly replicated. 
+Create and run a particular image, possibly replicated.
 
-Creates a deployment or job to manage the created container(s).
+ Creates a deployment or job to manage the created container(s).
 
 ```
 kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=replicas] [--dry-run=bool] [--overrides=inline-json] [--command] -- [COMMAND] [args...]
@@ -70,6 +70,7 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
       --hostport int                   The host port mapping for the container port. To demonstrate a single-machine container. (default -1)
       --image string                   The image for the container to run.
       --image-pull-policy string       The image pull policy for the container. If left empty, this value will not be specified by the client and defaulted by the server
+  -k, --kustomize string               Process a kustomization directory. This flag can't be used together with -f or -R.
   -l, --labels string                  Comma separated labels to apply to the pod(s). Will override previous values.
       --leave-stdin-open               If the pod is started in interactive mode or with stdin, leave stdin open after the first attach completes. By default, stdin will be closed after the first attach completes.
       --limits string                  The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that server side components may assign limits depending on the server configuration, such as limit ranges.
@@ -111,12 +112,14 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--replicas=rep
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

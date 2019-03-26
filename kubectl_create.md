@@ -4,9 +4,9 @@ Create a resource from a file or from stdin.
 
 ### Synopsis
 
-Create a resource from a file or from stdin. 
+Create a resource from a file or from stdin.
 
-JSON and YAML formats are accepted.
+ JSON and YAML formats are accepted.
 
 ```
 kubectl create -f FILENAME
@@ -33,6 +33,7 @@ kubectl create -f FILENAME
       --edit                          Edit the API resource before creating
   -f, --filename strings              Filename, directory, or URL to files to use to create the resource
   -h, --help                          help for create
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
       --raw string                    Raw URI to POST to the server.  Uses the transport specified by the kubeconfig file.
       --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
@@ -59,12 +60,14 @@ kubectl create -f FILENAME
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO
@@ -73,6 +76,7 @@ kubectl create -f FILENAME
 * [kubectl create clusterrole](kubectl_create_clusterrole.md)	 - Create a ClusterRole.
 * [kubectl create clusterrolebinding](kubectl_create_clusterrolebinding.md)	 - Create a ClusterRoleBinding for a particular ClusterRole
 * [kubectl create configmap](kubectl_create_configmap.md)	 - Create a configmap from a local file, directory or literal value
+* [kubectl create cronjob](kubectl_create_cronjob.md)	 - Create a cronjob with the specified name.
 * [kubectl create deployment](kubectl_create_deployment.md)	 - Create a deployment with the specified name.
 * [kubectl create job](kubectl_create_job.md)	 - Create a job with the specified name.
 * [kubectl create namespace](kubectl_create_namespace.md)	 - Create a namespace with the specified name

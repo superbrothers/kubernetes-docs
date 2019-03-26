@@ -4,14 +4,32 @@ Sets an individual value in a kubeconfig file
 
 ### Synopsis
 
-Sets an individual value in a kubeconfig file 
+Sets an individual value in a kubeconfig file
 
-PROPERTY _NAME is a dot delimited name where each token represents either an attribute name or a map key.  Map keys may not contain dots. 
+ PROPERTY_NAME is a dot delimited name where each token represents either an attribute name or a map key.  Map keys may not contain dots.
 
-PROPERTY _VALUE is the new value you wish to set. Binary fields such as 'certificate-authority-data' expect a base64 encoded string unless the --set-raw-bytes flag is used.
+ PROPERTY_VALUE is the new value you wish to set. Binary fields such as 'certificate-authority-data' expect a base64 encoded string unless the --set-raw-bytes flag is used.
+
+ Specifying a attribute name that already exists will merge new fields on top of existing values.
 
 ```
 kubectl config set PROPERTY_NAME PROPERTY_VALUE
+```
+
+### Examples
+
+```
+  # Set server field on the my-cluster cluster to https://1.2.3.4
+  kubectl config set clusters.my-cluster.server https://1.2.3.4
+  
+  # Set certificate-authority-data field on the my-cluster cluster.
+  kubectl config set clusters.my-cluster.certificate-authority-data $(echo "cert_data_here" | base64 -i -)
+  
+  # Set cluster field in the my-context context to my-cluster.
+  kubectl config set contexts.my-context.cluster my-cluster
+  
+  # Set client-key-data field in the cluster-admin user using --set-raw-bytes option.
+  kubectl config set users.cluster-admin.client-key-data cert_data_here --set-raw-bytes=true
 ```
 
 ### Options
@@ -36,12 +54,14 @@ kubectl config set PROPERTY_NAME PROPERTY_VALUE
       --kubeconfig string              use a particular kubeconfig file
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

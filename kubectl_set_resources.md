@@ -4,11 +4,11 @@ Update resource requests/limits on objects with pod templates
 
 ### Synopsis
 
-Specify compute resource requirements (cpu, memory) for any resource that defines a pod template.  If a pod is successfully scheduled, it is guaranteed the amount of resource requested, but may burst up to its specified limits. 
+Specify compute resource requirements (cpu, memory) for any resource that defines a pod template.  If a pod is successfully scheduled, it is guaranteed the amount of resource requested, but may burst up to its specified limits.
 
-for each compute resource, if a limit is specified and a request is omitted, the request will default to the limit. 
+ for each compute resource, if a limit is specified and a request is omitted, the request will default to the limit.
 
-Possible resources include (case insensitive): Use "kubectl api-resources" for a complete list of supported resources..
+ Possible resources include (case insensitive): Use "kubectl api-resources" for a complete list of supported resources..
 
 ```
 kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=REQUESTS]
@@ -39,7 +39,7 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
       --dry-run                       If true, only print the object that would be sent, without sending it.
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
   -h, --help                          help for resources
-      --include-uninitialized         If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
       --limits string                 The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
       --local                         If true, set resources will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
@@ -65,12 +65,14 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

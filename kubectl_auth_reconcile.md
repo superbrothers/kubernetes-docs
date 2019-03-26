@@ -4,9 +4,15 @@ Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole bindin
 
 ### Synopsis
 
-Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole binding objects. 
+Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole binding objects.
 
-This is preferred to 'apply' for RBAC resources so that proper rule coverage checks are done.
+ Missing objects are created, and the containing namespace is created for namespaced objects, if required.
+
+ Existing roles are updated to include the permissions in the input objects, and remove extra permissions if --remove-extra-permissions is specified.
+
+ Existing bindings are updated to include the subjects in the input objects, and remove extra subjects if --remove-extra-subjects is specified.
+
+ This is preferred to 'apply' for RBAC resources so that semantically-aware merging of rules and subjects is done.
 
 ```
 kubectl auth reconcile -f FILENAME
@@ -26,6 +32,7 @@ kubectl auth reconcile -f FILENAME
       --dry-run                       If true, display results but do not submit changes
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to reconcile.
   -h, --help                          help for reconcile
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --remove-extra-permissions      If true, removes extra permissions added to roles
@@ -48,12 +55,14 @@ kubectl auth reconcile -f FILENAME
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

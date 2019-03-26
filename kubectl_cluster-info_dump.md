@@ -4,9 +4,9 @@ Dump lots of relevant info for debugging and diagnosis
 
 ### Synopsis
 
-Dumps cluster info out suitable for debugging and diagnosing cluster problems.  By default, dumps everything to stdout. You can optionally specify a directory with --output-directory.  If you specify a directory, kubernetes will build a set of files in that directory.  By default only dumps things in the 'kube-system' namespace, but you can switch to a different namespace with the --namespaces flag, or specify --all-namespaces to dump all namespaces. 
+Dumps cluster info out suitable for debugging and diagnosing cluster problems.  By default, dumps everything to stdout. You can optionally specify a directory with --output-directory.  If you specify a directory, kubernetes will build a set of files in that directory.  By default only dumps things in the 'kube-system' namespace, but you can switch to a different namespace with the --namespaces flag, or specify --all-namespaces to dump all namespaces.
 
-The command also dumps the logs of all of the pods in the cluster, these logs are dumped into different directories based on namespace and pod name.
+ The command also dumps the logs of all of the pods in the cluster, these logs are dumped into different directories based on namespace and pod name.
 
 ```
 kubectl cluster-info dump [flags]
@@ -31,7 +31,7 @@ kubectl cluster-info dump [flags]
 ### Options
 
 ```
-      --all-namespaces                 If true, dump all namespaces.  If true, --namespaces is ignored.
+  -A, --all-namespaces                 If true, dump all namespaces.  If true, --namespaces is ignored.
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -h, --help                           help for dump
       --namespaces strings             A comma separated list of namespaces to dump.
@@ -56,12 +56,14 @@ kubectl cluster-info dump [flags]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

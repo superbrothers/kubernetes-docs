@@ -4,11 +4,11 @@ Update ServiceAccount of a resource
 
 ### Synopsis
 
-Update ServiceAccount of pod template resources. 
+Update ServiceAccount of pod template resources.
 
-Possible resources (case insensitive) can be: 
+ Possible resources (case insensitive) can be:
 
-replicationcontroller (rc), deployment (deploy), daemonset (ds), job, replicaset (rs), statefulset
+ replicationcontroller (rc), deployment (deploy), daemonset (ds), job, replicaset (rs), statefulset
 
 ```
 kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
@@ -32,7 +32,7 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
       --dry-run                       If true, only print the object that would be sent, without sending it.
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
   -h, --help                          help for serviceaccount
-      --include-uninitialized         If true, the kubectl command applies to uninitialized objects. If explicitly set to false, this flag overrides other flags that make the kubectl commands apply to uninitialized objects, e.g., "--all". Objects with empty metadata.initializers are regarded as initialized.
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
       --local                         If true, set serviceaccount will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
       --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
@@ -55,12 +55,14 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

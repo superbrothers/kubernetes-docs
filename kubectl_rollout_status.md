@@ -4,9 +4,9 @@ Show the status of the rollout
 
 ### Synopsis
 
-Show the status of the rollout. 
+Show the status of the rollout.
 
-By default 'rollout status' will watch the status of the latest rollout until it's done. If you don't want to wait for the rollout to finish then you can use --watch=false. Note that if a new rollout starts in-between, then 'rollout status' will continue watching the latest revision. If you want to pin to a specific revision and abort if it is rolled over by another revision, use --revision=N where N is the revision you need to watch for.
+ By default 'rollout status' will watch the status of the latest rollout until it's done. If you don't want to wait for the rollout to finish then you can use --watch=false. Note that if a new rollout starts in-between, then 'rollout status' will continue watching the latest revision. If you want to pin to a specific revision and abort if it is rolled over by another revision, use --revision=N where N is the revision you need to watch for.
 
 ```
 kubectl rollout status (TYPE NAME | TYPE/NAME) [flags]
@@ -24,6 +24,7 @@ kubectl rollout status (TYPE NAME | TYPE/NAME) [flags]
 ```
   -f, --filename strings   Filename, directory, or URL to files identifying the resource to get from a server.
   -h, --help               help for status
+  -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.
   -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --revision int       Pin to a specific revision for showing its status. Defaults to 0 (last revision).
       --timeout duration   The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h).
@@ -45,12 +46,14 @@ kubectl rollout status (TYPE NAME | TYPE/NAME) [flags]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

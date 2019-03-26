@@ -4,13 +4,13 @@ Take a replication controller, service, deployment or pod and expose it as a new
 
 ### Synopsis
 
-Expose a resource as a new Kubernetes service. 
+Expose a resource as a new Kubernetes service.
 
-Looks up a deployment, service, replica set, replication controller or pod by name and uses the selector for that resource as the selector for a new service on the specified port. A deployment or replica set will be exposed as a service only if its selector is convertible to a selector that service supports, i.e. when the selector contains only the matchLabels component. Note that if no port is specified via --port and the exposed resource has multiple ports, all will be re-used by the new service. Also if no labels are specified, the new service will re-use the labels from the resource it exposes. 
+ Looks up a deployment, service, replica set, replication controller or pod by name and uses the selector for that resource as the selector for a new service on the specified port. A deployment or replica set will be exposed as a service only if its selector is convertible to a selector that service supports, i.e. when the selector contains only the matchLabels component. Note that if no port is specified via --port and the exposed resource has multiple ports, all will be re-used by the new service. Also if no labels are specified, the new service will re-use the labels from the resource it exposes.
 
-Possible resources include (case insensitive): 
+ Possible resources include (case insensitive):
 
-pod (po), service (svc), replicationcontroller (rc), deployment (deploy), replicaset (rs)
+ pod (po), service (svc), replicationcontroller (rc), deployment (deploy), replicaset (rs)
 
 ```
 kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP] [--target-port=number-or-name] [--name=name] [--external-ip=external-ip-of-service] [--type=type]
@@ -32,7 +32,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
   kubectl expose service nginx --port=443 --target-port=8443 --name=nginx-https
   
   # Create a service for a replicated streaming application on port 4100 balancing UDP traffic and named 'video-stream'.
-  kubectl expose rc streamer --port=4100 --protocol=udp --name=video-stream
+  kubectl expose rc streamer --port=4100 --protocol=UDP --name=video-stream
   
   # Create a service for a replicated nginx using replica set, which serves on port 80 and connects to the containers on port 8000.
   kubectl expose rs nginx --port=80 --target-port=8000
@@ -51,6 +51,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to expose a service
       --generator string              The name of the API generator to use. There are 2 generators: 'service/v1' and 'service/v2'. The only difference between them is that service port in v1 is named 'default', while it is left unnamed in v2. Default is 'service/v2'. (default "service/v2")
   -h, --help                          help for expose
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -l, --labels string                 Labels to apply to the service created by this call.
       --load-balancer-ip string       IP to assign to the LoadBalancer. If empty, an ephemeral IP will be created and used (cloud-provider specific).
       --name string                   The name for the newly created object.
@@ -83,12 +84,14 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

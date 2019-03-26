@@ -4,9 +4,9 @@ Check whether an action is allowed
 
 ### Synopsis
 
-Check whether an action is allowed. 
+Check whether an action is allowed.
 
-VERB is a logical Kubernetes API verb like 'get', 'list', 'watch', 'delete', etc. TYPE is a Kubernetes resource. Shortcuts and groups will be resolved. NONRESOURCEURL is a partial URL starts with "/". NAME is the name of a particular Kubernetes resource.
+ VERB is a logical Kubernetes API verb like 'get', 'list', 'watch', 'delete', etc. TYPE is a Kubernetes resource. Shortcuts and groups will be resolved. NONRESOURCEURL is a partial URL starts with "/". NAME is the name of a particular Kubernetes resource.
 
 ```
 kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
@@ -32,13 +32,18 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
   
   # Check to see if I can access the URL /logs/
   kubectl auth can-i get /logs/
+  
+  # List all allowed actions in namespace "foo"
+  kubectl auth can-i --list --namespace=foo
 ```
 
 ### Options
 
 ```
-      --all-namespaces       If true, check the specified action in all namespaces.
+  -A, --all-namespaces       If true, check the specified action in all namespaces.
   -h, --help                 help for can-i
+      --list                 If true, prints all allowed actions.
+      --no-headers           If true, prints allowed actions without headers
   -q, --quiet                If true, suppress output and just return the exit code.
       --subresource string   SubResource such as pod/log or deployment/scale
 ```
@@ -58,12 +63,14 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

@@ -4,13 +4,13 @@ Documentation of resources
 
 ### Synopsis
 
-List the fields for supported resources 
+List the fields for supported resources
 
-This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier: 
+ This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
 
   <type>.<fieldName>[.<fieldName>]
   
-Add the --recursive flag to display all of the fields at once without descriptions. Information about each field is retrieved from the server in OpenAPI format.
+ Add the --recursive flag to display all of the fields at once without descriptions. Information about each field is retrieved from the server in OpenAPI format.
 
 Use "kubectl api-resources" for a complete list of supported resources.
 
@@ -51,12 +51,14 @@ kubectl explain RESOURCE
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

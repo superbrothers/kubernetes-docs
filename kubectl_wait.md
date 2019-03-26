@@ -4,16 +4,16 @@ Experimental: Wait for a specific condition on one or many resources.
 
 ### Synopsis
 
-Experimental: Wait for a specific condition on one or many resources. 
+Experimental: Wait for a specific condition on one or many resources.
 
-The command takes multiple resources and waits until the specified condition is seen in the Status field of every given resource. 
+ The command takes multiple resources and waits until the specified condition is seen in the Status field of every given resource.
 
-Alternatively, the command can wait for the given set of resources to be deleted by providing the "delete" keyword as the value to the --for flag. 
+ Alternatively, the command can wait for the given set of resources to be deleted by providing the "delete" keyword as the value to the --for flag.
 
-A successful message will be printed to stdout indicating when the specified condition has been met. One can use -o option to change to output destination.
+ A successful message will be printed to stdout indicating when the specified condition has been met. One can use -o option to change to output destination.
 
 ```
-kubectl wait resource.group/name [--for=delete|--for condition=available]
+kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l label | --all)]) [--for=delete|--for condition=available]
 ```
 
 ### Examples
@@ -30,8 +30,10 @@ kubectl wait resource.group/name [--for=delete|--for condition=available]
 ### Options
 
 ```
-      --all-namespaces                If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --all                           Select all resources in the namespace of the specified resource types
+  -A, --all-namespaces                If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --field-selector string         Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
   -f, --filename strings              identifying the resource.
       --for string                    The condition to wait on: [delete|condition=condition-name].
   -h, --help                          help for wait
@@ -57,12 +59,14 @@ kubectl wait resource.group/name [--for=delete|--for condition=available]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

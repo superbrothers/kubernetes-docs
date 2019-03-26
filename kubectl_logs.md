@@ -28,6 +28,9 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
   # Begin streaming the logs of the ruby container in pod web-1
   kubectl logs -f -c ruby web-1
   
+  # Begin streaming the logs from all containers in pods defined by label app=nginx
+  kubectl logs -f -lapp=nginx --all-containers=true
+  
   # Display only the most recent 20 lines of output in pod nginx
   kubectl logs --tail=20 nginx
   
@@ -49,6 +52,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
   -f, --follow                         Specify if the logs should be streamed.
   -h, --help                           help for logs
       --limit-bytes int                Maximum bytes of logs to return. Defaults to no limit.
+      --max-log-requests int           Specify maximum number of concurrent logs to follow when using by a selector. Defaults to 5. (default 5)
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 20s)
   -p, --previous                       If true, print the logs for the previous instance of the container in a pod if it exists.
   -l, --selector string                Selector (label query) to filter on.
@@ -73,12 +77,14 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO

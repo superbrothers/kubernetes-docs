@@ -4,9 +4,9 @@ kubectl controls the Kubernetes cluster manager
 
 ### Synopsis
 
-kubectl controls the Kubernetes cluster manager. 
+kubectl controls the Kubernetes cluster manager.
 
-Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+ Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
 
 ```
 kubectl [flags]
@@ -28,12 +28,14 @@ kubectl [flags]
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO
@@ -62,6 +64,7 @@ kubectl [flags]
 * [kubectl explain](kubectl_explain.md)	 - Documentation of resources
 * [kubectl expose](kubectl_expose.md)	 - Take a replication controller, service, deployment or pod and expose it as a new Kubernetes Service
 * [kubectl get](kubectl_get.md)	 - Display one or many resources
+* [kubectl kustomize](kubectl_kustomize.md)	 - Build a kustomization target from a directory or a remote url.
 * [kubectl label](kubectl_label.md)	 - Update the labels on a resource
 * [kubectl logs](kubectl_logs.md)	 - Print the logs for a container in a pod
 * [kubectl options](kubectl_options.md)	 - Print the list of flags inherited by all commands

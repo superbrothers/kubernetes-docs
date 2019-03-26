@@ -1,50 +1,36 @@
-## kubectl port-forward
+## kubectl kustomize
 
-Forward one or more local ports to a pod
+Build a kustomization target from a directory or a remote url.
 
 ### Synopsis
 
-Forward one or more local ports to a pod. This command requires the node to have 'socat' installed.
+Print a set of API resources generated from instructions in a kustomization.yaml file.
 
- Use resource type/name such as deployment/mydeployment to select a pod. Resource type defaults to 'pod' if omitted.
+ The argument must be the path to the directory containing the file, or a git repository URL with a path suffix specifying same with respect to the repository root.
 
- If there are multiple pods matching the criteria, a pod will be selected automatically. The forwarding session ends when the selected pod terminates, and rerun of the command is needed to resume forwarding.
+ kubectl kustomize somedir
 
 ```
-kubectl port-forward TYPE/NAME [options] [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_PORT_N:]REMOTE_PORT_N]
+kubectl kustomize <dir> [flags]
 ```
 
 ### Examples
 
 ```
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
-  kubectl port-forward pod/mypod 5000 6000
+  # Use the current working directory
+  kubectl kustomize .
   
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the deployment
-  kubectl port-forward deployment/mydeployment 5000 6000
+  # Use some shared configuration directory
+  kubectl kustomize /home/configuration/production
   
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the service
-  kubectl port-forward service/myservice 5000 6000
-  
-  # Listen on port 8888 locally, forwarding to 5000 in the pod
-  kubectl port-forward pod/mypod 8888:5000
-  
-  # Listen on port 8888 on all addresses, forwarding to 5000 in the pod
-  kubectl port-forward --address 0.0.0.0 pod/mypod 8888:5000
-  
-  # Listen on port 8888 on localhost and selected IP, forwarding to 5000 in the pod
-  kubectl port-forward --address localhost,10.19.21.23 pod/mypod 8888:5000
-  
-  # Listen on a random port locally, forwarding to 5000 in the pod
-  kubectl port-forward pod/mypod :5000
+  # Use a URL
+  kubectl kustomize github.com/kubernetes-sigs/kustomize.git/examples/helloWorld?ref=v1.0.6
 ```
 
 ### Options
 
 ```
-      --address strings                Addresses to listen on (comma separated). Only accepts IP addresses or localhost as a value. When localhost is supplied, kubectl will try to bind on both 127.0.0.1 and ::1 and will fail if neither of these addresses are available to bind. (default [localhost])
-  -h, --help                           help for port-forward
-      --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
+  -h, --help   help for kustomize
 ```
 
 ### Options inherited from parent commands

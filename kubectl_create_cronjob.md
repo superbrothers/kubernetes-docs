@@ -1,50 +1,41 @@
-## kubectl port-forward
+## kubectl create cronjob
 
-Forward one or more local ports to a pod
+Create a cronjob with the specified name.
 
 ### Synopsis
 
-Forward one or more local ports to a pod. This command requires the node to have 'socat' installed.
-
- Use resource type/name such as deployment/mydeployment to select a pod. Resource type defaults to 'pod' if omitted.
-
- If there are multiple pods matching the criteria, a pod will be selected automatically. The forwarding session ends when the selected pod terminates, and rerun of the command is needed to resume forwarding.
+Create a cronjob with the specified name.
 
 ```
-kubectl port-forward TYPE/NAME [options] [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_PORT_N:]REMOTE_PORT_N]
+kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] [args...] [flags]
 ```
 
 ### Examples
 
 ```
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
-  kubectl port-forward pod/mypod 5000 6000
+  # Create a cronjob
+  kubectl create cronjob my-job --image=busybox
   
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the deployment
-  kubectl port-forward deployment/mydeployment 5000 6000
+  # Create a cronjob with command
+  kubectl create cronjob my-job --image=busybox -- date
   
-  # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in a pod selected by the service
-  kubectl port-forward service/myservice 5000 6000
-  
-  # Listen on port 8888 locally, forwarding to 5000 in the pod
-  kubectl port-forward pod/mypod 8888:5000
-  
-  # Listen on port 8888 on all addresses, forwarding to 5000 in the pod
-  kubectl port-forward --address 0.0.0.0 pod/mypod 8888:5000
-  
-  # Listen on port 8888 on localhost and selected IP, forwarding to 5000 in the pod
-  kubectl port-forward --address localhost,10.19.21.23 pod/mypod 8888:5000
-  
-  # Listen on a random port locally, forwarding to 5000 in the pod
-  kubectl port-forward pod/mypod :5000
+  # Create a cronjob with schedule
+  kubectl create cronjob test-job --image=busybox --schedule="*/1 * * * *"
 ```
 
 ### Options
 
 ```
-      --address strings                Addresses to listen on (comma separated). Only accepts IP addresses or localhost as a value. When localhost is supplied, kubectl will try to bind on both 127.0.0.1 and ::1 and will fail if neither of these addresses are available to bind. (default [localhost])
-  -h, --help                           help for port-forward
-      --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --dry-run                       If true, only print the object that would be sent, without sending it.
+  -h, --help                          help for cronjob
+      --image string                  Image name to run.
+  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --restart string                job's restart policy. supported values: OnFailure, Never
+      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --schedule string               A schedule in the Cron format the job should be run with.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate                      If true, use a schema to validate the input before sending it (default true)
 ```
 
 ### Options inherited from parent commands
@@ -74,5 +65,5 @@ kubectl port-forward TYPE/NAME [options] [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_POR
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
 

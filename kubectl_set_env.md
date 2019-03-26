@@ -4,13 +4,13 @@ Update environment variables on a pod template
 
 ### Synopsis
 
-Update environment variables on a pod template. 
+Update environment variables on a pod template.
 
-List environment variable definitions in one or more pods, pod templates. Add, update, or remove container environment variable definitions in one or more pod templates (within replication controllers or deployment configurations). View or modify the environment variable definitions on all containers in the specified pods or pod templates, or just those that match a wildcard. 
+ List environment variable definitions in one or more pods, pod templates. Add, update, or remove container environment variable definitions in one or more pod templates (within replication controllers or deployment configurations). View or modify the environment variable definitions on all containers in the specified pods or pod templates, or just those that match a wildcard.
 
-If "--env -" is passed, environment variables can be read from STDIN using the standard env syntax. 
+ If "--env -" is passed, environment variables can be read from STDIN using the standard env syntax.
 
-Possible resources include (case insensitive): 
+ Possible resources include (case insensitive):
 
   pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), job, replicaset (rs)
 
@@ -68,6 +68,7 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
       --from string                   The name of a resource from which to inject environment variables
   -h, --help                          help for env
       --keys strings                  Comma-separated list of keys to import from specified resource
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
       --list                          If true, display the environment and any changes in the standard format. this flag will removed when we have kubectl view env.
       --local                         If true, set env will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
@@ -94,12 +95,14 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
+      --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
+      --username string                Username for basic authentication to the API server
 ```
 
 ### SEE ALSO
