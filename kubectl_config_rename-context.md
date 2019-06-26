@@ -6,7 +6,7 @@ Renames a context from the kubeconfig file.
 
 Renames a context from the kubeconfig file.
 
- CONTEXT_NAME is the context name that you wish change.
+ CONTEXT_NAME is the context name that you wish to change.
 
  NEW_NAME is the new name you wish to set.
 

@@ -20,7 +20,7 @@ Sets a user entry in kubeconfig
  Bearer token and basic auth are mutually exclusive.
 
 ```
-kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--client-key=path/to/keyfile] [--token=bearer_token] [--username=basic_user] [--password=basic_password] [--auth-provider=provider_name] [--auth-provider-arg=key=value]
+kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--client-key=path/to/keyfile] [--token=bearer_token] [--username=basic_user] [--password=basic_password] [--auth-provider=provider_name] [--auth-provider-arg=key=value] [--exec-command=exec_command] [--exec-api-version=exec_api_version] [--exec-arg=arg] [--exec-env=key=value]
 ```
 
 ### Examples
@@ -44,6 +44,18 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
   
   # Remove the "client-secret" config value for the OpenID Connect auth provider for the "cluster-admin" entry
   kubectl config set-credentials cluster-admin --auth-provider=oidc --auth-provider-arg=client-secret-
+  
+  # Enable new exec auth plugin for the "cluster-admin" entry
+  kubectl config set-credentials cluster-admin --exec-command=/path/to/the/executable --exec-api-version=client.authentication.k8s.io/v1beta
+  
+  # Define new exec auth plugin args for the "cluster-admin" entry
+  kubectl config set-credentials cluster-admin --exec-arg=arg1 --exec-arg=arg2
+  
+  # Create or update exec auth plugin environment variables for the "cluster-admin" entry
+  kubectl config set-credentials cluster-admin --exec-env=key1=val1 --exec-env=key2=val2
+  
+  # Remove exec auth plugin environment variables for the "cluster-admin" entry
+  kubectl config set-credentials cluster-admin --exec-env=var-to-remove-
 ```
 
 ### Options
@@ -52,6 +64,10 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
       --auth-provider string          Auth provider for the user entry in kubeconfig
       --auth-provider-arg strings     'key=value' arguments for the auth provider
       --embed-certs tristate[=true]   Embed client cert/key for the user entry in kubeconfig
+      --exec-api-version string       API version of the exec credential plugin for the user entry in kubeconfig
+      --exec-arg strings              New arguments for the exec credential plugin command for the user entry in kubeconfig
+      --exec-command string           Command for the exec credential plugin for the user entry in kubeconfig
+      --exec-env stringArray          'key=value' environment values for the exec credential plugin
   -h, --help                          help for set-credentials
 ```
 

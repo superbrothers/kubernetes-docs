@@ -18,6 +18,9 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
   
   # Create a priorityclass named default-priority that considered as the global default priority
   kubectl create priorityclass default-priority --value=1000 --global-default=true --description="default priority"
+  
+  # Create a priorityclass named high-priority that can not preempt pods with lower priority
+  kubectl create priorityclass high-priority --value=1000 --description="high priority" --preemption-policy="Never"
 ```
 
 ### Options
@@ -26,10 +29,11 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --description string            description is an arbitrary string that usually provides guidelines on when this priority class should be used.
       --dry-run                       If true, only print the object that would be sent, without sending it.
-      --generator string              The name of the API generator to use. (default "priorityclass/v1alpha1")
+      --generator string              The name of the API generator to use. (default "priorityclass/v1")
       --global-default                global-default specifies whether this PriorityClass should be considered as the default priority.
   -h, --help                          help for priorityclass
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --preemption-policy string      preemption-policy is the policy for preempting pods with lower priority.
       --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                      If true, use a schema to validate the input before sending it (default true)

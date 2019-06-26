@@ -32,6 +32,7 @@ kubectl top node [NAME | -l label]
   -h, --help                        help for node
       --no-headers                  If present, print output without headers
   -l, --selector string             Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --sort-by string              If non-empty, sort nodes list using specified field. The field can be either 'cpu' or 'memory'.
 ```
 
 ### Options inherited from parent commands

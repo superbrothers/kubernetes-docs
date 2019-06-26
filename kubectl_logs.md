@@ -47,10 +47,11 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
 ### Options
 
 ```
-      --all-containers                 Get all containers's logs in the pod(s).
+      --all-containers                 Get all containers' logs in the pod(s).
   -c, --container string               Print the logs of this container
   -f, --follow                         Specify if the logs should be streamed.
   -h, --help                           help for logs
+      --ignore-errors                  If watching / following pod logs, allow for any errors that occur to be non-fatal
       --limit-bytes int                Maximum bytes of logs to return. Defaults to no limit.
       --max-log-requests int           Specify maximum number of concurrent logs to follow when using by a selector. Defaults to 5. (default 5)
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 20s)

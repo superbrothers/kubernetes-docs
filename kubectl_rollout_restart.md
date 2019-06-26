@@ -1,50 +1,37 @@
-## kubectl exec
+## kubectl rollout restart
 
-Execute a command in a container
+Restart a resource
 
 ### Synopsis
 
-Execute a command in a container.
+Restart a resource.
+
+     Resource will be rollout restarted.
 
 ```
-kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
+kubectl rollout restart RESOURCE
 ```
 
 ### Examples
 
 ```
-  # Get output from running 'date' command from pod mypod, using the first container by default
-  kubectl exec mypod date
+  # Restart a deployment
+  kubectl rollout restart deployment/nginx
   
-  # Get output from running 'date' command in ruby-container from pod mypod
-  kubectl exec mypod -c ruby-container date
-  
-  # Switch to raw terminal mode, sends stdin to 'bash' in ruby-container from pod mypod
-  # and sends stdout/stderr from 'bash' back to the client
-  kubectl exec mypod -c ruby-container -i -t -- bash -il
-  
-  # List contents of /usr from the first container of pod mypod and sort by modification time.
-  # If the command you want to execute in the pod has any flags in common (e.g. -i),
-  # you must use two dashes (--) to separate your command's flags/arguments.
-  # Also note, do not surround your command and its flags/arguments with quotes
-  # unless that is how you would execute it normally (i.e., do ls -t /usr, not "ls -t /usr").
-  kubectl exec mypod -i -t -- ls -t /usr
-  
-  # Get output from running 'date' command from the first pod of the deployment mydeployment, using the first container by default
-  kubectl exec deploy/mydeployment date
-  
-  # Get output from running 'date' command from the first pod of the service myservice, using the first container by default
-  kubectl exec svc/myservice date
+  # Restart a daemonset
+  kubectl rollout restart daemonset/abc
 ```
 
 ### Options
 
 ```
-  -c, --container string               Container name. If omitted, the first container in the pod will be chosen
-  -h, --help                           help for exec
-      --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
-  -i, --stdin                          Pass stdin to the container
-  -t, --tty                            Stdin is a TTY
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
+  -h, --help                          help for restart
+  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
+  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands
@@ -74,5 +61,5 @@ kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl rollout](kubectl_rollout.md)	 - Manage the rollout of a resource
 
