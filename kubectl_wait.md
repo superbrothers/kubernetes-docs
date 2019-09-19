@@ -37,6 +37,7 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
   -f, --filename strings              identifying the resource.
       --for string                    The condition to wait on: [delete|condition=condition-name].
   -h, --help                          help for wait
+      --local                         If true, annotation will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
   -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)

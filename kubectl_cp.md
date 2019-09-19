@@ -16,6 +16,15 @@ kubectl cp <file-spec-src> <file-spec-dest>
   # !!!Important Note!!!
   # Requires that the 'tar' binary is present in your container
   # image.  If 'tar' is not present, 'kubectl cp' will fail.
+  #
+  # For advanced use cases, such as symlinks, wildcard expansion or
+  # file mode preservation consider using 'kubectl exec'.
+  
+  # Copy /tmp/foo local file to /tmp/bar in a remote pod in namespace <some-namespace>
+  tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -C /tmp/bar
+  
+  # Copy /tmp/foo from a remote pod to /tmp/bar locally
+  kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo | tar xf - -C /tmp/bar
   
   # Copy /tmp/foo_dir local directory to /tmp/bar_dir in a remote pod in the default namespace
   kubectl cp /tmp/foo_dir <some-pod>:/tmp/bar_dir

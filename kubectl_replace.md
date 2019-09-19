@@ -41,6 +41,7 @@ kubectl replace -f FILENAME
   -h, --help                          help for replace
   -k, --kustomize string              Process a kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --raw string                    Raw URI to PUT to the server.  Uses the transport specified by the kubeconfig file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].

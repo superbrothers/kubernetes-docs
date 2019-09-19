@@ -27,13 +27,13 @@ kubectl diff -f FILENAME
 ### Options
 
 ```
-      --experimental-field-manager string   Name of the manager used to track field ownership. This is an alpha feature and flag. (default "kubectl")
-      --experimental-force-conflicts        If true, server-side apply will force the changes against conflicts. This is an alpha feature and flag.
-      --experimental-server-side            If true, apply runs in the server instead of the client. This is an alpha feature and flag.
-  -f, --filename strings                    Filename, directory, or URL to files contains the configuration to diff
-  -h, --help                                help for diff
-  -k, --kustomize string                    Process the kustomization directory. This flag can't be used together with -f or -R.
-  -R, --recursive                           Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --field-manager string   Name of the manager used to track field ownership. (default "kubectl")
+  -f, --filename strings       Filename, directory, or URL to files contains the configuration to diff
+      --force-conflicts        If true, server-side apply will force the changes against conflicts.
+  -h, --help                   help for diff
+  -k, --kustomize string       Process the kustomization directory. This flag can't be used together with -f or -R.
+  -R, --recursive              Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --server-side            If true, apply runs in the server instead of the client.
 ```
 
 ### Options inherited from parent commands
