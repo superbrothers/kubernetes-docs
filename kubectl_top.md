@@ -8,7 +8,7 @@ Display Resource (CPU/Memory/Storage) usage.
 
  The top command allows you to see the resource consumption for nodes or pods.
 
- This command requires Heapster to be correctly configured and working on the server.
+ This command requires Metrics Server to be correctly configured and working on the server.
 
 ```
 kubectl top [flags]

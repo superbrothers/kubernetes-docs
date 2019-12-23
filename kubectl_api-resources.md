@@ -19,6 +19,9 @@ kubectl api-resources [flags]
   # Print the supported API Resources with more information
   kubectl api-resources -o wide
   
+  # Print the supported API Resources sorted by a column
+  kubectl api-resources --sort-by=name
+  
   # Print the supported namespaced resources
   kubectl api-resources --namespaced=true
   
@@ -38,6 +41,7 @@ kubectl api-resources [flags]
       --namespaced         If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
       --no-headers         When using the default or custom-column output format, don't print headers (default print headers).
   -o, --output string      Output format. One of: wide|name.
+      --sort-by string     If non-empty, sort nodes list using specified field. The field can be either 'name' or 'kind'.
       --verbs strings      Limit to resources that support the specified verbs.
 ```
 

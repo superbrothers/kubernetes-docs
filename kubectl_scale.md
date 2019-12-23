@@ -1,6 +1,6 @@
 ## kubectl scale
 
-Set a new size for a Deployment, ReplicaSet, Replication Controller, or Job
+Set a new size for a Deployment, ReplicaSet or Replication Controller
 
 ### Synopsis
 

@@ -8,7 +8,7 @@ Diff configurations specified by filename or stdin between the current online co
 
  Output is always YAML.
 
- KUBECTL_EXTERNAL_DIFF environment variable can be used to select your own diff command. By default, the "diff" command available in your path will be run with "-u" (unicode) and "-N" (treat new files as empty) options.
+ KUBECTL_EXTERNAL_DIFF environment variable can be used to select your own diff command. By default, the "diff" command available in your path will be run with "-u" (unified diff) and "-N" (treat absent files as empty) options.
 
 ```
 kubectl diff -f FILENAME

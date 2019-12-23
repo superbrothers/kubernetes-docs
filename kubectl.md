@@ -75,7 +75,7 @@ kubectl [flags]
 * [kubectl replace](kubectl_replace.md)	 - Replace a resource by filename or stdin
 * [kubectl rollout](kubectl_rollout.md)	 - Manage the rollout of a resource
 * [kubectl run](kubectl_run.md)	 - Run a particular image on the cluster
-* [kubectl scale](kubectl_scale.md)	 - Set a new size for a Deployment, ReplicaSet, Replication Controller, or Job
+* [kubectl scale](kubectl_scale.md)	 - Set a new size for a Deployment, ReplicaSet or Replication Controller
 * [kubectl set](kubectl_set.md)	 - Set specific features on objects
 * [kubectl taint](kubectl_taint.md)	 - Update the taints on one or more nodes
 * [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory/Storage) usage.
