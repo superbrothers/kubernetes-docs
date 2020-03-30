@@ -1,19 +1,15 @@
-## kubectl create secret
+## kubectl alpha
 
-Create a secret using specified subcommand
+Commands for features in alpha
 
 ### Synopsis
 
-Create a secret using specified subcommand.
-
-```
-kubectl create secret [flags]
-```
+These commands correspond to alpha features that are not enabled in Kubernetes clusters by default.
 
 ### Options
 
 ```
-  -h, --help   help for secret
+  -h, --help   help for alpha
 ```
 
 ### Options inherited from parent commands
@@ -44,8 +40,6 @@ kubectl create secret [flags]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
-* [kubectl create secret docker-registry](kubectl_create_secret_docker-registry.md)	 - Create a secret for use with a Docker registry
-* [kubectl create secret generic](kubectl_create_secret_generic.md)	 - Create a secret from a local file, directory or literal value
-* [kubectl create secret tls](kubectl_create_secret_tls.md)	 - Create a TLS secret
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl alpha debug](kubectl_alpha_debug.md)	 - Attach a debug container to a running pod
 

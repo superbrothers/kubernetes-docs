@@ -7,7 +7,7 @@ Create a priorityclass with the specified name.
 Create a priorityclass with the specified name, value, globalDefault and description
 
 ```
-kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run]
+kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run=server|client|none]
 ```
 
 ### Examples
@@ -26,18 +26,17 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --description string            description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-      --generator string              The name of the API generator to use. (default "priorityclass/v1")
-      --global-default                global-default specifies whether this PriorityClass should be considered as the default priority.
-  -h, --help                          help for priorityclass
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-      --preemption-policy string      preemption-policy is the policy for preempting pods with lower priority.
-      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate                      If true, use a schema to validate the input before sending it (default true)
-      --value int32                   the value of this priority class.
+      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --description string             description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+      --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+      --global-default                 global-default specifies whether this PriorityClass should be considered as the default priority.
+  -h, --help                           help for priorityclass
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --preemption-policy string       preemption-policy is the policy for preempting pods with lower priority.
+      --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate                       If true, use a schema to validate the input before sending it (default true)
+      --value int32                    the value of this priority class.
 ```
 
 ### Options inherited from parent commands
@@ -60,6 +59,7 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

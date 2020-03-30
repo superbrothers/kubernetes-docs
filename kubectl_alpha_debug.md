@@ -1,19 +1,41 @@
-## kubectl create secret
+## kubectl alpha debug
 
-Create a secret using specified subcommand
+Attach a debug container to a running pod
 
 ### Synopsis
 
-Create a secret using specified subcommand.
+Tools for debugging Kubernetes resources
 
 ```
-kubectl create secret [flags]
+kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
+```
+
+### Examples
+
+```
+  # Create an interactive debugging session in pod mypod and immediately attach to it.
+  # (requires the EphemeralContainers feature to be enabled in the cluster)
+  kubectl alpha debug mypod -i --image=busybox
+  
+  # Create a debug container named debugger using a custom automated debugging image.
+  # (requires the EphemeralContainers feature to be enabled in the cluster)
+  kubectl alpha debug --image=myproj/debug-tools -c debugger mypod
 ```
 
 ### Options
 
 ```
-  -h, --help   help for secret
+      --arguments-only             If specified, everything after -- will be passed to the new container as Args instead of Command.
+      --attach                     If true, wait for the Pod to start running, and then attach to the Pod as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true.
+      --container string           Container name to use for debug container.
+      --env stringToString         Environment variables to set in the container. (default [])
+  -h, --help                       help for debug
+      --image string               Container image to use for debug container.
+      --image-pull-policy string   The image pull policy for the container. (default "IfNotPresent")
+      --quiet                      If true, suppress prompt messages.
+  -i, --stdin                      Keep stdin open on the container(s) in the pod, even if nothing is attached.
+      --target string              Target processes in this container name.
+  -t, --tty                        Allocated a TTY for each container in the pod.
 ```
 
 ### Options inherited from parent commands
@@ -44,8 +66,5 @@ kubectl create secret [flags]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
-* [kubectl create secret docker-registry](kubectl_create_secret_docker-registry.md)	 - Create a secret for use with a Docker registry
-* [kubectl create secret generic](kubectl_create_secret_generic.md)	 - Create a secret from a local file, directory or literal value
-* [kubectl create secret tls](kubectl_create_secret_tls.md)	 - Create a TLS secret
+* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
 

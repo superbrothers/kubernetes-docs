@@ -19,7 +19,7 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
   kubectl auth can-i create pods --all-namespaces
   
   # Check to see if I can list deployments in my current namespace
-  kubectl auth can-i list deployments.extensions
+  kubectl auth can-i list deployments.apps
   
   # Check to see if I can do everything in my current namespace ("*" means all)
   kubectl auth can-i '*' '*'
@@ -68,6 +68,7 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

@@ -31,15 +31,17 @@ kubectl drain NODE
 ### Options
 
 ```
-      --delete-local-data     Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
-      --dry-run               If true, only print the object that would be sent, without sending it.
-      --force                 Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
-      --grace-period int      Period of time in seconds given to each pod to terminate gracefully. If negative, the default value specified in the pod will be used. (default -1)
-  -h, --help                  help for drain
-      --ignore-daemonsets     Ignore DaemonSet-managed pods.
-      --pod-selector string   Label selector to filter pods on the node
-  -l, --selector string       Selector (label query) to filter on
-      --timeout duration      The length of time to wait before giving up, zero means infinite
+      --delete-local-data                  Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
+      --disable-eviction                   Force drain to use delete, even if eviction is supported. This will bypass checking PodDisruptionBudgets, use with caution.
+      --dry-run string[="unchanged"]       Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+      --force                              Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
+      --grace-period int                   Period of time in seconds given to each pod to terminate gracefully. If negative, the default value specified in the pod will be used. (default -1)
+  -h, --help                               help for drain
+      --ignore-daemonsets                  Ignore DaemonSet-managed pods.
+      --pod-selector string                Label selector to filter pods on the node
+  -l, --selector string                    Selector (label query) to filter on
+      --skip-wait-for-delete-timeout int   If pod DeletionTimestamp older than N seconds, skip waiting for the pod.  Seconds must be greater than 0 to skip.
+      --timeout duration                   The length of time to wait before giving up, zero means infinite
 ```
 
 ### Options inherited from parent commands
@@ -62,6 +64,7 @@ kubectl drain NODE
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

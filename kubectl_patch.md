@@ -34,18 +34,18 @@ kubectl patch (-f FILENAME | TYPE NAME) -p PATCH
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-  -f, --filename strings              Filename, directory, or URL to files identifying the resource to update
-  -h, --help                          help for patch
-  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
-      --local                         If true, patch will operate on the content of the file, not the server-side resource.
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-  -p, --patch string                  The patch to be applied to the resource JSON file.
-      --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
-  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --type string                   The type of patch being provided; one of [json merge strategic] (default "strategic")
+      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+  -f, --filename strings               Filename, directory, or URL to files identifying the resource to update
+  -h, --help                           help for patch
+  -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
+      --local                          If true, patch will operate on the content of the file, not the server-side resource.
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -p, --patch string                   The patch to be applied to the resource JSON file.
+      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --type string                    The type of patch being provided; one of [json merge strategic] (default "strategic")
 ```
 
 ### Options inherited from parent commands
@@ -68,6 +68,7 @@ kubectl patch (-f FILENAME | TYPE NAME) -p PATCH
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

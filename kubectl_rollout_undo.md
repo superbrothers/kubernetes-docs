@@ -20,21 +20,21 @@ kubectl rollout undo (TYPE NAME | TYPE/NAME) [flags]
   kubectl rollout undo daemonset/abc --to-revision=3
   
   # Rollback to the previous deployment with dry-run
-  kubectl rollout undo --dry-run=true deployment/abc
+  kubectl rollout undo --dry-run=server deployment/abc
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-  -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
-  -h, --help                          help for undo
-  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --to-revision int               The revision to rollback to. Default to 0 (last revision).
+      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+  -f, --filename strings               Filename, directory, or URL to files identifying the resource to get from a server.
+  -h, --help                           help for undo
+  -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --to-revision int                The revision to rollback to. Default to 0 (last revision).
 ```
 
 ### Options inherited from parent commands
@@ -57,6 +57,7 @@ kubectl rollout undo (TYPE NAME | TYPE/NAME) [flags]
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

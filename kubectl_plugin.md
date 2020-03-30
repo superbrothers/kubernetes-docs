@@ -8,6 +8,8 @@ Provides utilities for interacting with plugins.
 
  Plugins provide extended functionality that is not part of the major command-line distribution. Please refer to the documentation and examples for more information about how write your own plugins.
 
+ The easiest way to discover and install plugins is via the kubernetes sub-project krew. To install krew, visithttps://github.com/kubernetes-sigs/krew/#installation
+
 ```
 kubectl plugin [flags]
 ```
@@ -38,6 +40,7 @@ kubectl plugin [flags]
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

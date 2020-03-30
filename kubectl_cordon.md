@@ -20,9 +20,9 @@ kubectl cordon NODE
 ### Options
 
 ```
-      --dry-run           If true, only print the object that would be sent, without sending it.
-  -h, --help              help for cordon
-  -l, --selector string   Selector (label query) to filter on
+      --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+  -h, --help                           help for cordon
+  -l, --selector string                Selector (label query) to filter on
 ```
 
 ### Options inherited from parent commands
@@ -45,6 +45,7 @@ kubectl cordon NODE
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

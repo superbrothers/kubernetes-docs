@@ -46,7 +46,7 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
   kubectl config set-credentials cluster-admin --auth-provider=oidc --auth-provider-arg=client-secret-
   
   # Enable new exec auth plugin for the "cluster-admin" entry
-  kubectl config set-credentials cluster-admin --exec-command=/path/to/the/executable --exec-api-version=client.authentication.k8s.io/v1beta
+  kubectl config set-credentials cluster-admin --exec-command=/path/to/the/executable --exec-api-version=client.authentication.k8s.io/v1beta1
   
   # Define new exec auth plugin args for the "cluster-admin" entry
   kubectl config set-credentials cluster-admin --exec-arg=arg1 --exec-arg=arg2
@@ -91,6 +91,7 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

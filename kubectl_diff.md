@@ -10,6 +10,10 @@ Diff configurations specified by filename or stdin between the current online co
 
  KUBECTL_EXTERNAL_DIFF environment variable can be used to select your own diff command. By default, the "diff" command available in your path will be run with "-u" (unified diff) and "-N" (treat absent files as empty) options.
 
+ Exit status: 0 No differences were found. 1 Differences were found. >1 Kubectl or diff failed with an error.
+
+ Note: KUBECTL_EXTERNAL_DIFF, if used, is expected to follow that convention.
+
 ```
 kubectl diff -f FILENAME
 ```
@@ -56,6 +60,7 @@ kubectl diff -f FILENAME
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

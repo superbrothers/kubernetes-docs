@@ -14,10 +14,10 @@ kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
 
 ```
   # Get output from running 'date' command from pod mypod, using the first container by default
-  kubectl exec mypod date
+  kubectl exec mypod -- date
   
   # Get output from running 'date' command in ruby-container from pod mypod
-  kubectl exec mypod -c ruby-container date
+  kubectl exec mypod -c ruby-container -- date
   
   # Switch to raw terminal mode, sends stdin to 'bash' in ruby-container from pod mypod
   # and sends stdout/stderr from 'bash' back to the client
@@ -31,16 +31,17 @@ kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
   kubectl exec mypod -i -t -- ls -t /usr
   
   # Get output from running 'date' command from the first pod of the deployment mydeployment, using the first container by default
-  kubectl exec deploy/mydeployment date
+  kubectl exec deploy/mydeployment -- date
   
   # Get output from running 'date' command from the first pod of the service myservice, using the first container by default
-  kubectl exec svc/myservice date
+  kubectl exec svc/myservice -- date
 ```
 
 ### Options
 
 ```
   -c, --container string               Container name. If omitted, the first container in the pod will be chosen
+  -f, --filename strings               to use to exec into the resource
   -h, --help                           help for exec
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
   -i, --stdin                          Pass stdin to the container
@@ -67,6 +68,7 @@ kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server

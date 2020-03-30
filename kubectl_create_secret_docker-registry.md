@@ -18,7 +18,7 @@ Create a new secret for use with Docker registries.
   by creating a dockercfg secret and attaching it to your service account.
 
 ```
-kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-literal=key1=value1] [--dry-run]
+kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-literal=key1=value1] [--dry-run=server|client|none]
 ```
 
 ### Examples
@@ -31,20 +31,19 @@ kubectl create secret docker-registry NAME --docker-username=user --docker-passw
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --append-hash                   Append a hash of the secret to its name.
-      --docker-email string           Email for Docker registry
-      --docker-password string        Password for Docker registry authentication
-      --docker-server string          Server location for Docker registry (default "https://index.docker.io/v1/")
-      --docker-username string        Username for Docker registry authentication
-      --dry-run                       If true, only print the object that would be sent, without sending it.
-      --from-file strings             Key files can be specified using their file path, in which case a default name will be given to them, or optionally with a name and file path, in which case the given name will be used.  Specifying a directory will iterate each named file in the directory that is a valid secret key.
-      --generator string              The name of the API generator to use. (default "secret-for-docker-registry/v1")
-  -h, --help                          help for docker-registry
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-      --save-config                   If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate                      If true, use a schema to validate the input before sending it (default true)
+      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --append-hash                    Append a hash of the secret to its name.
+      --docker-email string            Email for Docker registry
+      --docker-password string         Password for Docker registry authentication
+      --docker-server string           Server location for Docker registry (default "https://index.docker.io/v1/")
+      --docker-username string         Username for Docker registry authentication
+      --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+      --from-file strings              Key files can be specified using their file path, in which case a default name will be given to them, or optionally with a name and file path, in which case the given name will be used.  Specifying a directory will iterate each named file in the directory that is a valid secret key.
+  -h, --help                           help for docker-registry
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --validate                       If true, use a schema to validate the input before sending it (default true)
 ```
 
 ### Options inherited from parent commands
@@ -67,6 +66,7 @@ kubectl create secret docker-registry NAME --docker-username=user --docker-passw
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
