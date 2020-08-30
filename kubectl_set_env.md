@@ -64,6 +64,7 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
   -c, --containers string              The names of containers in the selected pod templates to change - may use wildcards (default "*")
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
   -e, --env stringArray                Specify a key-value pair for an environment variable to set into each container.
+      --field-manager string           Name of the manager used to track field ownership. (default "kubectl-set")
   -f, --filename strings               Filename, directory, or URL to files the resource to update the env
       --from string                    The name of a resource from which to inject environment variables
   -h, --help                           help for env
@@ -71,7 +72,7 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --list                           If true, display the environment and any changes in the standard format. this flag will removed when we have kubectl view env.
       --local                          If true, set env will NOT contact api-server but run locally.
-  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --overwrite                      If true, allow environment to be overwritten, otherwise reject updates that overwrite existing environment. (default true)
       --prefix string                  Prefix to append to variable names
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
@@ -85,7 +86,7 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
 ```
       --as string                      Username to impersonate for the operation
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string               Default HTTP cache directory (default "/root/.kube/http-cache")
+      --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
@@ -104,6 +105,7 @@ kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
+      --warnings-as-errors             Treat warnings received from the server as errors and exit with a non-zero exit code
 ```
 
 ### SEE ALSO

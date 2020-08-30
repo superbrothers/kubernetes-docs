@@ -37,12 +37,13 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -c, --containers string              The names of containers in the selected pod templates to change, all containers are selected by default - may use wildcards (default "*")
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
+      --field-manager string           Name of the manager used to track field ownership. (default "kubectl-set")
   -f, --filename strings               Filename, directory, or URL to files identifying the resource to get from a server.
   -h, --help                           help for resources
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --limits string                  The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
       --local                          If true, set resources will NOT contact api-server but run locally.
-  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --requests string                The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
@@ -55,7 +56,7 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
 ```
       --as string                      Username to impersonate for the operation
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string               Default HTTP cache directory (default "/root/.kube/http-cache")
+      --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
@@ -74,6 +75,7 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
+      --warnings-as-errors             Treat warnings received from the server as errors and exit with a non-zero exit code
 ```
 
 ### SEE ALSO

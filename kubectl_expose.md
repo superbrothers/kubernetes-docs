@@ -48,6 +48,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --cluster-ip string              ClusterIP to be assigned to the service. Leave empty to auto-allocate, or set to 'None' to create a headless service.
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --external-ip string             Additional external IP address (not managed by Kubernetes) to accept for the service. If this IP is routed to a node, the service can be accessed by this IP in addition to its generated service IP.
+      --field-manager string           Name of the manager used to track field ownership. (default "kubectl-expose")
   -f, --filename strings               Filename, directory, or URL to files identifying the resource to expose a service
       --generator string               The name of the API generator to use. There are 2 generators: 'service/v1' and 'service/v2'. The only difference between them is that service port in v1 is named 'default', while it is left unnamed in v2. Default is 'service/v2'. (default "service/v2")
   -h, --help                           help for expose
@@ -55,7 +56,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
   -l, --labels string                  Labels to apply to the service created by this call.
       --load-balancer-ip string        IP to assign to the LoadBalancer. If empty, an ephemeral IP will be created and used (cloud-provider specific).
       --name string                    The name for the newly created object.
-  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --overrides string               An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.
       --port string                    The port that the service should serve on. Copied from the resource being exposed, if unspecified
       --protocol string                The network protocol for the service to be created. Default is 'TCP'.
@@ -74,7 +75,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
 ```
       --as string                      Username to impersonate for the operation
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string               Default HTTP cache directory (default "/root/.kube/http-cache")
+      --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
@@ -93,6 +94,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
+      --warnings-as-errors             Treat warnings received from the server as errors and exit with a non-zero exit code
 ```
 
 ### SEE ALSO

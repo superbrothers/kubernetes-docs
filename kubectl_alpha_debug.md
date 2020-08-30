@@ -4,7 +4,17 @@ Attach a debug container to a running pod
 
 ### Synopsis
 
-Tools for debugging Kubernetes resources
+Debug cluster resources using interactive debugging containers.
+
+ 'debug' provides automation for common debugging tasks for cluster objects identified by resource and name. Pods will be used by default if resource is not specified.
+
+ The action taken by 'debug' varies depending on what resource is specified. Supported actions include:
+
+  *  Workload: Create a copy of an existing pod with certain attributes changed, for example changing the image tag to a new version.
+  *  Workload: Add an ephemeral container to an already running pod, for example to add debugging utilities without restarting the pod.
+  *  Node: Create a new pod that runs in the node's host namespaces and can access the node's filesystem.
+
+ Alpha disclaimer: command line flags may change
 
 ```
 kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
@@ -15,27 +25,41 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
 ```
   # Create an interactive debugging session in pod mypod and immediately attach to it.
   # (requires the EphemeralContainers feature to be enabled in the cluster)
-  kubectl alpha debug mypod -i --image=busybox
+  kubectl alpha debug mypod -it --image=busybox
   
   # Create a debug container named debugger using a custom automated debugging image.
   # (requires the EphemeralContainers feature to be enabled in the cluster)
   kubectl alpha debug --image=myproj/debug-tools -c debugger mypod
+  
+  # Create a debug container as a copy of the original Pod and attach to it
+  kubectl alpha debug mypod -it --image=busybox --copy-to=my-debugger
+  
+  # Create a copy of mypod named my-debugger with my-container's image changed to busybox
+  kubectl alpha debug mypod --image=busybox --container=my-container --copy-to=my-debugger -- sleep 1d
+  
+  # Create an interactive debugging session on a node and immediately attach to it.
+  # The container will run in the host namespaces and the host's filesystem will be mounted at /host
+  kubectl alpha debug node/mynode -it --image=busybox
 ```
 
 ### Options
 
 ```
       --arguments-only             If specified, everything after -- will be passed to the new container as Args instead of Command.
-      --attach                     If true, wait for the Pod to start running, and then attach to the Pod as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true.
-      --container string           Container name to use for debug container.
+      --attach                     If true, wait for the container to start running, and then attach as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true.
+  -c, --container string           Container name to use for debug container.
+      --copy-to string             Create a copy of the target Pod with this name.
       --env stringToString         Environment variables to set in the container. (default [])
   -h, --help                       help for debug
       --image string               Container image to use for debug container.
       --image-pull-policy string   The image pull policy for the container. (default "IfNotPresent")
-      --quiet                      If true, suppress prompt messages.
+      --quiet                      If true, suppress informational messages.
+      --replace                    When used with '--copy-to', delete the original Pod
+      --same-node                  When used with '--copy-to', schedule the copy of target Pod on the same node.
+      --share-processes            When used with '--copy-to', enable process namespace sharing in the copy. (default true)
   -i, --stdin                      Keep stdin open on the container(s) in the pod, even if nothing is attached.
-      --target string              Target processes in this container name.
-  -t, --tty                        Allocated a TTY for each container in the pod.
+      --target string              When debugging a pod, target processes in this container name.
+  -t, --tty                        Allocate a TTY for the debugging container.
 ```
 
 ### Options inherited from parent commands
@@ -43,7 +67,7 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
 ```
       --as string                      Username to impersonate for the operation
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
-      --cache-dir string               Default HTTP cache directory (default "/root/.kube/http-cache")
+      --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
@@ -62,6 +86,7 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
       --token string                   Bearer token for authentication to the API server
       --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
+      --warnings-as-errors             Treat warnings received from the server as errors and exit with a non-zero exit code
 ```
 
 ### SEE ALSO
