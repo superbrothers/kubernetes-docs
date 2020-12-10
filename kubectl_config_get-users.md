@@ -1,26 +1,26 @@
-## kubectl cluster-info
+## kubectl config get-users
 
-Display cluster info
+Display users defined in the kubeconfig
 
 ### Synopsis
 
-Display addresses of the control plane and services with label kubernetes.io/cluster-service=true To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+Display users defined in the kubeconfig.
 
 ```
-kubectl cluster-info [flags]
+kubectl config get-users [flags]
 ```
 
 ### Examples
 
 ```
-  # Print the address of the control plane and cluster services
-  kubectl cluster-info
+  # List the users kubectl knows about
+  kubectl config get-users
 ```
 
 ### Options
 
 ```
-  -h, --help   help for cluster-info
+  -h, --help   help for get-users
 ```
 
 ### Options inherited from parent commands
@@ -35,7 +35,7 @@ kubectl cluster-info [flags]
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kubeconfig string              use a particular kubeconfig file
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -52,6 +52,5 @@ kubectl cluster-info [flags]
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl cluster-info dump](kubectl_cluster-info_dump.md)	 - Dump lots of relevant info for debugging and diagnosis
+* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
 

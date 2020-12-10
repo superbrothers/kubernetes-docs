@@ -55,8 +55,10 @@ kubectl config SUBCOMMAND
 * [kubectl config current-context](kubectl_config_current-context.md)	 - Displays the current-context
 * [kubectl config delete-cluster](kubectl_config_delete-cluster.md)	 - Delete the specified cluster from the kubeconfig
 * [kubectl config delete-context](kubectl_config_delete-context.md)	 - Delete the specified context from the kubeconfig
+* [kubectl config delete-user](kubectl_config_delete-user.md)	 - Delete the specified user from the kubeconfig
 * [kubectl config get-clusters](kubectl_config_get-clusters.md)	 - Display clusters defined in the kubeconfig
 * [kubectl config get-contexts](kubectl_config_get-contexts.md)	 - Describe one or many contexts
+* [kubectl config get-users](kubectl_config_get-users.md)	 - Display users defined in the kubeconfig
 * [kubectl config rename-context](kubectl_config_rename-context.md)	 - Renames a context from the kubeconfig file.
 * [kubectl config set](kubectl_config_set.md)	 - Sets an individual value in a kubeconfig file
 * [kubectl config set-cluster](kubectl_config_set-cluster.md)	 - Sets a cluster entry in kubeconfig

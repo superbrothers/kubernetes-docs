@@ -1,15 +1,26 @@
-## kubectl alpha
+## kubectl config delete-user
 
-Commands for features in alpha
+Delete the specified user from the kubeconfig
 
 ### Synopsis
 
-These commands correspond to alpha features that are not enabled in Kubernetes clusters by default.
+Delete the specified user from the kubeconfig
+
+```
+kubectl config delete-user NAME
+```
+
+### Examples
+
+```
+  # Delete the minikube user
+  kubectl config delete-user minikube
+```
 
 ### Options
 
 ```
-  -h, --help   help for alpha
+  -h, --help   help for delete-user
 ```
 
 ### Options inherited from parent commands
@@ -24,7 +35,7 @@ These commands correspond to alpha features that are not enabled in Kubernetes c
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kubeconfig string              use a particular kubeconfig file
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -41,6 +52,5 @@ These commands correspond to alpha features that are not enabled in Kubernetes c
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl alpha debug](kubectl_alpha_debug.md)	 - Attach a debug container to a running pod
+* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
 

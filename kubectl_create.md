@@ -81,6 +81,7 @@ kubectl create -f FILENAME
 * [kubectl create configmap](kubectl_create_configmap.md)	 - Create a configmap from a local file, directory or literal value
 * [kubectl create cronjob](kubectl_create_cronjob.md)	 - Create a cronjob with the specified name.
 * [kubectl create deployment](kubectl_create_deployment.md)	 - Create a deployment with the specified name.
+* [kubectl create ingress](kubectl_create_ingress.md)	 - Create an ingress with the specified name.
 * [kubectl create job](kubectl_create_job.md)	 - Create a job with the specified name.
 * [kubectl create namespace](kubectl_create_namespace.md)	 - Create a namespace with the specified name
 * [kubectl create poddisruptionbudget](kubectl_create_poddisruptionbudget.md)	 - Create a pod disruption budget with the specified name.

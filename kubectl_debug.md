@@ -1,12 +1,12 @@
-## kubectl alpha debug
+## kubectl debug
 
-Attach a debug container to a running pod
+Create debugging sessions for troubleshooting workloads and nodes
 
 ### Synopsis
 
 Debug cluster resources using interactive debugging containers.
 
- 'debug' provides automation for common debugging tasks for cluster objects identified by resource and name. Pods will be used by default if resource is not specified.
+ 'debug' provides automation for common debugging tasks for cluster objects identified by resource and name. Pods will be used by default if no resource is specified.
 
  The action taken by 'debug' varies depending on what resource is specified. Supported actions include:
 
@@ -14,10 +14,8 @@ Debug cluster resources using interactive debugging containers.
   *  Workload: Add an ephemeral container to an already running pod, for example to add debugging utilities without restarting the pod.
   *  Node: Create a new pod that runs in the node's host namespaces and can access the node's filesystem.
 
- Alpha disclaimer: command line flags may change
-
 ```
-kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
+kubectl debug (POD | TYPE[[.VERSION].GROUP]/NAME) [ -- COMMAND [args...] ]
 ```
 
 ### Examples
@@ -25,21 +23,27 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
 ```
   # Create an interactive debugging session in pod mypod and immediately attach to it.
   # (requires the EphemeralContainers feature to be enabled in the cluster)
-  kubectl alpha debug mypod -it --image=busybox
+  kubectl debug mypod -it --image=busybox
   
   # Create a debug container named debugger using a custom automated debugging image.
   # (requires the EphemeralContainers feature to be enabled in the cluster)
-  kubectl alpha debug --image=myproj/debug-tools -c debugger mypod
+  kubectl debug --image=myproj/debug-tools -c debugger mypod
   
-  # Create a debug container as a copy of the original Pod and attach to it
-  kubectl alpha debug mypod -it --image=busybox --copy-to=my-debugger
+  # Create a copy of mypod adding a debug container and attach to it
+  kubectl debug mypod -it --image=busybox --copy-to=my-debugger
   
-  # Create a copy of mypod named my-debugger with my-container's image changed to busybox
-  kubectl alpha debug mypod --image=busybox --container=my-container --copy-to=my-debugger -- sleep 1d
+  # Create a copy of mypod changing the command of mycontainer
+  kubectl debug mypod -it --copy-to=my-debugger --container=mycontainer -- sh
+  
+  # Create a copy of mypod changing all container images to busybox
+  kubectl debug mypod --copy-to=my-debugger --set-image=*=busybox
+  
+  # Create a copy of mypod adding a debug container and changing container images
+  kubectl debug mypod -it --copy-to=my-debugger --image=debian --set-image=app=app:debug,sidecar=sidecar:debug
   
   # Create an interactive debugging session on a node and immediately attach to it.
   # The container will run in the host namespaces and the host's filesystem will be mounted at /host
-  kubectl alpha debug node/mynode -it --image=busybox
+  kubectl debug node/mynode -it --image=busybox
 ```
 
 ### Options
@@ -52,13 +56,14 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
       --env stringToString         Environment variables to set in the container. (default [])
   -h, --help                       help for debug
       --image string               Container image to use for debug container.
-      --image-pull-policy string   The image pull policy for the container. (default "IfNotPresent")
+      --image-pull-policy string   The image pull policy for the container. If left empty, this value will not be specified by the client and defaulted by the server.
       --quiet                      If true, suppress informational messages.
-      --replace                    When used with '--copy-to', delete the original Pod
+      --replace                    When used with '--copy-to', delete the original Pod.
       --same-node                  When used with '--copy-to', schedule the copy of target Pod on the same node.
+      --set-image stringToString   When used with '--copy-to', a list of name=image pairs for changing container images, similar to how 'kubectl set image' works. (default [])
       --share-processes            When used with '--copy-to', enable process namespace sharing in the copy. (default true)
   -i, --stdin                      Keep stdin open on the container(s) in the pod, even if nothing is attached.
-      --target string              When debugging a pod, target processes in this container name.
+      --target string              When using an ephemeral container, target processes in this container name.
   -t, --tty                        Allocate a TTY for the debugging container.
 ```
 
@@ -91,5 +96,5 @@ kubectl alpha debug NAME --image=image [ -- COMMAND [args...] ]
 
 ### SEE ALSO
 
-* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 

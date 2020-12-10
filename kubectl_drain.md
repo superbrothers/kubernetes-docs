@@ -31,7 +31,7 @@ kubectl drain NODE
 ### Options
 
 ```
-      --delete-local-data                  Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
+      --delete-emptydir-data               Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
       --disable-eviction                   Force drain to use delete, even if eviction is supported. This will bypass checking PodDisruptionBudgets, use with caution.
       --dry-run string[="unchanged"]       Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --force                              Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.

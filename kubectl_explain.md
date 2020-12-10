@@ -31,7 +31,7 @@ kubectl explain RESOURCE
 ### Options
 
 ```
-      --api-version string   Get different explanations for particular API version
+      --api-version string   Get different explanations for particular API version (API group/version)
   -h, --help                 help for explain
       --recursive            Print the fields of fields (Currently only 1 level deep)
 ```

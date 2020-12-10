@@ -30,7 +30,6 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string           Name of the manager used to track field ownership. (default "kubectl-autoscale")
   -f, --filename strings               Filename, directory, or URL to files identifying the resource to autoscale.
-      --generator string               The name of the API generator to use. Currently there is only 1 generator. (default "horizontalpodautoscaler/v1")
   -h, --help                           help for autoscale
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --max int32                      The upper limit for the number of pods that can be set by the autoscaler. Required. (default -1)

@@ -1,53 +1,70 @@
-## kubectl patch
+## kubectl create ingress
 
-Update field(s) of a resource
+Create an ingress with the specified name.
 
 ### Synopsis
 
-Update field(s) of a resource using strategic merge patch, a JSON merge patch, or a JSON patch.
-
- JSON and YAML formats are accepted.
+Create an ingress with the specified name.
 
 ```
-kubectl patch (-f FILENAME | TYPE NAME) [-p PATCH|--patch-file FILE]
+kubectl create ingress NAME --rule=host/path=service:port[,tls[=secret]] 
 ```
 
 ### Examples
 
 ```
-  # Partially update a node using a strategic merge patch. Specify the patch as JSON.
-  kubectl patch node k8s-node-1 -p '{"spec":{"unschedulable":true}}'
+  # Create a single ingress called 'simple' that directs requests to foo.com/bar to svc
+  # svc1:8080 with a tls secret "my-cert"
+  kubectl create ingress simple --rule="foo.com/bar=svc1:8080,tls=my-cert"
   
-  # Partially update a node using a strategic merge patch. Specify the patch as YAML.
-  kubectl patch node k8s-node-1 -p $'spec:\n unschedulable: true'
+  # Create a catch all ingress of "/path" pointing to service svc:port and Ingress Class as "otheringress"
+  kubectl create ingress catch-all --class=otheringress --rule="/path=svc:port"
   
-  # Partially update a node identified by the type and name specified in "node.json" using strategic merge patch.
-  kubectl patch -f node.json -p '{"spec":{"unschedulable":true}}'
+  # Create an ingress with two annotations: ingress.annotation1 and ingress.annotations2
+  kubectl create ingress annotated --class=default --rule="foo.com/bar=svc:port" \
+  --annotation ingress.annotation1=foo \
+  --annotation ingress.annotation2=bla
   
-  # Update a container's image; spec.containers[*].name is required because it's a merge key.
-  kubectl patch pod valid-pod -p '{"spec":{"containers":[{"name":"kubernetes-serve-hostname","image":"new image"}]}}'
+  # Create an ingress with the same host and multiple paths
+  kubectl create ingress multipath --class=default \
+  --rule="foo.com/=svc:port" \
+  --rule="foo.com/admin/=svcadmin:portadmin"
   
-  # Update a container's image using a json patch with positional arrays.
-  kubectl patch pod valid-pod --type='json' -p='[{"op": "replace", "path": "/spec/containers/0/image", "value":"new image"}]'
+  # Create an ingress with multiple hosts and the pathType as Prefix
+  kubectl create ingress ingress1 --class=default \
+  --rule="foo.com/path*=svc:8080" \
+  --rule="bar.com/admin*=svc2:http"
+  
+  # Create an ingress with TLS enabled using the default ingress certificate and different path types
+  kubectl create ingress ingtls --class=default \
+  --rule="foo.com/=svc:https,tls" \
+  --rule="foo.com/path/subpath*=othersvc:8080"
+  
+  # Create an ingress with TLS enabled using a specific secret and pathType as Prefix
+  kubectl create ingress ingsecret --class=default \
+  --rule="foo.com/*=svc:8080,tls=secret1"
+  
+  # Create an ingress with a default backend
+  kubectl create ingress ingdefault --class=default \
+  --default-backend=defaultsvc:http \
+  --rule="foo.com/*=svc:8080,tls=secret1"
 ```
 
 ### Options
 
 ```
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --annotation stringArray         Annotation to insert in the ingress object, in the format annotation=value
+      --class string                   Ingress Class to be used
+      --default-backend string         Default service for backend, in format of svcname:port
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
-      --field-manager string           Name of the manager used to track field ownership. (default "kubectl-patch")
-  -f, --filename strings               Filename, directory, or URL to files identifying the resource to update
-  -h, --help                           help for patch
-  -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
-      --local                          If true, patch will operate on the content of the file, not the server-side resource.
+      --field-manager string           Name of the manager used to track field ownership. (default "kubectl-create")
+  -h, --help                           help for ingress
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-  -p, --patch string                   The patch to be applied to the resource JSON file.
-      --patch-file string              A file containing a patch to be applied to the resource.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
-  -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+      --rule stringArray               Rule in format host/path=service:port[,tls=secretname]. Paths containing the leading character '*' are considered pathType=Prefix. tls argument is optional.
+      --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --type string                    The type of patch being provided; one of [json merge strategic] (default "strategic")
+      --validate                       If true, use a schema to validate the input before sending it (default true)
 ```
 
 ### Options inherited from parent commands
@@ -79,5 +96,5 @@ kubectl patch (-f FILENAME | TYPE NAME) [-p PATCH|--patch-file FILE]
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
 
