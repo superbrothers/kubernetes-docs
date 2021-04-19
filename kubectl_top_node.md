@@ -1,10 +1,10 @@
 ## kubectl top node
 
-Display Resource (CPU/Memory/Storage) usage of nodes
+Display Resource (CPU/Memory) usage of nodes
 
 ### Synopsis
 
-Display Resource (CPU/Memory/Storage) usage of nodes.
+Display Resource (CPU/Memory) usage of nodes.
 
  The top-node command allows you to see the resource consumption of nodes.
 
@@ -25,10 +25,11 @@ kubectl top node [NAME | -l label]
 ### Options
 
 ```
-  -h, --help              help for node
-      --no-headers        If present, print output without headers
-  -l, --selector string   Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
-      --sort-by string    If non-empty, sort nodes list using specified field. The field can be either 'cpu' or 'memory'.
+  -h, --help                   help for node
+      --no-headers             If present, print output without headers
+  -l, --selector string        Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --sort-by string         If non-empty, sort nodes list using specified field. The field can be either 'cpu' or 'memory'.
+      --use-protocol-buffers   If present, protocol-buffers will be used to request metrics.
 ```
 
 ### Options inherited from parent commands
@@ -60,5 +61,5 @@ kubectl top node [NAME | -l label]
 
 ### SEE ALSO
 
-* [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory/Storage) usage.
+* [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory) usage.
 

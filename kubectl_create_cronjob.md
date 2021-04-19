@@ -32,6 +32,7 @@ kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] 
       --restart string                 job's restart policy. supported values: OnFailure, Never
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --schedule string                A schedule in the Cron format the job should be run with.
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                       If true, use a schema to validate the input before sending it (default true)
 ```

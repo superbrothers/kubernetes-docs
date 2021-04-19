@@ -40,10 +40,11 @@ kubectl exec (POD | TYPE/NAME) [-c CONTAINER] [flags] -- COMMAND [args...]
 ### Options
 
 ```
-  -c, --container string               Container name. If omitted, the first container in the pod will be chosen
+  -c, --container string               Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen
   -f, --filename strings               to use to exec into the resource
   -h, --help                           help for exec
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
+  -q, --quiet                          Only print output from the remote session
   -i, --stdin                          Pass stdin to the container
   -t, --tty                            Stdin is a TTY
 ```

@@ -42,7 +42,7 @@ kubectl cp <file-spec-src> <file-spec-dest>
 ### Options
 
 ```
-  -c, --container string   Container name. If omitted, the first container in the pod will be chosen
+  -c, --container string   Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen
   -h, --help               help for cp
       --no-preserve        The copied file/directory's ownership and permissions will not be preserved in the container
 ```

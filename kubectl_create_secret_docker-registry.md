@@ -18,7 +18,7 @@ Create a new secret for use with Docker registries.
   by creating a dockercfg secret and attaching it to your service account.
 
 ```
-kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-literal=key1=value1] [--dry-run=server|client|none]
+kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-file=[key=]source] [--dry-run=server|client|none]
 ```
 
 ### Examples
@@ -26,6 +26,9 @@ kubectl create secret docker-registry NAME --docker-username=user --docker-passw
 ```
   # If you don't already have a .dockercfg file, you can create a dockercfg secret directly by using:
   kubectl create secret docker-registry my-secret --docker-server=DOCKER_REGISTRY_SERVER --docker-username=DOCKER_USER --docker-password=DOCKER_PASSWORD --docker-email=DOCKER_EMAIL
+  
+  # Create a new secret named my-secret from ~/.docker/config.json
+  kubectl create secret docker-registry my-secret --from-file=.dockerconfigjson=path/to/.docker/config.json
 ```
 
 ### Options
@@ -43,6 +46,7 @@ kubectl create secret docker-registry NAME --docker-username=user --docker-passw
   -h, --help                           help for docker-registry
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                       If true, use a schema to validate the input before sending it (default true)
 ```

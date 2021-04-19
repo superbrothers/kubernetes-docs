@@ -13,7 +13,8 @@ kubectl attach (POD | TYPE/NAME) -c CONTAINER
 ### Examples
 
 ```
-  # Get output from running pod mypod, using the first container by default
+  # Get output from running pod mypod, use the kubectl.kubernetes.io/default-container annotation
+  # for selecting the container to be attached or the first container in the pod will be chosen
   kubectl attach mypod
   
   # Get output from ruby-container from pod mypod
@@ -30,9 +31,10 @@ kubectl attach (POD | TYPE/NAME) -c CONTAINER
 ### Options
 
 ```
-  -c, --container string               Container name. If omitted, the first container in the pod will be chosen
+  -c, --container string               Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen
   -h, --help                           help for attach
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
+  -q, --quiet                          Only print output from the remote session
   -i, --stdin                          Pass stdin to the container
   -t, --tty                            Stdin is a TTY
 ```

@@ -47,5 +47,5 @@ kubectl auth [flags]
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 * [kubectl auth can-i](kubectl_auth_can-i.md)	 - Check whether an action is allowed
-* [kubectl auth reconcile](kubectl_auth_reconcile.md)	 - Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole binding objects
+* [kubectl auth reconcile](kubectl_auth_reconcile.md)	 - Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRoleBinding objects
 

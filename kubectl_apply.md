@@ -57,6 +57,7 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
   -R, --recursive                       Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string                 Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
       --server-side                     If true, apply runs in the server instead of the client.
+      --show-managed-fields             If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                 Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --timeout duration                The length of time to wait before giving up on a delete, zero means determine a timeout from the size of the object
       --validate                        If true, use a schema to validate the input before sending it (default true)

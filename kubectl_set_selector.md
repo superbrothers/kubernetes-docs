@@ -34,6 +34,7 @@ kubectl set selector (-f FILENAME | TYPE NAME) EXPRESSIONS [--resource-version=v
       --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
       --resource-version string        If non-empty, the selectors update will only succeed if this is the current resource-version for the object. Only valid when specifying a single resource.
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 

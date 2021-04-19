@@ -48,7 +48,7 @@ kubectl [flags]
 * [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by filename or stdin
 * [kubectl attach](kubectl_attach.md)	 - Attach to a running container
 * [kubectl auth](kubectl_auth.md)	 - Inspect authorization
-* [kubectl autoscale](kubectl_autoscale.md)	 - Auto-scale a Deployment, ReplicaSet, or ReplicationController
+* [kubectl autoscale](kubectl_autoscale.md)	 - Auto-scale a Deployment, ReplicaSet, StatefulSet, or ReplicationController
 * [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
 * [kubectl cluster-info](kubectl_cluster-info.md)	 - Display cluster info
 * [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash or zsh)
@@ -66,7 +66,7 @@ kubectl [flags]
 * [kubectl explain](kubectl_explain.md)	 - Documentation of resources
 * [kubectl expose](kubectl_expose.md)	 - Take a replication controller, service, deployment or pod and expose it as a new Kubernetes Service
 * [kubectl get](kubectl_get.md)	 - Display one or many resources
-* [kubectl kustomize](kubectl_kustomize.md)	 - Build a kustomization target from a directory or a remote url.
+* [kubectl kustomize](kubectl_kustomize.md)	 - Build a kustomization target from a directory or URL.
 * [kubectl label](kubectl_label.md)	 - Update the labels on a resource
 * [kubectl logs](kubectl_logs.md)	 - Print the logs for a container in a pod
 * [kubectl options](kubectl_options.md)	 - Print the list of flags inherited by all commands
@@ -80,7 +80,7 @@ kubectl [flags]
 * [kubectl scale](kubectl_scale.md)	 - Set a new size for a Deployment, ReplicaSet or Replication Controller
 * [kubectl set](kubectl_set.md)	 - Set specific features on objects
 * [kubectl taint](kubectl_taint.md)	 - Update the taints on one or more nodes
-* [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory/Storage) usage.
+* [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory) usage.
 * [kubectl uncordon](kubectl_uncordon.md)	 - Mark node as schedulable
 * [kubectl version](kubectl_version.md)	 - Print the client and server version information
 * [kubectl wait](kubectl_wait.md)	 - Experimental: Wait for a specific condition on one or many resources.

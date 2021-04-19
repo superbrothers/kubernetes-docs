@@ -32,7 +32,7 @@ kubectl completion SHELL
   ## via your distribution's package manager.
   ## Load the kubectl completion code for bash into the current shell
   source <(kubectl completion bash)
-  ## Write bash completion code to a file and source if from .bash_profile
+  ## Write bash completion code to a file and source it from .bash_profile
   kubectl completion bash > ~/.kube/completion.bash.inc
   printf "
   # Kubectl shell completion

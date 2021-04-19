@@ -76,6 +76,7 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
       --server-print                  If true, have the server return the appropriate table output. Supports extension APIs and CRDs. (default true)
       --show-kind                     If present, list the resource type for the requested object(s).
       --show-labels                   When printing, show all labels as the last column (default hide labels column)
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --sort-by string                If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
   -w, --watch                         After listing/getting the requested object, watch for changes. Uninitialized objects are excluded if no object name is provided.

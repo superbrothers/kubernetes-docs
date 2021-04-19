@@ -1,10 +1,10 @@
 ## kubectl auth reconcile
 
-Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole binding objects
+Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRoleBinding objects
 
 ### Synopsis
 
-Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRole binding objects.
+Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRoleBinding objects.
 
  Missing objects are created, and the containing namespace is created for namespaced objects, if required.
 
@@ -37,6 +37,7 @@ kubectl auth reconcile -f FILENAME
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --remove-extra-permissions       If true, removes extra permissions added to roles
       --remove-extra-subjects          If true, removes extra subjects added to rolebindings
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 

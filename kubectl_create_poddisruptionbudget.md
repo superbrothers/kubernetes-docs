@@ -34,6 +34,7 @@ kubectl create poddisruptionbudget NAME --selector=SELECTOR --min-available=N [-
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --selector string                A label selector to use for this budget. Only equality-based selector requirements are supported.
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                       If true, use a schema to validate the input before sending it (default true)
 ```

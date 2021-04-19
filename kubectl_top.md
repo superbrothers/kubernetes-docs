@@ -1,10 +1,10 @@
 ## kubectl top
 
-Display Resource (CPU/Memory/Storage) usage.
+Display Resource (CPU/Memory) usage.
 
 ### Synopsis
 
-Display Resource (CPU/Memory/Storage) usage.
+Display Resource (CPU/Memory) usage.
 
  The top command allows you to see the resource consumption for nodes or pods.
 
@@ -50,6 +50,6 @@ kubectl top [flags]
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl top node](kubectl_top_node.md)	 - Display Resource (CPU/Memory/Storage) usage of nodes
-* [kubectl top pod](kubectl_top_pod.md)	 - Display Resource (CPU/Memory/Storage) usage of pods
+* [kubectl top node](kubectl_top_node.md)	 - Display Resource (CPU/Memory) usage of nodes
+* [kubectl top pod](kubectl_top_pod.md)	 - Display Resource (CPU/Memory) usage of pods
 

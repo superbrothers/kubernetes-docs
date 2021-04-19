@@ -65,6 +65,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --selector string                A label selector to use for this service. Only equality-based selector requirements are supported. If empty (the default) infer the selector from the replication controller or replica set.)
       --session-affinity string        If non-empty, set the session affinity for the service to this; legal values: 'None', 'ClientIP'
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --target-port string             Name or number for the port on the container that the service should direct traffic to. Optional.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --type string                    Type for this service: ClusterIP, NodePort, LoadBalancer, or ExternalName. Default is 'ClusterIP'.

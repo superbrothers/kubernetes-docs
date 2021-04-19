@@ -1,36 +1,42 @@
 ## kubectl kustomize
 
-Build a kustomization target from a directory or a remote url.
+Build a kustomization target from a directory or URL.
 
 ### Synopsis
 
-Print a set of API resources generated from instructions in a kustomization.yaml file.
-
- The argument must be the path to the directory containing the file, or a git repository URL with a path suffix specifying same with respect to the repository root.
-
- kubectl kustomize somedir
+Build a set of KRM resources using a 'kustomization.yaml' file. The DIR argument must be a path to a directory containing 'kustomization.yaml', or a git repository URL with a path suffix specifying same with respect to the repository root. If DIR is omitted, '.' is assumed.
 
 ```
-kubectl kustomize <dir> [flags]
+kubectl kustomize DIR [flags]
 ```
 
 ### Examples
 
 ```
-  # Use the current working directory
-  kubectl kustomize .
+  # Build the current working directory
+  kubectl kustomize
   
-  # Use some shared configuration directory
-  kubectl kustomize /home/configuration/production
+  # Build some shared configuration directory
+  kubectl kustomize /home/config/production
   
-  # Use a URL
-  kubectl kustomize github.com/kubernetes-sigs/kustomize.git/examples/helloWorld?ref=v1.0.6
+  # Build from github
+  kubectl kustomize https://github.com/kubernetes-sigs/kustomize.git/examples/helloWorld?ref=v1.0.6
 ```
 
 ### Options
 
 ```
-  -h, --help   help for kustomize
+      --allow-id-changes         enable changes to a resourceId
+      --enable-alpha-plugins     enable kustomize plugins
+      --enable-managedby-label   enable adding app.kubernetes.io/managed-by
+  -e, --env stringArray          a list of environment variables to be used by functions
+  -h, --help                     help for kustomize
+      --load-restrictor string   if set to 'LoadRestrictionsNone', local kustomizations may load files from outside their root. This does, however, break the relocatability of the kustomization. (default "LoadRestrictionsRootOnly")
+      --mount stringArray        a list of storage options read from the filesystem
+      --network                  enable network access for functions that declare it
+      --network-name string      the docker network to run the container in (default "bridge")
+  -o, --output string            If specified, write output to this path.
+      --reorder string           Reorder the resources just before output. Use 'legacy' to apply a legacy reordering (Namespaces first, Webhooks last, etc). Use 'none' to suppress a final reordering. (default "legacy")
 ```
 
 ### Options inherited from parent commands

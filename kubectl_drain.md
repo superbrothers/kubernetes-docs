@@ -38,6 +38,7 @@ kubectl drain NODE
       --grace-period int                   Period of time in seconds given to each pod to terminate gracefully. If negative, the default value specified in the pod will be used. (default -1)
   -h, --help                               help for drain
       --ignore-daemonsets                  Ignore DaemonSet-managed pods.
+      --ignore-errors                      Ignore errors occurred between drain nodes in group.
       --pod-selector string                Label selector to filter pods on the node
   -l, --selector string                    Selector (label query) to filter on
       --skip-wait-for-delete-timeout int   If pod DeletionTimestamp older than N seconds, skip waiting for the pod.  Seconds must be greater than 0 to skip.

@@ -37,6 +37,7 @@ kubectl create role NAME --verb=verb --resource=resource.group/subresource [--re
       --resource strings               Resource that the rule applies to
       --resource-name stringArray      Resource in the white list that the rule applies to, repeat this flag for multiple items
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --validate                       If true, use a schema to validate the input before sending it (default true)
       --verb strings                   Verb that applies to the resources contained in the rule

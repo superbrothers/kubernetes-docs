@@ -22,6 +22,9 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
   # Wait for the pod "busybox1" to contain the status condition of type "Ready".
   kubectl wait --for=condition=Ready pod/busybox1
   
+  # The default value of status condition is true, you can set false.
+  kubectl wait --for=condition=Ready=false pod/busybox1
+  
   # Wait for the pod "busybox1" to be deleted, with a timeout of 60s, after having issued the "delete" command.
   kubectl delete pod/busybox1
   kubectl wait --for=delete pod/busybox1 --timeout=60s
@@ -35,12 +38,13 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --field-selector string         Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
   -f, --filename strings              identifying the resource.
-      --for string                    The condition to wait on: [delete|condition=condition-name].
+      --for string                    The condition to wait on: [delete|condition=condition-name]. The default status value of condition-name is true, you can set false with condition=condition-name=false
   -h, --help                          help for wait
       --local                         If true, annotation will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
   -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --timeout duration              The length of time to wait before giving up.  Zero means check once and don't wait, negative means wait for a week. (default 30s)
 ```
