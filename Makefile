@@ -1,5 +1,5 @@
-KUBERNETES_VERSION ?= v1.20.0
-GO_VERSION ?= 1.15
+KUBERNETES_VERSION ?= v1.21.0
+GO_VERSION ?= 1.16
 
 .PHONY: generate-docs
 generate-docs: clean
