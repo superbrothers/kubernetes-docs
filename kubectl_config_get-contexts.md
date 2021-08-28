@@ -4,7 +4,7 @@ Describe one or many contexts
 
 ### Synopsis
 
-Displays one or many contexts from the kubeconfig file.
+Display one or many contexts from the kubeconfig file.
 
 ```
 kubectl config get-contexts [(-o|--output=)name)]
@@ -16,7 +16,7 @@ kubectl config get-contexts [(-o|--output=)name)]
   # List all the contexts in your kubeconfig file
   kubectl config get-contexts
   
-  # Describe one context in your kubeconfig file.
+  # Describe one context in your kubeconfig file
   kubectl config get-contexts my-context
 ```
 

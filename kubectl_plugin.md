@@ -1,6 +1,6 @@
 ## kubectl plugin
 
-Provides utilities for interacting with plugins.
+Provides utilities for interacting with plugins
 
 ### Synopsis
 
@@ -50,5 +50,5 @@ kubectl plugin [flags]
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl plugin list](kubectl_plugin_list.md)	 - list all visible plugin executables on a user's PATH
+* [kubectl plugin list](kubectl_plugin_list.md)	 - List all visible plugin executables on a user's PATH
 

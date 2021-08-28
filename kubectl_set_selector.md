@@ -15,7 +15,7 @@ kubectl set selector (-f FILENAME | TYPE NAME) EXPRESSIONS [--resource-version=v
 ### Examples
 
 ```
-  # set the labels and selector before creating a deployment/service pair.
+  # Set the labels and selector before creating a deployment/service pair
   kubectl create service clusterip my-svc --clusterip="None" -o yaml --dry-run=client | kubectl set selector --local -f - 'environment=qa' -o yaml | kubectl create -f -
   kubectl create deployment my-dep -o yaml --dry-run=client | kubectl label --local -f - environment=qa -o yaml | kubectl create -f -
 ```
@@ -31,7 +31,6 @@ kubectl set selector (-f FILENAME | TYPE NAME) EXPRESSIONS [--resource-version=v
   -h, --help                           help for selector
       --local                          If true, annotation will NOT contact api-server but run locally.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
       --resource-version string        If non-empty, the selectors update will only succeed if this is the current resource-version for the object. Only valid when specifying a single resource.
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.

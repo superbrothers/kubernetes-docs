@@ -1,10 +1,10 @@
 ## kubectl create cronjob
 
-Create a cronjob with the specified name.
+Create a cron job with the specified name
 
 ### Synopsis
 
-Create a cronjob with the specified name.
+Create a cron job with the specified name.
 
 ```
 kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] [args...] [flags]
@@ -13,10 +13,10 @@ kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] 
 ### Examples
 
 ```
-  # Create a cronjob
+  # Create a cron job
   kubectl create cronjob my-job --image=busybox --schedule="*/1 * * * *"
   
-  # Create a cronjob with command
+  # Create a cron job with a command
   kubectl create cronjob my-job --image=busybox --schedule="*/1 * * * *" -- date
 ```
 
@@ -66,5 +66,5 @@ kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] 
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

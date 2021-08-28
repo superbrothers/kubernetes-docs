@@ -4,7 +4,7 @@ Display one or many resources
 
 ### Synopsis
 
-Display one or many resources
+Display one or many resources.
 
  Prints a table of the most important information about the specified resources. You can filter the list using a label selector and the --selector flag. If the desired resource type is namespaced you will only see results in your current namespace unless you pass --all-namespaces.
 
@@ -15,43 +15,43 @@ Display one or many resources
 Use "kubectl api-resources" for a complete list of supported resources.
 
 ```
-kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=...] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
+kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns|custom-columns-file|wide] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
 ```
 
 ### Examples
 
 ```
-  # List all pods in ps output format.
+  # List all pods in ps output format
   kubectl get pods
   
-  # List all pods in ps output format with more information (such as node name).
+  # List all pods in ps output format with more information (such as node name)
   kubectl get pods -o wide
   
-  # List a single replication controller with specified NAME in ps output format.
+  # List a single replication controller with specified NAME in ps output format
   kubectl get replicationcontroller web
   
-  # List deployments in JSON output format, in the "v1" version of the "apps" API group:
+  # List deployments in JSON output format, in the "v1" version of the "apps" API group
   kubectl get deployments.v1.apps -o json
   
-  # List a single pod in JSON output format.
+  # List a single pod in JSON output format
   kubectl get -o json pod web-pod-13je7
   
-  # List a pod identified by type and name specified in "pod.yaml" in JSON output format.
+  # List a pod identified by type and name specified in "pod.yaml" in JSON output format
   kubectl get -f pod.yaml -o json
   
-  # List resources from a directory with kustomization.yaml - e.g. dir/kustomization.yaml.
+  # List resources from a directory with kustomization.yaml - e.g. dir/kustomization.yaml
   kubectl get -k dir/
   
-  # Return only the phase value of the specified pod.
+  # Return only the phase value of the specified pod
   kubectl get -o template pod/web-pod-13je7 --template={{.status.phase}}
   
-  # List resource information in custom columns.
+  # List resource information in custom columns
   kubectl get pod test-pod -o custom-columns=CONTAINER:.spec.containers[0].name,IMAGE:.spec.containers[0].image
   
-  # List all replication controllers and services together in ps output format.
+  # List all replication controllers and services together in ps output format
   kubectl get rc,services
   
-  # List one or more resources by their type and names.
+  # List one or more resources by their type and names
   kubectl get rc/web service/frontend pods/web-pod-13je7
 ```
 
@@ -68,7 +68,7 @@ kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file
   -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -L, --label-columns strings         Accepts a comma separated list of labels that are going to be presented as columns. Names are case-sensitive. You can also use multiple flag options like -L label1 -L label2...
       --no-headers                    When using the default or custom-column output format, don't print headers (default print headers).
-  -o, --output string                 Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns-file|custom-columns|wide See custom columns [https://kubernetes.io/docs/reference/kubectl/overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [https://kubernetes.io/docs/reference/kubectl/jsonpath/].
       --output-watch-events           Output watch event objects when --watch or --watch-only is used. Existing objects are output as initial ADDED events.
       --raw string                    Raw URI to request from the server.  Uses the transport specified by the kubeconfig file.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.

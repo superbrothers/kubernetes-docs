@@ -4,7 +4,7 @@ Print the client and server version information
 
 ### Synopsis
 
-Print the client and server version information for the current context
+Print the client and server version information for the current context.
 
 ```
 kubectl version [flags]

@@ -4,7 +4,7 @@ Delete the specified context from the kubeconfig
 
 ### Synopsis
 
-Delete the specified context from the kubeconfig
+Delete the specified context from the kubeconfig.
 
 ```
 kubectl config delete-context NAME

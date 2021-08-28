@@ -6,13 +6,13 @@ Drain node in preparation for maintenance
 
 Drain node in preparation for maintenance.
 
- The given node will be marked unschedulable to prevent new pods from arriving. 'drain' evicts the pods if the APIServer supports http://kubernetes.io/docs/admin/disruptions/ . Otherwise, it will use normal DELETE to delete the pods. The 'drain' evicts or deletes all pods except mirror pods (which cannot be deleted through the API server).  If there are DaemonSet-managed pods, drain will not proceed without --ignore-daemonsets, and regardless it will not delete any DaemonSet-managed pods, because those pods would be immediately replaced by the DaemonSet controller, which ignores unschedulable markings.  If there are any pods that are neither mirror pods nor managed by ReplicationController, ReplicaSet, DaemonSet, StatefulSet or Job, then drain will not delete any pods unless you use --force.  --force will also allow deletion to proceed if the managing resource of one or more pods is missing.
+ The given node will be marked unschedulable to prevent new pods from arriving. 'drain' evicts the pods if the API server supports https://kubernetes.io/docs/concepts/workloads/pods/disruptions/ . Otherwise, it will use normal DELETE to delete the pods. The 'drain' evicts or deletes all pods except mirror pods (which cannot be deleted through the API server).  If there are daemon set-managed pods, drain will not proceed without --ignore-daemonsets, and regardless it will not delete any daemon set-managed pods, because those pods would be immediately replaced by the daemon set controller, which ignores unschedulable markings.  If there are any pods that are neither mirror pods nor managed by a replication controller, replica set, daemon set, stateful set, or job, then drain will not delete any pods unless you use --force.  --force will also allow deletion to proceed if the managing resource of one or more pods is missing.
 
  'drain' waits for graceful termination. You should not operate on the machine until the command completes.
 
  When you are ready to put the node back into service, use kubectl uncordon, which will make the node schedulable again.
 
- http://kubernetes.io/images/docs/kubectl_drain.svg
+ https://kubernetes.io/images/docs/kubectl_drain.svg
 
 ```
 kubectl drain NODE
@@ -21,16 +21,17 @@ kubectl drain NODE
 ### Examples
 
 ```
-  # Drain node "foo", even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet on it.
-  $ kubectl drain foo --force
+  # Drain node "foo", even if there are pods not managed by a replication controller, replica set, job, daemon set or stateful set on it
+  kubectl drain foo --force
   
-  # As above, but abort if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet, and use a grace period of 15 minutes.
-  $ kubectl drain foo --grace-period=900
+  # As above, but abort if there are pods not managed by a replication controller, replica set, job, daemon set or stateful set, and use a grace period of 15 minutes
+  kubectl drain foo --grace-period=900
 ```
 
 ### Options
 
 ```
+      --chunk-size int                     Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future. (default 500)
       --delete-emptydir-data               Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
       --disable-eviction                   Force drain to use delete, even if eviction is supported. This will bypass checking PodDisruptionBudgets, use with caution.
       --dry-run string[="unchanged"]       Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")

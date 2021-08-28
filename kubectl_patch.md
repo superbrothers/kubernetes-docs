@@ -1,10 +1,10 @@
 ## kubectl patch
 
-Update field(s) of a resource
+Update fields of a resource
 
 ### Synopsis
 
-Update field(s) of a resource using strategic merge patch, a JSON merge patch, or a JSON patch.
+Update fields of a resource using strategic merge patch, a JSON merge patch, or a JSON patch.
 
  JSON and YAML formats are accepted.
 
@@ -15,19 +15,19 @@ kubectl patch (-f FILENAME | TYPE NAME) [-p PATCH|--patch-file FILE]
 ### Examples
 
 ```
-  # Partially update a node using a strategic merge patch. Specify the patch as JSON.
+  # Partially update a node using a strategic merge patch, specifying the patch as JSON
   kubectl patch node k8s-node-1 -p '{"spec":{"unschedulable":true}}'
   
-  # Partially update a node using a strategic merge patch. Specify the patch as YAML.
+  # Partially update a node using a strategic merge patch, specifying the patch as YAML
   kubectl patch node k8s-node-1 -p $'spec:\n unschedulable: true'
   
-  # Partially update a node identified by the type and name specified in "node.json" using strategic merge patch.
+  # Partially update a node identified by the type and name specified in "node.json" using strategic merge patch
   kubectl patch -f node.json -p '{"spec":{"unschedulable":true}}'
   
-  # Update a container's image; spec.containers[*].name is required because it's a merge key.
+  # Update a container's image; spec.containers[*].name is required because it's a merge key
   kubectl patch pod valid-pod -p '{"spec":{"containers":[{"name":"kubernetes-serve-hostname","image":"new image"}]}}'
   
-  # Update a container's image using a json patch with positional arrays.
+  # Update a container's image using a JSON patch with positional arrays
   kubectl patch pod valid-pod --type='json' -p='[{"op": "replace", "path": "/spec/containers/0/image", "value":"new image"}]'
 ```
 
@@ -44,7 +44,6 @@ kubectl patch (-f FILENAME | TYPE NAME) [-p PATCH|--patch-file FILE]
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
   -p, --patch string                   The patch to be applied to the resource JSON file.
       --patch-file string              A file containing a patch to be applied to the resource.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].

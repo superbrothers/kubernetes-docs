@@ -1,10 +1,10 @@
 ## kubectl create quota
 
-Create a quota with the specified name.
+Create a quota with the specified name
 
 ### Synopsis
 
-Create a resourcequota with the specified name, hard limits and optional scopes
+Create a resource quota with the specified name, hard limits, and optional scopes.
 
 ```
 kubectl create quota NAME [--hard=key1=value1,key2=value2] [--scopes=Scope1,Scope2] [--dry-run=server|client|none]
@@ -13,10 +13,10 @@ kubectl create quota NAME [--hard=key1=value1,key2=value2] [--scopes=Scope1,Scop
 ### Examples
 
 ```
-  # Create a new resourcequota named my-quota
+  # Create a new resource quota named my-quota
   kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
   
-  # Create a new resourcequota named best-effort
+  # Create a new resource quota named best-effort
   kubectl create quota best-effort --hard=pods=100 --scopes=BestEffort
 ```
 
@@ -65,5 +65,5 @@ kubectl create quota NAME [--hard=key1=value1,key2=value2] [--scopes=Scope1,Scop
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

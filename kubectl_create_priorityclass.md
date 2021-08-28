@@ -1,10 +1,10 @@
 ## kubectl create priorityclass
 
-Create a priorityclass with the specified name.
+Create a priority class with the specified name
 
 ### Synopsis
 
-Create a priorityclass with the specified name, value, globalDefault and description
+Create a priority class with the specified name, value, globalDefault and description.
 
 ```
 kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run=server|client|none]
@@ -13,13 +13,13 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
 ### Examples
 
 ```
-  # Create a priorityclass named high-priority
+  # Create a priority class named high-priority
   kubectl create priorityclass high-priority --value=1000 --description="high priority"
   
-  # Create a priorityclass named default-priority that considered as the global default priority
+  # Create a priority class named default-priority that is considered as the global default priority
   kubectl create priorityclass default-priority --value=1000 --global-default=true --description="default priority"
   
-  # Create a priorityclass named high-priority that can not preempt pods with lower priority
+  # Create a priority class named high-priority that cannot preempt pods with lower priority
   kubectl create priorityclass high-priority --value=1000 --description="high priority" --preemption-policy="Never"
 ```
 
@@ -70,5 +70,5 @@ kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

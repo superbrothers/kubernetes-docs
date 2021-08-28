@@ -1,10 +1,10 @@
 ## kubectl set serviceaccount
 
-Update ServiceAccount of a resource
+Update the service account of a resource
 
 ### Synopsis
 
-Update ServiceAccount of pod template resources.
+Update the service account of pod template resources.
 
  Possible resources (case insensitive) can be:
 
@@ -17,10 +17,10 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
 ### Examples
 
 ```
-  # Set Deployment nginx-deployment's ServiceAccount to serviceaccount1
+  # Set deployment nginx-deployment's service account to serviceaccount1
   kubectl set serviceaccount deployment nginx-deployment serviceaccount1
   
-  # Print the result (in yaml format) of updated nginx deployment with serviceaccount from local file, without hitting apiserver
+  # Print the result (in YAML format) of updated nginx deployment with the service account from local file, without hitting the API server
   kubectl set sa -f nginx-deployment.yaml serviceaccount1 --local --dry-run=client -o yaml
 ```
 
@@ -36,7 +36,6 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --local                          If true, set serviceaccount will NOT contact api-server but run locally.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].

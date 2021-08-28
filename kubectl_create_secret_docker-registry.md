@@ -14,7 +14,7 @@ Create a new secret for use with Docker registries.
  That produces a ~/.dockercfg file that is used by subsequent 'docker push' and 'docker pull' commands to authenticate to the registry. The email address is optional.
 
   When creating applications, you may have a Docker registry that requires authentication.  In order for the
-  nodes to pull images on your behalf, they have to have the credentials.  You can provide this information
+  nodes to pull images on your behalf, they must have the credentials.  You can provide this information
   by creating a dockercfg secret and attaching it to your service account.
 
 ```

@@ -1,16 +1,16 @@
 ## kubectl config rename-context
 
-Renames a context from the kubeconfig file.
+Rename a context from the kubeconfig file
 
 ### Synopsis
 
 Renames a context from the kubeconfig file.
 
- CONTEXT_NAME is the context name that you wish to change.
+ CONTEXT_NAME is the context name that you want to change.
 
- NEW_NAME is the new name you wish to set.
+ NEW_NAME is the new name you want to set.
 
- Note: In case the context being renamed is the 'current-context', this field will also be updated.
+ Note: If the context being renamed is the 'current-context', this field will also be updated.
 
 ```
 kubectl config rename-context CONTEXT_NAME NEW_NAME

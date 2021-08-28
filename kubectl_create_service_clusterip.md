@@ -1,6 +1,6 @@
 ## kubectl create service clusterip
 
-Create a ClusterIP service.
+Create a ClusterIP service
 
 ### Synopsis
 
@@ -65,5 +65,5 @@ kubectl create service clusterip NAME [--tcp=<port>:<targetPort>] [--dry-run=ser
 
 ### SEE ALSO
 
-* [kubectl create service](kubectl_create_service.md)	 - Create a service using specified subcommand.
+* [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 

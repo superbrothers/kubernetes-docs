@@ -1,10 +1,10 @@
 ## kubectl config set-cluster
 
-Sets a cluster entry in kubeconfig
+Set a cluster entry in kubeconfig
 
 ### Synopsis
 
-Sets a cluster entry in kubeconfig.
+Set a cluster entry in kubeconfig.
 
  Specifying a name that already exists will merge new fields on top of existing values for those fields.
 
@@ -15,7 +15,7 @@ kubectl config set-cluster NAME [--server=server] [--certificate-authority=path/
 ### Examples
 
 ```
-  # Set only the server field on the e2e cluster entry without touching other values.
+  # Set only the server field on the e2e cluster entry without touching other values
   kubectl config set-cluster e2e --server=https://1.2.3.4
   
   # Embed certificate authority data for the e2e cluster entry

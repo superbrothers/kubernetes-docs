@@ -13,7 +13,7 @@ kubectl cordon NODE
 ### Examples
 
 ```
-  # Mark node "foo" as unschedulable.
+  # Mark node "foo" as unschedulable
   kubectl cordon foo
 ```
 

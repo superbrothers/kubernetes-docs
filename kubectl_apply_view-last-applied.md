@@ -1,12 +1,12 @@
 ## kubectl apply view-last-applied
 
-View latest last-applied-configuration annotations of a resource/object
+View the latest last-applied-configuration annotations of a resource/object
 
 ### Synopsis
 
 View the latest last-applied-configuration annotations by type/name or file.
 
- The default output will be printed to stdout in YAML format. One can use -o option to change output format.
+ The default output will be printed to stdout in YAML format. You can use the -o option to change the output format.
 
 ```
 kubectl apply view-last-applied (TYPE [NAME | -l label] | TYPE/NAME | -f FILENAME)
@@ -15,7 +15,7 @@ kubectl apply view-last-applied (TYPE [NAME | -l label] | TYPE/NAME | -f FILENAM
 ### Examples
 
 ```
-  # View the last-applied-configuration annotations by type/name in YAML.
+  # View the last-applied-configuration annotations by type/name in YAML
   kubectl apply view-last-applied deployment/nginx
   
   # View the last-applied-configuration annotations by file in JSON
@@ -63,5 +63,5 @@ kubectl apply view-last-applied (TYPE [NAME | -l label] | TYPE/NAME | -f FILENAM
 
 ### SEE ALSO
 
-* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by filename or stdin
+* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by file name or stdin
 

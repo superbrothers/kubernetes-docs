@@ -1,10 +1,10 @@
 ## kubectl config set-context
 
-Sets a context entry in kubeconfig
+Set a context entry in kubeconfig
 
 ### Synopsis
 
-Sets a context entry in kubeconfig
+Set a context entry in kubeconfig.
 
  Specifying a name that already exists will merge new fields on top of existing values for those fields.
 

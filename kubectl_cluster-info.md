@@ -1,10 +1,10 @@
 ## kubectl cluster-info
 
-Display cluster info
+Display cluster information
 
 ### Synopsis
 
-Display addresses of the control plane and services with label kubernetes.io/cluster-service=true To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+Display addresses of the control plane and services with label kubernetes.io/cluster-service=true. To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ```
 kubectl cluster-info [flags]
@@ -53,5 +53,5 @@ kubectl cluster-info [flags]
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl cluster-info dump](kubectl_cluster-info_dump.md)	 - Dump lots of relevant info for debugging and diagnosis
+* [kubectl cluster-info dump](kubectl_cluster-info_dump.md)	 - Dump relevant information for debugging and diagnosis
 

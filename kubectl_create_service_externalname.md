@@ -1,6 +1,6 @@
 ## kubectl create service externalname
 
-Create an ExternalName service.
+Create an ExternalName service
 
 ### Synopsis
 
@@ -64,5 +64,5 @@ kubectl create service externalname NAME --external-name external.name [--dry-ru
 
 ### SEE ALSO
 
-* [kubectl create service](kubectl_create_service.md)	 - Create a service using specified subcommand.
+* [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 

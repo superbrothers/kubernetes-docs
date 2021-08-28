@@ -1,12 +1,12 @@
 ## kubectl autoscale
 
-Auto-scale a Deployment, ReplicaSet, StatefulSet, or ReplicationController
+Auto-scale a deployment, replica set, stateful set, or replication controller
 
 ### Synopsis
 
-Creates an autoscaler that automatically chooses and sets the number of pods that run in a kubernetes cluster.
+Creates an autoscaler that automatically chooses and sets the number of pods that run in a Kubernetes cluster.
 
- Looks up a Deployment, ReplicaSet, StatefulSet, or ReplicationController by name and creates an autoscaler that uses the given resource as a reference. An autoscaler can automatically increase or decrease number of pods deployed within the system as needed.
+ Looks up a deployment, replica set, stateful set, or replication controller by name and creates an autoscaler that uses the given resource as a reference. An autoscaler can automatically increase or decrease number of pods deployed within the system as needed.
 
 ```
 kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MAXPODS [--cpu-percent=CPU]
@@ -15,10 +15,10 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
 ### Examples
 
 ```
-  # Auto scale a deployment "foo", with the number of pods between 2 and 10, no target CPU utilization specified so a default autoscaling policy will be used:
+  # Auto scale a deployment "foo", with the number of pods between 2 and 10, no target CPU utilization specified so a default autoscaling policy will be used
   kubectl autoscale deployment foo --min=2 --max=10
   
-  # Auto scale a replication controller "foo", with the number of pods between 1 and 5, target CPU utilization at 80%:
+  # Auto scale a replication controller "foo", with the number of pods between 1 and 5, target CPU utilization at 80%
   kubectl autoscale rc foo --max=5 --cpu-percent=80
 ```
 
@@ -36,7 +36,6 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
       --min int32                      The lower limit for the number of pods that can be set by the autoscaler. If it's not specified or negative, the server will apply a default value. (default -1)
       --name string                    The name for the newly created object. If not specified, the name of the input resource will be used.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.

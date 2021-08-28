@@ -4,7 +4,7 @@ Delete the specified cluster from the kubeconfig
 
 ### Synopsis
 
-Delete the specified cluster from the kubeconfig
+Delete the specified cluster from the kubeconfig.
 
 ```
 kubectl config delete-cluster NAME

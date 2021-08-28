@@ -12,7 +12,7 @@ Update environment variables on a pod template.
 
  Possible resources include (case insensitive):
 
-  pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), job, replicaset (rs)
+  pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), statefulset (sts), cronjob (cj), replicaset (rs)
 
 ```
 kubectl set env RESOURCE/NAME KEY_1=VAL_1 ... KEY_N=VAL_N

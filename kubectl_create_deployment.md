@@ -1,6 +1,6 @@
 ## kubectl create deployment
 
-Create a deployment with the specified name.
+Create a deployment with the specified name
 
 ### Synopsis
 
@@ -13,16 +13,16 @@ kubectl create deployment NAME --image=image -- [COMMAND] [args...]
 ### Examples
 
 ```
-  # Create a deployment named my-dep that runs the busybox image.
+  # Create a deployment named my-dep that runs the busybox image
   kubectl create deployment my-dep --image=busybox
   
-  # Create a deployment with command
+  # Create a deployment with a command
   kubectl create deployment my-dep --image=busybox -- date
   
-  # Create a deployment named my-dep that runs the nginx image with 3 replicas.
+  # Create a deployment named my-dep that runs the nginx image with 3 replicas
   kubectl create deployment my-dep --image=nginx --replicas=3
   
-  # Create a deployment named my-dep that runs the busybox image and expose port 5701.
+  # Create a deployment named my-dep that runs the busybox image and expose port 5701
   kubectl create deployment my-dep --image=busybox --port=5701
 ```
 
@@ -72,5 +72,5 @@ kubectl create deployment NAME --image=image -- [COMMAND] [args...]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

@@ -13,31 +13,31 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=serv
 ### Examples
 
 ```
-  # Start a nginx pod.
+  # Start a nginx pod
   kubectl run nginx --image=nginx
   
-  # Start a hazelcast pod and let the container expose port 5701.
+  # Start a hazelcast pod and let the container expose port 5701
   kubectl run hazelcast --image=hazelcast/hazelcast --port=5701
   
-  # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in the container.
+  # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in the container
   kubectl run hazelcast --image=hazelcast/hazelcast --env="DNS_DOMAIN=cluster" --env="POD_NAMESPACE=default"
   
-  # Start a hazelcast pod and set labels "app=hazelcast" and "env=prod" in the container.
+  # Start a hazelcast pod and set labels "app=hazelcast" and "env=prod" in the container
   kubectl run hazelcast --image=hazelcast/hazelcast --labels="app=hazelcast,env=prod"
   
-  # Dry run. Print the corresponding API objects without creating them.
+  # Dry run; print the corresponding API objects without creating them
   kubectl run nginx --image=nginx --dry-run=client
   
-  # Start a nginx pod, but overload the spec with a partial set of values parsed from JSON.
+  # Start a nginx pod, but overload the spec with a partial set of values parsed from JSON
   kubectl run nginx --image=nginx --overrides='{ "apiVersion": "v1", "spec": { ... } }'
   
-  # Start a busybox pod and keep it in the foreground, don't restart it if it exits.
+  # Start a busybox pod and keep it in the foreground, don't restart it if it exits
   kubectl run -i -t busybox --image=busybox --restart=Never
   
-  # Start the nginx pod using the default command, but use custom arguments (arg1 .. argN) for that command.
+  # Start the nginx pod using the default command, but use custom arguments (arg1 .. argN) for that command
   kubectl run nginx --image=nginx -- <arg1> <arg2> ... <argN>
   
-  # Start the nginx pod using a different command and custom arguments.
+  # Start the nginx pod using a different command and custom arguments
   kubectl run nginx --image=nginx --command -- <cmd> <arg1> ... <argN>
 ```
 
@@ -68,7 +68,6 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=serv
       --port string                     The port that this container exposes.
       --privileged                      If true, run the container in privileged mode.
   -q, --quiet                           If true, suppress prompt messages.
-      --record                          Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                       Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --restart string                  The restart policy for this Pod.  Legal values [Always, OnFailure, Never]. (default "Always")
       --rm                              If true, delete resources created in this command for attached containers.

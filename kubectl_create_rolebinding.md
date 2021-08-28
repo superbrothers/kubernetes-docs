@@ -1,10 +1,10 @@
 ## kubectl create rolebinding
 
-Create a RoleBinding for a particular Role or ClusterRole
+Create a role binding for a particular role or cluster role
 
 ### Synopsis
 
-Create a RoleBinding for a particular Role or ClusterRole.
+Create a role binding for a particular role or cluster role.
 
 ```
 kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME [--user=username] [--group=groupname] [--serviceaccount=namespace:serviceaccountname] [--dry-run=server|client|none]
@@ -13,7 +13,7 @@ kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME [--user=username]
 ### Examples
 
 ```
-  # Create a RoleBinding for user1, user2, and group1 using the admin ClusterRole
+  # Create a role binding for user1, user2, and group1 using the admin cluster role
   kubectl create rolebinding admin --clusterrole=admin --user=user1 --user=user2 --group=group1
 ```
 
@@ -64,5 +64,5 @@ kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME [--user=username]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

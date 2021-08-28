@@ -1,10 +1,10 @@
 ## kubectl scale
 
-Set a new size for a Deployment, ReplicaSet or Replication Controller
+Set a new size for a deployment, replica set, or replication controller
 
 ### Synopsis
 
-Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet.
+Set a new size for a deployment, replica set, replication controller, or stateful set.
 
  Scale also allows users to specify one or more preconditions for the scale action.
 
@@ -17,19 +17,19 @@ kubectl scale [--resource-version=version] [--current-replicas=count] --replicas
 ### Examples
 
 ```
-  # Scale a replicaset named 'foo' to 3.
+  # Scale a replica set named 'foo' to 3
   kubectl scale --replicas=3 rs/foo
   
-  # Scale a resource identified by type and name specified in "foo.yaml" to 3.
+  # Scale a resource identified by type and name specified in "foo.yaml" to 3
   kubectl scale --replicas=3 -f foo.yaml
   
-  # If the deployment named mysql's current size is 2, scale mysql to 3.
+  # If the deployment named mysql's current size is 2, scale mysql to 3
   kubectl scale --current-replicas=2 --replicas=3 deployment/mysql
   
-  # Scale multiple replication controllers.
+  # Scale multiple replication controllers
   kubectl scale --replicas=5 rc/foo rc/bar rc/baz
   
-  # Scale statefulset named 'web' to 3.
+  # Scale stateful set named 'web' to 3
   kubectl scale --replicas=3 statefulset/web
 ```
 
@@ -38,13 +38,12 @@ kubectl scale [--resource-version=version] [--current-replicas=count] --replicas
 ```
       --all                            Select all resources in the namespace of the specified resource types
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --current-replicas int           Precondition for current size. Requires that the current size of the resource match this value in order to scale. (default -1)
+      --current-replicas int           Precondition for current size. Requires that the current size of the resource match this value in order to scale. -1 (default) for no condition. (default -1)
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
   -f, --filename strings               Filename, directory, or URL to files identifying the resource to set a new size
   -h, --help                           help for scale
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --replicas int                   The new desired number of replicas. Required.
       --resource-version string        Precondition for resource version. Requires that the current resource version match this value in order to scale.

@@ -4,7 +4,7 @@ Show details of a specific resource or group of resources
 
 ### Synopsis
 
-Show details of a specific resource or group of resources
+Show details of a specific resource or group of resources.
 
  Print a detailed description of the selected resources, including related resources such as events or controllers. You may select a single object by name, all objects of that type, provide a name prefix, or label selector. For example:
 
@@ -37,7 +37,7 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
   kubectl describe po -l name=myLabel
   
   # Describe all pods managed by the 'frontend' replication controller (rc-created pods
-  # get the name of the rc as a prefix in the pod the name).
+  # get the name of the rc as a prefix in the pod the name)
   kubectl describe pods frontend
 ```
 
@@ -45,6 +45,7 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
 
 ```
   -A, --all-namespaces     If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --chunk-size int     Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future. (default 500)
   -f, --filename strings   Filename, directory, or URL to files containing the resource to describe
   -h, --help               help for describe
   -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.

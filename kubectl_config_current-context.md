@@ -1,10 +1,10 @@
 ## kubectl config current-context
 
-Displays the current-context
+Display the current-context
 
 ### Synopsis
 
-Displays the current-context
+Display the current-context.
 
 ```
 kubectl config current-context [flags]

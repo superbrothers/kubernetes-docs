@@ -4,7 +4,7 @@ Delete the specified user from the kubeconfig
 
 ### Synopsis
 
-Delete the specified user from the kubeconfig
+Delete the specified user from the kubeconfig.
 
 ```
 kubectl config delete-user NAME

@@ -1,10 +1,10 @@
 ## kubectl create poddisruptionbudget
 
-Create a pod disruption budget with the specified name.
+Create a pod disruption budget with the specified name
 
 ### Synopsis
 
-Create a pod disruption budget with the specified name, selector, and desired minimum available pods
+Create a pod disruption budget with the specified name, selector, and desired minimum available pods.
 
 ```
 kubectl create poddisruptionbudget NAME --selector=SELECTOR --min-available=N [--dry-run=server|client|none]
@@ -14,11 +14,11 @@ kubectl create poddisruptionbudget NAME --selector=SELECTOR --min-available=N [-
 
 ```
   # Create a pod disruption budget named my-pdb that will select all pods with the app=rails label
-  # and require at least one of them being available at any point in time.
+  # and require at least one of them being available at any point in time
   kubectl create poddisruptionbudget my-pdb --selector=app=rails --min-available=1
   
   # Create a pod disruption budget named my-pdb that will select all pods with the app=nginx label
-  # and require at least half of the pods selected to be available at any point in time.
+  # and require at least half of the pods selected to be available at any point in time
   kubectl create pdb my-pdb --selector=app=nginx --min-available=50%
 ```
 
@@ -68,5 +68,5 @@ kubectl create poddisruptionbudget NAME --selector=SELECTOR --min-available=N [-
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

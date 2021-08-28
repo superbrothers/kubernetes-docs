@@ -6,7 +6,7 @@ Edit latest last-applied-configuration annotations of a resource/object
 
 Edit the latest last-applied-configuration annotations of resources from the default editor.
 
- The edit-last-applied command allows you to directly edit any API resource you can retrieve via the command line tools. It will open the editor defined by your KUBE_EDITOR, or EDITOR environment variables, or fall back to 'vi' for Linux or 'notepad' for Windows. You can edit multiple objects, although changes are applied one at a time. The command accepts filenames as well as command line arguments, although the files you point to must be previously saved versions of resources.
+ The edit-last-applied command allows you to directly edit any API resource you can retrieve via the command-line tools. It will open the editor defined by your KUBE_EDITOR, or EDITOR environment variables, or fall back to 'vi' for Linux or 'notepad' for Windows. You can edit multiple objects, although changes are applied one at a time. The command accepts file names as well as command-line arguments, although the files you point to must be previously saved versions of resources.
 
  The default format is YAML. To edit in JSON, specify "-o json".
 
@@ -21,10 +21,10 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
 ### Examples
 
 ```
-  # Edit the last-applied-configuration annotations by type/name in YAML.
+  # Edit the last-applied-configuration annotations by type/name in YAML
   kubectl apply edit-last-applied deployment/nginx
   
-  # Edit the last-applied-configuration annotations by file in JSON.
+  # Edit the last-applied-configuration annotations by file in JSON
   kubectl apply edit-last-applied -f deploy.yaml -o json
 ```
 
@@ -37,7 +37,6 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
   -h, --help                          help for edit-last-applied
   -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                        Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
@@ -73,5 +72,5 @@ kubectl apply edit-last-applied (RESOURCE/NAME | -f FILENAME)
 
 ### SEE ALSO
 
-* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by filename or stdin
+* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by file name or stdin
 

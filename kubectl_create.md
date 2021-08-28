@@ -1,6 +1,6 @@
 ## kubectl create
 
-Create a resource from a file or from stdin.
+Create a resource from a file or from stdin
 
 ### Synopsis
 
@@ -15,13 +15,13 @@ kubectl create -f FILENAME
 ### Examples
 
 ```
-  # Create a pod using the data in pod.json.
+  # Create a pod using the data in pod.json
   kubectl create -f ./pod.json
   
-  # Create a pod based on the JSON passed into stdin.
+  # Create a pod based on the JSON passed into stdin
   cat pod.json | kubectl create -f -
   
-  # Edit the data in docker-registry.yaml in JSON then create the resource using the edited data.
+  # Edit the data in docker-registry.yaml in JSON then create the resource using the edited data
   kubectl create -f docker-registry.yaml --edit -o json
 ```
 
@@ -37,7 +37,6 @@ kubectl create -f FILENAME
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --raw string                     Raw URI to POST to the server.  Uses the transport specified by the kubeconfig file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
   -l, --selector string                Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
@@ -77,20 +76,20 @@ kubectl create -f FILENAME
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
-* [kubectl create clusterrole](kubectl_create_clusterrole.md)	 - Create a ClusterRole.
-* [kubectl create clusterrolebinding](kubectl_create_clusterrolebinding.md)	 - Create a ClusterRoleBinding for a particular ClusterRole
-* [kubectl create configmap](kubectl_create_configmap.md)	 - Create a configmap from a local file, directory or literal value
-* [kubectl create cronjob](kubectl_create_cronjob.md)	 - Create a cronjob with the specified name.
-* [kubectl create deployment](kubectl_create_deployment.md)	 - Create a deployment with the specified name.
-* [kubectl create ingress](kubectl_create_ingress.md)	 - Create an ingress with the specified name.
-* [kubectl create job](kubectl_create_job.md)	 - Create a job with the specified name.
+* [kubectl create clusterrole](kubectl_create_clusterrole.md)	 - Create a cluster role
+* [kubectl create clusterrolebinding](kubectl_create_clusterrolebinding.md)	 - Create a cluster role binding for a particular cluster role
+* [kubectl create configmap](kubectl_create_configmap.md)	 - Create a config map from a local file, directory or literal value
+* [kubectl create cronjob](kubectl_create_cronjob.md)	 - Create a cron job with the specified name
+* [kubectl create deployment](kubectl_create_deployment.md)	 - Create a deployment with the specified name
+* [kubectl create ingress](kubectl_create_ingress.md)	 - Create an ingress with the specified name
+* [kubectl create job](kubectl_create_job.md)	 - Create a job with the specified name
 * [kubectl create namespace](kubectl_create_namespace.md)	 - Create a namespace with the specified name
-* [kubectl create poddisruptionbudget](kubectl_create_poddisruptionbudget.md)	 - Create a pod disruption budget with the specified name.
-* [kubectl create priorityclass](kubectl_create_priorityclass.md)	 - Create a priorityclass with the specified name.
-* [kubectl create quota](kubectl_create_quota.md)	 - Create a quota with the specified name.
-* [kubectl create role](kubectl_create_role.md)	 - Create a role with single rule.
-* [kubectl create rolebinding](kubectl_create_rolebinding.md)	 - Create a RoleBinding for a particular Role or ClusterRole
+* [kubectl create poddisruptionbudget](kubectl_create_poddisruptionbudget.md)	 - Create a pod disruption budget with the specified name
+* [kubectl create priorityclass](kubectl_create_priorityclass.md)	 - Create a priority class with the specified name
+* [kubectl create quota](kubectl_create_quota.md)	 - Create a quota with the specified name
+* [kubectl create role](kubectl_create_role.md)	 - Create a role with single rule
+* [kubectl create rolebinding](kubectl_create_rolebinding.md)	 - Create a role binding for a particular role or cluster role
 * [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using specified subcommand
-* [kubectl create service](kubectl_create_service.md)	 - Create a service using specified subcommand.
+* [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 * [kubectl create serviceaccount](kubectl_create_serviceaccount.md)	 - Create a service account with the specified name
 

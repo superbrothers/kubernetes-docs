@@ -1,10 +1,10 @@
 ## kubectl config set-credentials
 
-Sets a user entry in kubeconfig
+Set a user entry in kubeconfig
 
 ### Synopsis
 
-Sets a user entry in kubeconfig
+Set a user entry in kubeconfig.
 
  Specifying a name that already exists will merge new fields on top of existing values.
 
@@ -27,7 +27,7 @@ kubectl config set-credentials NAME [--client-certificate=path/to/certfile] [--c
 
 ```
   # Set only the "client-key" field on the "cluster-admin"
-  # entry, without touching other values:
+  # entry, without touching other values
   kubectl config set-credentials cluster-admin --client-key=~/.kube/admin.key
   
   # Set basic auth for the "cluster-admin" entry

@@ -12,6 +12,13 @@ Deny a certificate signing request.
 kubectl certificate deny (-f FILENAME | NAME)
 ```
 
+### Examples
+
+```
+  # Deny CSR 'csr-sqgzp'
+  kubectl certificate deny csr-sqgzp
+```
+
 ### Options
 
 ```

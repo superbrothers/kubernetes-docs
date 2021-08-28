@@ -6,9 +6,18 @@ Output shell completion code for the specified shell (bash or zsh)
 
 Output shell completion code for the specified shell (bash or zsh). The shell code must be evaluated to provide interactive completion of kubectl commands.  This can be done by sourcing it from the .bash_profile.
 
- Detailed instructions on how to do this are available here: https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
+ Detailed instructions on how to do this are available here:
 
- Note for zsh users: [1] zsh completions are only supported in versions of zsh >= 5.2
+    for macOS:
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
+  
+    for linux:
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion
+  
+    for windows:
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#enable-shell-autocompletion
+  
+ Note for zsh users: [1] zsh completions are only supported in versions of zsh >= 5.2.
 
 ```
 kubectl completion SHELL
@@ -22,13 +31,13 @@ kubectl completion SHELL
   brew install bash-completion
   ## or, if running Bash 4.1+
   brew install bash-completion@2
-  ## If kubectl is installed via homebrew, this should start working immediately.
+  ## If kubectl is installed via homebrew, this should start working immediately
   ## If you've installed via other means, you may need add the completion to your completion directory
   kubectl completion bash > $(brew --prefix)/etc/bash_completion.d/kubectl
   
   
   # Installing bash completion on Linux
-  ## If bash-completion is not installed on Linux, please install the 'bash-completion' package
+  ## If bash-completion is not installed on Linux, install the 'bash-completion' package
   ## via your distribution's package manager.
   ## Load the kubectl completion code for bash into the current shell
   source <(kubectl completion bash)

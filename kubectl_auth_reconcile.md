@@ -1,10 +1,10 @@
 ## kubectl auth reconcile
 
-Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRoleBinding objects
+Reconciles rules for RBAC role, role binding, cluster role, and cluster role binding objects
 
 ### Synopsis
 
-Reconciles rules for RBAC Role, RoleBinding, ClusterRole, and ClusterRoleBinding objects.
+Reconciles rules for RBAC role, role binding, cluster role, and cluster role binding objects.
 
  Missing objects are created, and the containing namespace is created for namespaced objects, if required.
 
@@ -21,7 +21,7 @@ kubectl auth reconcile -f FILENAME
 ### Examples
 
 ```
-  # Reconcile rbac resources from a file
+  # Reconcile RBAC resources from a file
   kubectl auth reconcile -f my-rbac-rules.yaml
 ```
 

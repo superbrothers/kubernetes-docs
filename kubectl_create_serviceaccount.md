@@ -60,5 +60,5 @@ kubectl create serviceaccount NAME [--dry-run=server|client|none]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

@@ -6,7 +6,7 @@ Create a TLS secret
 
 Create a TLS secret from the given public/private key pair.
 
- The public/private key pair must exist before hand. The public key certificate must be .PEM encoded and match the given private key.
+ The public/private key pair must exist beforehand. The public key certificate must be .PEM encoded and match the given private key.
 
 ```
 kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file [--dry-run=server|client|none]
@@ -15,7 +15,7 @@ kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file [
 ### Examples
 
 ```
-  # Create a new TLS secret named tls-secret with the given key pair:
+  # Create a new TLS secret named tls-secret with the given key pair
   kubectl create secret tls tls-secret --cert=path/to/tls.cert --key=path/to/tls.key
 ```
 

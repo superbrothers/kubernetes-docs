@@ -1,10 +1,10 @@
 ## kubectl top pod
 
-Display Resource (CPU/Memory) usage of pods
+Display resource (CPU/memory) usage of pods
 
 ### Synopsis
 
-Display Resource (CPU/Memory) usage of pods.
+Display resource (CPU/memory) usage of pods.
 
  The 'top pod' command allows you to see the resource consumption of pods.
 
@@ -33,13 +33,14 @@ kubectl top pod [NAME | -l label]
 ### Options
 
 ```
-  -A, --all-namespaces         If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
-      --containers             If present, print usage of containers within a pod.
-  -h, --help                   help for pod
-      --no-headers             If present, print output without headers.
-  -l, --selector string        Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
-      --sort-by string         If non-empty, sort pods list using specified field. The field can be either 'cpu' or 'memory'.
-      --use-protocol-buffers   If present, protocol-buffers will be used to request metrics.
+  -A, --all-namespaces          If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --containers              If present, print usage of containers within a pod.
+      --field-selector string   Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
+  -h, --help                    help for pod
+      --no-headers              If present, print output without headers.
+  -l, --selector string         Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --sort-by string          If non-empty, sort pods list using specified field. The field can be either 'cpu' or 'memory'.
+      --use-protocol-buffers    Enables using protocol-buffers to access Metrics API. (default true)
 ```
 
 ### Options inherited from parent commands
@@ -71,5 +72,5 @@ kubectl top pod [NAME | -l label]
 
 ### SEE ALSO
 
-* [kubectl top](kubectl_top.md)	 - Display Resource (CPU/Memory) usage.
+* [kubectl top](kubectl_top.md)	 - Display resource (CPU/memory) usage
 

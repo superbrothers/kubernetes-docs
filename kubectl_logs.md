@@ -20,7 +20,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
   kubectl logs nginx --all-containers=true
   
   # Return snapshot logs from all containers in pods defined by label app=nginx
-  kubectl logs -lapp=nginx --all-containers=true
+  kubectl logs -l app=nginx --all-containers=true
   
   # Return snapshot of previous terminated ruby container logs from pod web-1
   kubectl logs -p -c ruby web-1
@@ -29,7 +29,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
   kubectl logs -f -c ruby web-1
   
   # Begin streaming the logs from all containers in pods defined by label app=nginx
-  kubectl logs -f -lapp=nginx --all-containers=true
+  kubectl logs -f -l app=nginx --all-containers=true
   
   # Display only the most recent 20 lines of output in pod nginx
   kubectl logs --tail=20 nginx

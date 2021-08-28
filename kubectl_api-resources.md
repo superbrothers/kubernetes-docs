@@ -4,7 +4,7 @@ Print the supported API resources on the server
 
 ### Synopsis
 
-Print the supported API resources on the server
+Print the supported API resources on the server.
 
 ```
 kubectl api-resources [flags]
@@ -13,13 +13,13 @@ kubectl api-resources [flags]
 ### Examples
 
 ```
-  # Print the supported API Resources
+  # Print the supported API resources
   kubectl api-resources
   
-  # Print the supported API Resources with more information
+  # Print the supported API resources with more information
   kubectl api-resources -o wide
   
-  # Print the supported API Resources sorted by a column
+  # Print the supported API resources sorted by a column
   kubectl api-resources --sort-by=name
   
   # Print the supported namespaced resources
@@ -28,7 +28,7 @@ kubectl api-resources [flags]
   # Print the supported non-namespaced resources
   kubectl api-resources --namespaced=false
   
-  # Print the supported API Resources with specific APIGroup
+  # Print the supported API resources with a specific APIGroup
   kubectl api-resources --api-group=extensions
 ```
 

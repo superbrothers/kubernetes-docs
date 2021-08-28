@@ -4,7 +4,7 @@ Undo a previous rollout
 
 ### Synopsis
 
-Rollback to a previous rollout.
+Roll back to a previous rollout.
 
 ```
 kubectl rollout undo (TYPE NAME | TYPE/NAME) [flags]
@@ -13,13 +13,13 @@ kubectl rollout undo (TYPE NAME | TYPE/NAME) [flags]
 ### Examples
 
 ```
-  # Rollback to the previous deployment
+  # Roll back to the previous deployment
   kubectl rollout undo deployment/abc
   
-  # Rollback to daemonset revision 3
+  # Roll back to daemonset revision 3
   kubectl rollout undo daemonset/abc --to-revision=3
   
-  # Rollback to the previous deployment with dry-run
+  # Roll back to the previous deployment with dry-run
   kubectl rollout undo --dry-run=server deployment/abc
 ```
 

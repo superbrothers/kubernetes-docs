@@ -1,10 +1,10 @@
 ## kubectl explain
 
-Documentation of resources
+Get documentation for a resource
 
 ### Synopsis
 
-List the fields for supported resources
+List the fields for supported resources.
 
  This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
 

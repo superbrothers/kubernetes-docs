@@ -1,6 +1,6 @@
 ## kubectl set image
 
-Update image of a pod template
+Update the image of a pod template
 
 ### Synopsis
 
@@ -8,7 +8,7 @@ Update existing container image(s) of resources.
 
  Possible resources include (case insensitive):
 
-  pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), replicaset (rs)
+  pod (po), replicationcontroller (rc), deployment (deploy), daemonset (ds), statefulset (sts), cronjob (cj), replicaset (rs)
 
 ```
 kubectl set image (-f FILENAME | TYPE NAME) CONTAINER_NAME_1=CONTAINER_IMAGE_1 ... CONTAINER_NAME_N=CONTAINER_IMAGE_N
@@ -17,7 +17,7 @@ kubectl set image (-f FILENAME | TYPE NAME) CONTAINER_NAME_1=CONTAINER_IMAGE_1 .
 ### Examples
 
 ```
-  # Set a deployment's nginx container image to 'nginx:1.9.1', and its busybox container image to 'busybox'.
+  # Set a deployment's nginx container image to 'nginx:1.9.1', and its busybox container image to 'busybox'
   kubectl set image deployment/nginx busybox=busybox nginx=nginx:1.9.1
   
   # Update all deployments' and rc's nginx container's image to 'nginx:1.9.1'
@@ -42,7 +42,6 @@ kubectl set image (-f FILENAME | TYPE NAME) CONTAINER_NAME_1=CONTAINER_IMAGE_1 .
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --local                          If true, set image will NOT contact api-server but run locally.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string                Selector (label query) to filter on, not including uninitialized ones, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.

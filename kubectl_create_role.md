@@ -1,6 +1,6 @@
 ## kubectl create role
 
-Create a role with single rule.
+Create a role with single rule
 
 ### Synopsis
 
@@ -13,16 +13,16 @@ kubectl create role NAME --verb=verb --resource=resource.group/subresource [--re
 ### Examples
 
 ```
-  # Create a Role named "pod-reader" that allows user to perform "get", "watch" and "list" on pods
+  # Create a role named "pod-reader" that allows user to perform "get", "watch" and "list" on pods
   kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods
   
-  # Create a Role named "pod-reader" with ResourceName specified
+  # Create a role named "pod-reader" with ResourceName specified
   kubectl create role pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod
   
-  # Create a Role named "foo" with API Group specified
+  # Create a role named "foo" with API Group specified
   kubectl create role foo --verb=get,list,watch --resource=rs.extensions
   
-  # Create a Role named "foo" with SubResource specified
+  # Create a role named "foo" with SubResource specified
   kubectl create role foo --verb=get,list,watch --resource=pods,pods/status
 ```
 
@@ -72,5 +72,5 @@ kubectl create role NAME --verb=verb --resource=resource.group/subresource [--re
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

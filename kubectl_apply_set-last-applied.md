@@ -1,6 +1,6 @@
 ## kubectl apply set-last-applied
 
-Set the last-applied-configuration annotation on a live object to match the contents of a file.
+Set the last-applied-configuration annotation on a live object to match the contents of a file
 
 ### Synopsis
 
@@ -13,13 +13,13 @@ kubectl apply set-last-applied -f FILENAME
 ### Examples
 
 ```
-  # Set the last-applied-configuration of a resource to match the contents of a file.
+  # Set the last-applied-configuration of a resource to match the contents of a file
   kubectl apply set-last-applied -f deploy.yaml
   
-  # Execute set-last-applied against each configuration file in a directory.
+  # Execute set-last-applied against each configuration file in a directory
   kubectl apply set-last-applied -f path/
   
-  # Set the last-applied-configuration of a resource to match the contents of a file, will create the annotation if it does not already exist.
+  # Set the last-applied-configuration of a resource to match the contents of a file; will create the annotation if it does not already exist
   kubectl apply set-last-applied -f deploy.yaml --create-annotation=true
 ```
 
@@ -65,5 +65,5 @@ kubectl apply set-last-applied -f FILENAME
 
 ### SEE ALSO
 
-* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by filename or stdin
+* [kubectl apply](kubectl_apply.md)	 - Apply a configuration to a resource by file name or stdin
 

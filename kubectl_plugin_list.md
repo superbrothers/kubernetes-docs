@@ -1,6 +1,6 @@
 ## kubectl plugin list
 
-list all visible plugin executables on a user's PATH
+List all visible plugin executables on a user's PATH
 
 ### Synopsis
 
@@ -48,5 +48,5 @@ kubectl plugin list [flags]
 
 ### SEE ALSO
 
-* [kubectl plugin](kubectl_plugin.md)	 - Provides utilities for interacting with plugins.
+* [kubectl plugin](kubectl_plugin.md)	 - Provides utilities for interacting with plugins
 

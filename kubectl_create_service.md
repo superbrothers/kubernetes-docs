@@ -1,10 +1,10 @@
 ## kubectl create service
 
-Create a service using specified subcommand.
+Create a service using a specified subcommand
 
 ### Synopsis
 
-Create a service using specified subcommand.
+Create a service using a specified subcommand.
 
 ```
 kubectl create service [flags]
@@ -45,9 +45,9 @@ kubectl create service [flags]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
-* [kubectl create service clusterip](kubectl_create_service_clusterip.md)	 - Create a ClusterIP service.
-* [kubectl create service externalname](kubectl_create_service_externalname.md)	 - Create an ExternalName service.
-* [kubectl create service loadbalancer](kubectl_create_service_loadbalancer.md)	 - Create a LoadBalancer service.
-* [kubectl create service nodeport](kubectl_create_service_nodeport.md)	 - Create a NodePort service.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
+* [kubectl create service clusterip](kubectl_create_service_clusterip.md)	 - Create a ClusterIP service
+* [kubectl create service externalname](kubectl_create_service_externalname.md)	 - Create an ExternalName service
+* [kubectl create service loadbalancer](kubectl_create_service_loadbalancer.md)	 - Create a LoadBalancer service
+* [kubectl create service nodeport](kubectl_create_service_nodeport.md)	 - Create a NodePort service
 

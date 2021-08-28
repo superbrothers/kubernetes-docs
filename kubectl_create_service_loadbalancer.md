@@ -1,6 +1,6 @@
 ## kubectl create service loadbalancer
 
-Create a LoadBalancer service.
+Create a LoadBalancer service
 
 ### Synopsis
 
@@ -61,5 +61,5 @@ kubectl create service loadbalancer NAME [--tcp=port:targetPort] [--dry-run=serv
 
 ### SEE ALSO
 
-* [kubectl create service](kubectl_create_service.md)	 - Create a service using specified subcommand.
+* [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 

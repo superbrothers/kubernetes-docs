@@ -1,10 +1,10 @@
 ## kubectl apply
 
-Apply a configuration to a resource by filename or stdin
+Apply a configuration to a resource by file name or stdin
 
 ### Synopsis
 
-Apply a configuration to a resource by filename or stdin. The resource name must be specified. This resource will be created if it doesn't exist yet. To use 'apply', always create the resource initially with either 'apply' or 'create --save-config'.
+Apply a configuration to a resource by file name or stdin. The resource name must be specified. This resource will be created if it doesn't exist yet. To use 'apply', always create the resource initially with either 'apply' or 'create --save-config'.
 
  JSON and YAML formats are accepted.
 
@@ -17,20 +17,20 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
 ### Examples
 
 ```
-  # Apply the configuration in pod.json to a pod.
+  # Apply the configuration in pod.json to a pod
   kubectl apply -f ./pod.json
   
-  # Apply resources from a directory containing kustomization.yaml - e.g. dir/kustomization.yaml.
+  # Apply resources from a directory containing kustomization.yaml - e.g. dir/kustomization.yaml
   kubectl apply -k dir/
   
-  # Apply the JSON passed into stdin to a pod.
+  # Apply the JSON passed into stdin to a pod
   cat pod.json | kubectl apply -f -
   
   # Note: --prune is still in Alpha
-  # Apply the configuration in manifest.yaml that matches label app=nginx and delete all the other resources that are not in the file and match label app=nginx.
+  # Apply the configuration in manifest.yaml that matches label app=nginx and delete all other resources that are not in the file and match label app=nginx
   kubectl apply --prune -f manifest.yaml -l app=nginx
   
-  # Apply the configuration in manifest.yaml and delete all the other configmaps that are not in the file.
+  # Apply the configuration in manifest.yaml and delete all the other config maps that are not in the file
   kubectl apply --prune -f manifest.yaml --all --prune-whitelist=core/v1/ConfigMap
 ```
 
@@ -53,7 +53,6 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
       --overwrite                       Automatically resolve conflicts between the modified and live configuration by using values from the modified configuration (default true)
       --prune                           Automatically delete resource objects, including the uninitialized ones, that do not appear in the configs and are created by either apply or create --save-config. Should be used with either -l or --all.
       --prune-whitelist stringArray     Overwrite the default whitelist with <group/version/kind> for --prune
-      --record                          Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                       Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string                 Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
       --server-side                     If true, apply runs in the server instead of the client.
@@ -95,6 +94,6 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 * [kubectl apply edit-last-applied](kubectl_apply_edit-last-applied.md)	 - Edit latest last-applied-configuration annotations of a resource/object
-* [kubectl apply set-last-applied](kubectl_apply_set-last-applied.md)	 - Set the last-applied-configuration annotation on a live object to match the contents of a file.
-* [kubectl apply view-last-applied](kubectl_apply_view-last-applied.md)	 - View latest last-applied-configuration annotations of a resource/object
+* [kubectl apply set-last-applied](kubectl_apply_set-last-applied.md)	 - Set the last-applied-configuration annotation on a live object to match the contents of a file
+* [kubectl apply view-last-applied](kubectl_apply_view-last-applied.md)	 - View the latest last-applied-configuration annotations of a resource/object
 

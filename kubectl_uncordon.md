@@ -13,8 +13,8 @@ kubectl uncordon NODE
 ### Examples
 
 ```
-  # Mark node "foo" as schedulable.
-  $ kubectl uncordon foo
+  # Mark node "foo" as schedulable
+  kubectl uncordon foo
 ```
 
 ### Options

@@ -13,7 +13,7 @@ kubectl config get-users [flags]
 ### Examples
 
 ```
-  # List the users kubectl knows about
+  # List the users that kubectl knows about
   kubectl config get-users
 ```
 

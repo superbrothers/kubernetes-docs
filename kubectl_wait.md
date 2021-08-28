@@ -1,6 +1,6 @@
 ## kubectl wait
 
-Experimental: Wait for a specific condition on one or many resources.
+Experimental: Wait for a specific condition on one or many resources
 
 ### Synopsis
 
@@ -10,7 +10,7 @@ Experimental: Wait for a specific condition on one or many resources.
 
  Alternatively, the command can wait for the given set of resources to be deleted by providing the "delete" keyword as the value to the --for flag.
 
- A successful message will be printed to stdout indicating when the specified condition has been met. One can use -o option to change to output destination.
+ A successful message will be printed to stdout indicating when the specified condition has been met. You can use -o option to change to output destination.
 
 ```
 kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l label | --all)]) [--for=delete|--for condition=available]
@@ -19,13 +19,13 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
 ### Examples
 
 ```
-  # Wait for the pod "busybox1" to contain the status condition of type "Ready".
+  # Wait for the pod "busybox1" to contain the status condition of type "Ready"
   kubectl wait --for=condition=Ready pod/busybox1
   
-  # The default value of status condition is true, you can set false.
+  # The default value of status condition is true; you can set it to false
   kubectl wait --for=condition=Ready=false pod/busybox1
   
-  # Wait for the pod "busybox1" to be deleted, with a timeout of 60s, after having issued the "delete" command.
+  # Wait for the pod "busybox1" to be deleted, with a timeout of 60s, after having issued the "delete" command
   kubectl delete pod/busybox1
   kubectl wait --for=delete pod/busybox1 --timeout=60s
 ```

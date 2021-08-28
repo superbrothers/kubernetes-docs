@@ -1,10 +1,10 @@
 ## kubectl config use-context
 
-Sets the current-context in a kubeconfig file
+Set the current-context in a kubeconfig file
 
 ### Synopsis
 
-Sets the current-context in a kubeconfig file
+Set the current-context in a kubeconfig file.
 
 ```
 kubectl config use-context CONTEXT_NAME

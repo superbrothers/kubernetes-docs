@@ -1,6 +1,6 @@
 ## kubectl create job
 
-Create a job with the specified name.
+Create a job with the specified name
 
 ### Synopsis
 
@@ -16,10 +16,10 @@ kubectl create job NAME --image=image [--from=cronjob/name] -- [COMMAND] [args..
   # Create a job
   kubectl create job my-job --image=busybox
   
-  # Create a job with command
+  # Create a job with a command
   kubectl create job my-job --image=busybox -- date
   
-  # Create a job from a CronJob named "a-cronjob"
+  # Create a job from a cron job named "a-cronjob"
   kubectl create job test-job --from=cronjob/a-cronjob
 ```
 
@@ -68,5 +68,5 @@ kubectl create job NAME --image=image [--from=cronjob/name] -- [COMMAND] [args..
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

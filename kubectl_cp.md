@@ -1,6 +1,6 @@
 ## kubectl cp
 
-Copy files and directories to and from containers.
+Copy files and directories to and from containers
 
 ### Synopsis
 
@@ -18,7 +18,7 @@ kubectl cp <file-spec-src> <file-spec-dest>
   # image.  If 'tar' is not present, 'kubectl cp' will fail.
   #
   # For advanced use cases, such as symlinks, wildcard expansion or
-  # file mode preservation consider using 'kubectl exec'.
+  # file mode preservation, consider using 'kubectl exec'.
   
   # Copy /tmp/foo local file to /tmp/bar in a remote pod in namespace <some-namespace>
   tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -C /tmp/bar

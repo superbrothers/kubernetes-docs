@@ -14,6 +14,13 @@ Approve a certificate signing request.
 kubectl certificate approve (-f FILENAME | NAME)
 ```
 
+### Examples
+
+```
+  # Approve CSR 'csr-sqgzp'
+  kubectl certificate approve csr-sqgzp
+```
+
 ### Options
 
 ```

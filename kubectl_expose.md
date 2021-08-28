@@ -1,6 +1,6 @@
 ## kubectl expose
 
-Take a replication controller, service, deployment or pod and expose it as a new Kubernetes Service
+Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service
 
 ### Synopsis
 
@@ -19,10 +19,10 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
 ### Examples
 
 ```
-  # Create a service for a replicated nginx, which serves on port 80 and connects to the containers on port 8000.
+  # Create a service for a replicated nginx, which serves on port 80 and connects to the containers on port 8000
   kubectl expose rc nginx --port=80 --target-port=8000
   
-  # Create a service for a replication controller identified by type and name specified in "nginx-controller.yaml", which serves on port 80 and connects to the containers on port 8000.
+  # Create a service for a replication controller identified by type and name specified in "nginx-controller.yaml", which serves on port 80 and connects to the containers on port 8000
   kubectl expose -f nginx-controller.yaml --port=80 --target-port=8000
   
   # Create a service for a pod valid-pod, which serves on port 444 with the name "frontend"
@@ -34,10 +34,10 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
   # Create a service for a replicated streaming application on port 4100 balancing UDP traffic and named 'video-stream'.
   kubectl expose rc streamer --port=4100 --protocol=UDP --name=video-stream
   
-  # Create a service for a replicated nginx using replica set, which serves on port 80 and connects to the containers on port 8000.
+  # Create a service for a replicated nginx using replica set, which serves on port 80 and connects to the containers on port 8000
   kubectl expose rs nginx --port=80 --target-port=8000
   
-  # Create a service for an nginx deployment, which serves on port 80 and connects to the containers on port 8000.
+  # Create a service for an nginx deployment, which serves on port 80 and connects to the containers on port 8000
   kubectl expose deployment nginx --port=80 --target-port=8000
 ```
 
@@ -60,7 +60,6 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --overrides string               An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.
       --port string                    The port that the service should serve on. Copied from the resource being exposed, if unspecified
       --protocol string                The network protocol for the service to be created. Default is 'TCP'.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --save-config                    If true, the configuration of current object will be saved in its annotation. Otherwise, the annotation will be unchanged. This flag is useful when you want to perform kubectl apply on this object in the future.
       --selector string                A label selector to use for this service. Only equality-based selector requirements are supported. If empty (the default) infer the selector from the replication controller or replica set.)

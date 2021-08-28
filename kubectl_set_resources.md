@@ -4,9 +4,9 @@ Update resource requests/limits on objects with pod templates
 
 ### Synopsis
 
-Specify compute resource requirements (cpu, memory) for any resource that defines a pod template.  If a pod is successfully scheduled, it is guaranteed the amount of resource requested, but may burst up to its specified limits.
+Specify compute resource requirements (CPU, memory) for any resource that defines a pod template.  If a pod is successfully scheduled, it is guaranteed the amount of resource requested, but may burst up to its specified limits.
 
- for each compute resource, if a limit is specified and a request is omitted, the request will default to the limit.
+ For each compute resource, if a limit is specified and a request is omitted, the request will default to the limit.
 
  Possible resources include (case insensitive): Use "kubectl api-resources" for a complete list of supported resources..
 
@@ -44,7 +44,6 @@ kubectl set resources (-f FILENAME | TYPE NAME)  ([--limits=LIMITS & --requests=
       --limits string                  The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
       --local                          If true, set resources will NOT contact api-server but run locally.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --record                         Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
       --requests string                The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
   -l, --selector string                Selector (label query) to filter on, not including uninitialized ones,supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)

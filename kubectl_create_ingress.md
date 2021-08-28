@@ -1,6 +1,6 @@
 ## kubectl create ingress
 
-Create an ingress with the specified name.
+Create an ingress with the specified name
 
 ### Synopsis
 
@@ -97,5 +97,5 @@ kubectl create ingress NAME --rule=host/path=service:port[,tls[=secret]]
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin.
+* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
 

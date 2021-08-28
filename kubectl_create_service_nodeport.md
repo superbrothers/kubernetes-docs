@@ -1,6 +1,6 @@
 ## kubectl create service nodeport
 
-Create a NodePort service.
+Create a NodePort service
 
 ### Synopsis
 
@@ -62,5 +62,5 @@ kubectl create service nodeport NAME [--tcp=port:targetPort] [--dry-run=server|c
 
 ### SEE ALSO
 
-* [kubectl create service](kubectl_create_service.md)	 - Create a service using specified subcommand.
+* [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 
