@@ -36,8 +36,8 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
   # Describe pods by label name=myLabel
   kubectl describe po -l name=myLabel
   
-  # Describe all pods managed by the 'frontend' replication controller (rc-created pods
-  # get the name of the rc as a prefix in the pod the name)
+  # Describe all pods managed by the 'frontend' replication controller
+  # (rc-created pods get the name of the rc as a prefix in the pod name)
   kubectl describe pods frontend
 ```
 
@@ -57,8 +57,9 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

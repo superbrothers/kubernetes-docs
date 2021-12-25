@@ -8,14 +8,12 @@ Display one or many resources.
 
  Prints a table of the most important information about the specified resources. You can filter the list using a label selector and the --selector flag. If the desired resource type is namespaced you will only see results in your current namespace unless you pass --all-namespaces.
 
- Uninitialized objects are not shown unless --include-uninitialized is passed.
-
  By specifying the output as 'template' and providing a Go template as the value of the --template flag, you can filter the attributes of the fetched resources.
 
 Use "kubectl api-resources" for a complete list of supported resources.
 
 ```
-kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns|custom-columns-file|wide] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
+kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns-file|custom-columns|wide] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags]
 ```
 
 ### Examples
@@ -79,15 +77,16 @@ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --sort-by string                If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-  -w, --watch                         After listing/getting the requested object, watch for changes. Uninitialized objects are excluded if no object name is provided.
+  -w, --watch                         After listing/getting the requested object, watch for changes.
       --watch-only                    Watch for changes to the requested object(s), without listing/getting first.
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

@@ -28,6 +28,7 @@ kubectl top node [NAME | -l label]
   -h, --help                   help for node
       --no-headers             If present, print output without headers
   -l, --selector string        Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --show-capacity          Print node resources based on Capacity instead of Allocatable(default) of the nodes.
       --sort-by string         If non-empty, sort nodes list using specified field. The field can be either 'cpu' or 'memory'.
       --use-protocol-buffers   Enables using protocol-buffers to access Metrics API. (default true)
 ```
@@ -35,8 +36,9 @@ kubectl top node [NAME | -l label]
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

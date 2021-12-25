@@ -45,13 +45,15 @@ kubectl cp <file-spec-src> <file-spec-dest>
   -c, --container string   Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen
   -h, --help               help for cp
       --no-preserve        The copied file/directory's ownership and permissions will not be preserved in the container
+      --retries int        Set number of retries to complete a copy operation from a container. Specify 0 to disable or any negative value for infinite retrying. The default is 0 (no retry).
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

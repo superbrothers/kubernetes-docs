@@ -27,7 +27,7 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
 ### Options
 
 ```
-      --all                            Select all resources, including uninitialized ones, in the namespace of the specified resource types
+      --all                            Select all resources, in the namespace of the specified resource types
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string           Name of the manager used to track field ownership. (default "kubectl-set")
@@ -44,8 +44,9 @@ kubectl set serviceaccount (-f FILENAME | TYPE NAME) SERVICE_ACCOUNT
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

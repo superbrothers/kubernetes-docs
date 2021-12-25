@@ -1,38 +1,15 @@
-## kubectl certificate approve
+## kubectl alpha
 
-Approve a certificate signing request
+Commands for features in alpha
 
 ### Synopsis
 
-Approve a certificate signing request.
-
- kubectl certificate approve allows a cluster admin to approve a certificate signing request (CSR). This action tells a certificate signing controller to issue a certificate to the requestor with the attributes requested in the CSR.
-
- SECURITY NOTICE: Depending on the requested attributes, the issued certificate can potentially grant a requester access to cluster resources or to authenticate as a requested identity. Before approving a CSR, ensure you understand what the signed certificate can do.
-
-```
-kubectl certificate approve (-f FILENAME | NAME)
-```
-
-### Examples
-
-```
-  # Approve CSR 'csr-sqgzp'
-  kubectl certificate approve csr-sqgzp
-```
+These commands correspond to alpha features that are not enabled in Kubernetes clusters by default.
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-  -f, --filename strings              Filename, directory, or URL to files identifying the resource to update
-      --force                         Update the CSR even if it is already approved.
-  -h, --help                          help for approve
-  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+  -h, --help   help for alpha
 ```
 
 ### Options inherited from parent commands
@@ -65,5 +42,6 @@ kubectl certificate approve (-f FILENAME | NAME)
 
 ### SEE ALSO
 
-* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl alpha events](kubectl_alpha_events.md)	 - Experimental: List events
 

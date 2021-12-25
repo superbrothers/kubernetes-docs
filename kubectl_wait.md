@@ -13,7 +13,7 @@ Experimental: Wait for a specific condition on one or many resources.
  A successful message will be printed to stdout indicating when the specified condition has been met. You can use -o option to change to output destination.
 
 ```
-kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l label | --all)]) [--for=delete|--for condition=available]
+kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l label | --all)]) [--for=delete|--for condition=available|--for=jsonpath='{}'=value]
 ```
 
 ### Examples
@@ -24,6 +24,9 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
   
   # The default value of status condition is true; you can set it to false
   kubectl wait --for=condition=Ready=false pod/busybox1
+  
+  # Wait for the pod "busybox1" to contain the status phase to be "Running".
+  kubectl wait --for=jsonpath='{.status.phase}'=Running pod/busybox1
   
   # Wait for the pod "busybox1" to be deleted, with a timeout of 60s, after having issued the "delete" command
   kubectl delete pod/busybox1
@@ -38,7 +41,7 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --field-selector string         Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
   -f, --filename strings              identifying the resource.
-      --for string                    The condition to wait on: [delete|condition=condition-name]. The default status value of condition-name is true, you can set false with condition=condition-name=false
+      --for string                    The condition to wait on: [delete|condition=condition-name|jsonpath='{JSONPath expression}'=JSONPath Condition]. The default status value of condition-name is true, you can set false with condition=condition-name=false.
   -h, --help                          help for wait
       --local                         If true, annotation will NOT contact api-server but run locally.
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
@@ -52,8 +55,9 @@ kubectl wait ([-f FILENAME] | resource.group/resource.name | resource.group [(-l
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

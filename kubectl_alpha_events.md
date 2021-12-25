@@ -1,38 +1,38 @@
-## kubectl certificate approve
+## kubectl alpha events
 
-Approve a certificate signing request
+Experimental: List events
 
 ### Synopsis
 
-Approve a certificate signing request.
+Experimental: Display events
 
- kubectl certificate approve allows a cluster admin to approve a certificate signing request (CSR). This action tells a certificate signing controller to issue a certificate to the requestor with the attributes requested in the CSR.
-
- SECURITY NOTICE: Depending on the requested attributes, the issued certificate can potentially grant a requester access to cluster resources or to authenticate as a requested identity. Before approving a CSR, ensure you understand what the signed certificate can do.
+ Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.
 
 ```
-kubectl certificate approve (-f FILENAME | NAME)
+kubectl alpha events [--for TYPE/NAME] [--watch]
 ```
 
 ### Examples
 
 ```
-  # Approve CSR 'csr-sqgzp'
-  kubectl certificate approve csr-sqgzp
+  # List recent events in the default namespace.
+  kubectl alpha events
+  
+  # List recent events in all namespaces.
+  kubectl alpha events --all-namespaces
+  
+  # List recent events for the specified pod, then wait for more events and list them as they arrive.
+  kubectl alpha events --for pod/web-pod-13je7 --watch
 ```
 
 ### Options
 
 ```
-      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-  -f, --filename strings              Filename, directory, or URL to files identifying the resource to update
-      --force                         Update the CSR even if it is already approved.
-  -h, --help                          help for approve
-  -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
-  -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-  -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
-      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+  -A, --all-namespaces   If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --chunk-size int   Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future. (default 500)
+      --for string       Filter events to only those pertaining to the specified resource.
+  -h, --help             help for events
+  -w, --watch            After listing the requested events, watch for more events.
 ```
 
 ### Options inherited from parent commands
@@ -65,5 +65,5 @@ kubectl certificate approve (-f FILENAME | NAME)
 
 ### SEE ALSO
 
-* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
+* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
 

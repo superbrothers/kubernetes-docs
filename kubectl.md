@@ -15,8 +15,9 @@ kubectl [flags]
 ### Options
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
@@ -42,6 +43,7 @@ kubectl [flags]
 
 ### SEE ALSO
 
+* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
 * [kubectl annotate](kubectl_annotate.md)	 - Update the annotations on a resource
 * [kubectl api-resources](kubectl_api-resources.md)	 - Print the supported API resources on the server
 * [kubectl api-versions](kubectl_api-versions.md)	 - Print the supported API versions on the server, in the form of "group/version"
@@ -51,7 +53,7 @@ kubectl [flags]
 * [kubectl autoscale](kubectl_autoscale.md)	 - Auto-scale a deployment, replica set, stateful set, or replication controller
 * [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
 * [kubectl cluster-info](kubectl_cluster-info.md)	 - Display cluster information
-* [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash or zsh)
+* [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash, zsh or fish)
 * [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
 * [kubectl cordon](kubectl_cordon.md)	 - Mark node as unschedulable
 * [kubectl cp](kubectl_cp.md)	 - Copy files and directories to and from containers

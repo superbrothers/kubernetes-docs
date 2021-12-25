@@ -43,6 +43,7 @@ kubectl proxy [--port=PORT] [--www=static-dir] [--www-prefix=prefix] [--api-pref
       --accept-paths string     Regular expression for paths that the proxy should accept. (default "^.*")
       --address string          The IP address on which to serve on. (default "127.0.0.1")
       --api-prefix string       Prefix to serve the proxied API under. (default "/")
+      --append-server-path      If true, enables automatic path appending of the kube context server path to each request.
       --disable-filter          If true, disable request filtering in the proxy. This is dangerous, and can leave you vulnerable to XSRF attacks, when used with an accessible port.
   -h, --help                    help for proxy
       --keepalive duration      keepalive specifies the keep-alive period for an active network connection. Set to 0 to disable keepalive.
@@ -57,8 +58,9 @@ kubectl proxy [--port=PORT] [--www=static-dir] [--www-prefix=prefix] [--api-pref
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

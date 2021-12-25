@@ -31,8 +31,8 @@ kubectl create secret generic NAME [--type=string] [--from-file=[key=]source] [-
   # Create a new secret named my-secret using a combination of a file and a literal
   kubectl create secret generic my-secret --from-file=ssh-privatekey=path/to/id_rsa --from-literal=passphrase=topsecret
   
-  # Create a new secret named my-secret from an env file
-  kubectl create secret generic my-secret --from-env-file=path/to/bar.env
+  # Create a new secret named my-secret from env files
+  kubectl create secret generic my-secret --from-env-file=path/to/foo.env --from-env-file=path/to/bar.env
 ```
 
 ### Options
@@ -42,7 +42,7 @@ kubectl create secret generic NAME [--type=string] [--from-file=[key=]source] [-
       --append-hash                    Append a hash of the secret to its name.
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string           Name of the manager used to track field ownership. (default "kubectl-create")
-      --from-env-file string           Specify the path to a file to read lines of key=val pairs to create a secret (i.e. a Docker .env file).
+      --from-env-file strings          Specify the path to a file to read lines of key=val pairs to create a secret (i.e. a Docker .env file).
       --from-file strings              Key files can be specified using their file path, in which case a default name will be given to them, or optionally with a name and file path, in which case the given name will be used.  Specifying a directory will iterate each named file in the directory that is a valid secret key.
       --from-literal stringArray       Specify a key and literal value to insert in secret (i.e. mykey=somevalue)
   -h, --help                           help for generic
@@ -57,8 +57,9 @@ kubectl create secret generic NAME [--type=string] [--from-file=[key=]source] [-
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

@@ -32,7 +32,7 @@ kubectl create configmap NAME [--from-file=[key=]source] [--from-literal=key1=va
   kubectl create configmap my-config --from-file=path/to/bar
   
   # Create a new config map named my-config from an env file
-  kubectl create configmap my-config --from-env-file=path/to/bar.env
+  kubectl create configmap my-config --from-env-file=path/to/foo.env --from-env-file=path/to/bar.env
 ```
 
 ### Options
@@ -42,7 +42,7 @@ kubectl create configmap NAME [--from-file=[key=]source] [--from-literal=key1=va
       --append-hash                    Append a hash of the configmap to its name.
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string           Name of the manager used to track field ownership. (default "kubectl-create")
-      --from-env-file string           Specify the path to a file to read lines of key=val pairs to create a configmap (i.e. a Docker .env file).
+      --from-env-file strings          Specify the path to a file to read lines of key=val pairs to create a configmap (i.e. a Docker .env file).
       --from-file strings              Key file can be specified using its file path, in which case file basename will be used as configmap key, or optionally with a key and file path, in which case the given key will be used.  Specifying a directory will iterate each named file in the directory whose basename is a valid configmap key.
       --from-literal stringArray       Specify a key and literal value to insert in configmap (i.e. mykey=somevalue)
   -h, --help                           help for configmap
@@ -56,8 +56,9 @@ kubectl create configmap NAME [--from-file=[key=]source] [--from-literal=key1=va
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

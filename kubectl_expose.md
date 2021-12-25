@@ -57,6 +57,7 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
       --load-balancer-ip string        IP to assign to the LoadBalancer. If empty, an ephemeral IP will be created and used (cloud-provider specific).
       --name string                    The name for the newly created object.
   -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
+      --override-type string           The method used to override the generated object: json, merge, or strategic. (default "merge")
       --overrides string               An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.
       --port string                    The port that the service should serve on. Copied from the resource being exposed, if unspecified
       --protocol string                The network protocol for the service to be created. Default is 'TCP'.
@@ -73,8 +74,9 @@ kubectl expose (-f FILENAME | TYPE NAME) [--port=port] [--protocol=TCP|UDP|SCTP]
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS

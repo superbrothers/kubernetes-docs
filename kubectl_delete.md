@@ -49,7 +49,7 @@ kubectl delete ([-f FILENAME] | [-k DIRECTORY] | TYPE [(NAME | -l label | --all)
 ### Options
 
 ```
-      --all                             Delete all resources, including uninitialized ones, in the namespace of the specified resource types.
+      --all                             Delete all resources, in the namespace of the specified resource types.
   -A, --all-namespaces                  If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --cascade string[="background"]   Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background. (default "background")
       --dry-run string[="unchanged"]    Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
@@ -64,7 +64,7 @@ kubectl delete ([-f FILENAME] | [-k DIRECTORY] | TYPE [(NAME | -l label | --all)
   -o, --output string                   Output mode. Use "-o name" for shorter output (resource/name).
       --raw string                      Raw URI to DELETE to the server.  Uses the transport specified by the kubeconfig file.
   -R, --recursive                       Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-  -l, --selector string                 Selector (label query) to filter on, not including uninitialized ones.
+  -l, --selector string                 Selector (label query) to filter on.
       --timeout duration                The length of time to wait before giving up on a delete, zero means determine a timeout from the size of the object
       --wait                            If true, wait for resources to be gone before returning. This waits for finalizers. (default true)
 ```
@@ -72,8 +72,9 @@ kubectl delete ([-f FILENAME] | [-k DIRECTORY] | TYPE [(NAME | -l label | --all)
 ### Options inherited from parent commands
 
 ```
-      --as string                      Username to impersonate for the operation
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
       --cache-dir string               Default cache directory (default "/root/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
