@@ -3,7 +3,7 @@
 set -e -x -o pipefail
 
 apt-get -qq update && apt-get install -qqy rsync
-git clone --depth 1 --branch $KUBERNETES_VERSION git://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/kubernetes
+git clone --depth 1 --branch $KUBERNETES_VERSION https://github.com/kubernetes/kubernetes.git $GOPATH/src/k8s.io/kubernetes
 cd $GOPATH/src/k8s.io/kubernetes
 hack/update-generated-docs.sh
 mkdir -p /output
