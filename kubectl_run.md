@@ -62,7 +62,7 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=serv
   -k, --kustomize string                Process a kustomization directory. This flag can't be used together with -f or -R.
   -l, --labels string                   Comma separated labels to apply to the pod. Will override previous values.
       --leave-stdin-open                If the pod is started in interactive mode or with stdin, leave stdin open after the first attach completes. By default, stdin will be closed after the first attach completes.
-  -o, --output string                   Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
+  -o, --output string                   Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
       --override-type string            The method used to override the generated object: json, merge, or strategic. (default "merge")
       --overrides string                An inline JSON override for the generated object. If this is non-empty, it is used to override the generated object. Requires that the object supply a valid apiVersion field.
       --pod-running-timeout duration    The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)

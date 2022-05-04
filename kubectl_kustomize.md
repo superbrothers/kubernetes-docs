@@ -29,7 +29,6 @@ kubectl kustomize DIR [flags]
       --as-current-user          use the uid and gid of the command executor to run the function in the container
       --enable-alpha-plugins     enable kustomize plugins
       --enable-helm              Enable use of the Helm chart inflator generator.
-      --enable-managedby-label   enable adding app.kubernetes.io/managed-by
   -e, --env stringArray          a list of environment variables to be used by functions
       --helm-command string      helm command (path to executable) (default "helm")
   -h, --help                     help for kustomize

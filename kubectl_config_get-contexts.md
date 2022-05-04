@@ -25,7 +25,7 @@ kubectl config get-contexts [(-o|--output=)name)]
 ```
   -h, --help            help for get-contexts
       --no-headers      When using the default or custom-column output format, don't print headers (default print headers).
-  -o, --output string   Output format. One of: name
+  -o, --output string   Output format. One of: (name).
 ```
 
 ### Options inherited from parent commands

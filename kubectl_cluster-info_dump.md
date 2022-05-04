@@ -35,7 +35,7 @@ kubectl cluster-info dump [flags]
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -h, --help                           help for dump
       --namespaces strings             A comma separated list of namespaces to dump.
-  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file. (default "json")
+  -o, --output string                  Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file). (default "json")
       --output-directory string        Where to output the files.  If empty or '-' uses stdout, otherwise creates a directory hierarchy in that directory
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 20s)
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.

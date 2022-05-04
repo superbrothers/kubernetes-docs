@@ -23,7 +23,6 @@ kubectl version [flags]
       --client          If true, shows client version only (no server required).
   -h, --help            help for version
   -o, --output string   One of 'yaml' or 'json'.
-      --short           If true, print just the version number.
 ```
 
 ### Options inherited from parent commands

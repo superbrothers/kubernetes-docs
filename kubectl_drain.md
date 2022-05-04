@@ -35,12 +35,12 @@ kubectl drain NODE
       --delete-emptydir-data               Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
       --disable-eviction                   Force drain to use delete, even if eviction is supported. This will bypass checking PodDisruptionBudgets, use with caution.
       --dry-run string[="unchanged"]       Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
-      --force                              Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
+      --force                              Continue even if there are pods that do not declare a controller.
       --grace-period int                   Period of time in seconds given to each pod to terminate gracefully. If negative, the default value specified in the pod will be used. (default -1)
   -h, --help                               help for drain
       --ignore-daemonsets                  Ignore DaemonSet-managed pods.
       --pod-selector string                Label selector to filter pods on the node
-  -l, --selector string                    Selector (label query) to filter on
+  -l, --selector string                    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching objects must satisfy all of the specified label constraints.
       --skip-wait-for-delete-timeout int   If pod DeletionTimestamp older than N seconds, skip waiting for the pod.  Seconds must be greater than 0 to skip.
       --timeout duration                   The length of time to wait before giving up, zero means infinite
 ```

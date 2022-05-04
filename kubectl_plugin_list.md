@@ -12,6 +12,13 @@ List all available plugin files on a user's PATH.
 kubectl plugin list [flags]
 ```
 
+### Examples
+
+```
+  # List all available plugins
+  kubectl plugin list
+```
+
 ### Options
 
 ```

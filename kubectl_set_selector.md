@@ -30,7 +30,7 @@ kubectl set selector (-f FILENAME | TYPE NAME) EXPRESSIONS [--resource-version=v
   -f, --filename strings               identifying the resource.
   -h, --help                           help for selector
       --local                          If true, annotation will NOT contact api-server but run locally.
-  -o, --output string                  Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
+  -o, --output string                  Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
   -R, --recursive                      Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory. (default true)
       --resource-version string        If non-empty, the selectors update will only succeed if this is the current resource-version for the object. Only valid when specifying a single resource.
       --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
