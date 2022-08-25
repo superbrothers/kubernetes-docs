@@ -1,6 +1,6 @@
 ## kubectl completion
 
-Output shell completion code for the specified shell (bash, zsh or fish)
+Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
 
 ### Synopsis
 

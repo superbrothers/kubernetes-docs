@@ -29,7 +29,7 @@ kubectl api-resources [flags]
   kubectl api-resources --namespaced=false
   
   # Print the supported API resources with a specific APIGroup
-  kubectl api-resources --api-group=extensions
+  kubectl api-resources --api-group=rbac.authorization.k8s.io
 ```
 
 ### Options

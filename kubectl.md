@@ -6,7 +6,7 @@ kubectl controls the Kubernetes cluster manager
 
 kubectl controls the Kubernetes cluster manager.
 
- Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+ Find more information at: https://kubernetes.io/docs/reference/kubectl/
 
 ```
 kubectl [flags]
@@ -53,7 +53,7 @@ kubectl [flags]
 * [kubectl autoscale](kubectl_autoscale.md)	 - Auto-scale a deployment, replica set, stateful set, or replication controller
 * [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
 * [kubectl cluster-info](kubectl_cluster-info.md)	 - Display cluster information
-* [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash, zsh or fish)
+* [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
 * [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
 * [kubectl cordon](kubectl_cordon.md)	 - Mark node as unschedulable
 * [kubectl cp](kubectl_cp.md)	 - Copy files and directories to and from containers
