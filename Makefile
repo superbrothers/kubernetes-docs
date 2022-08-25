@@ -1,5 +1,5 @@
-KUBERNETES_VERSION ?= v1.24.0
-GO_VERSION ?= 1.18.1
+KUBERNETES_VERSION ?= v1.25.0
+GO_VERSION ?= 1.19.0
 
 .PHONY: generate-docs
 generate-docs: clean
@@ -7,8 +7,8 @@ generate-docs: clean
 	docker run \
 		--init \
 		-e KUBERNETES_VERSION=$(KUBERNETES_VERSION) \
-		-v $(shell pwd)/docs:/output \
-		-v $(shell pwd)/hack:/src/hack \
+		-v $(CURDIR)/docs:/output \
+		-v $(CURDIR)/hack:/src/hack \
 		-w /src \
 		golang:$(GO_VERSION) \
 		hack/generate-docs.sh
