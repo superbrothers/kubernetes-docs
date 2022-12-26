@@ -8,7 +8,7 @@ Provides utilities for interacting with plugins.
 
  Plugins provide extended functionality that is not part of the major command-line distribution. Please refer to the documentation and examples for more information about how write your own plugins.
 
- The easiest way to discover and install plugins is via the kubernetes sub-project krew. To install krew, visit https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+ The easiest way to discover and install plugins is via the kubernetes sub-project krew. To install krew, visit https://krew.sigs.k8s.io/docs/user-guide/setup/install/ krew.sigs.k8s.io https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 
 ```
 kubectl plugin [flags]
@@ -32,6 +32,7 @@ kubectl plugin [flags]
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version

@@ -8,14 +8,14 @@ Output shell completion code for the specified shell (bash, zsh, fish, or powers
 
  Detailed instructions on how to do this are available here:
 
-    for macOS:
-    https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
+  for macOS:
+  https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
   
-    for linux:
-    https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion
+  for linux:
+  https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion
   
-    for windows:
-    https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#enable-shell-autocompletion
+  for windows:
+  https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#enable-shell-autocompletion
   
  Note for zsh users: [1] zsh completions are only supported in versions of zsh >= 5.2.
 
@@ -92,6 +92,7 @@ kubectl completion SHELL
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version

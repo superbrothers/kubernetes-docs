@@ -7,9 +7,9 @@ Update the taints on one or more nodes
 Update the taints on one or more nodes.
 
   *  A taint consists of a key, value, and effect. As an argument here, it is expressed as key=value:effect.
-  *  The key must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to  253 characters.
+  *  The key must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to 253 characters.
   *  Optionally, the key can begin with a DNS subdomain prefix and a single '/', like example.com/my-app.
-  *  The value is optional. If given, it must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to  63 characters.
+  *  The value is optional. If given, it must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to 63 characters.
   *  The effect must be NoSchedule, PreferNoSchedule or NoExecute.
   *  Currently taint can only apply to node.
 
@@ -68,6 +68,7 @@ kubectl taint NODE NAME KEY_1=VAL_1:TAINT_EFFECT_1 ... KEY_N=VAL_N:TAINT_EFFECT_
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version

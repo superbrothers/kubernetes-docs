@@ -22,8 +22,11 @@ kubectl config set-context [NAME | --current] [--cluster=cluster_nickname] [--us
 ### Options
 
 ```
-      --current   Modify the current context
-  -h, --help      help for set-context
+      --cluster string     cluster for the context entry in kubeconfig
+      --current            Modify the current context
+  -h, --help               help for set-context
+      --namespace string   namespace for the context entry in kubeconfig
+      --user string        user for the context entry in kubeconfig
 ```
 
 ### Options inherited from parent commands
@@ -36,12 +39,11 @@ kubectl config set-context [NAME | --current] [--cluster=cluster_nickname] [--us
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
-      --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              use a particular kubeconfig file
       --match-server-version           Require server version to match client version
-  -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
@@ -49,7 +51,6 @@ kubectl config set-context [NAME | --current] [--cluster=cluster_nickname] [--us
   -s, --server string                  The address and port of the Kubernetes API server
       --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
       --token string                   Bearer token for authentication to the API server
-      --user string                    The name of the kubeconfig user to use
       --username string                Username for basic authentication to the API server
       --warnings-as-errors             Treat warnings received from the server as errors and exit with a non-zero exit code
 ```

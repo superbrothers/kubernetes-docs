@@ -34,7 +34,7 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
   kubectl apply --prune -f manifest.yaml -l app=nginx
   
   # Apply the configuration in manifest.yaml and delete all the other config maps that are not in the file
-  kubectl apply --prune -f manifest.yaml --all --prune-whitelist=core/v1/ConfigMap
+  kubectl apply --prune -f manifest.yaml --all --prune-allowlist=core/v1/ConfigMap
 ```
 
 ### Options
@@ -55,7 +55,7 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
   -o, --output string                   Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
       --overwrite                       Automatically resolve conflicts between the modified and live configuration by using values from the modified configuration (default true)
       --prune                           Automatically delete resource objects, that do not appear in the configs and are created by either apply or create --save-config. Should be used with either -l or --all.
-      --prune-whitelist stringArray     Overwrite the default whitelist with <group/version/kind> for --prune
+      --prune-allowlist stringArray     Overwrite the default allowlist with <group/version/kind> for --prune
   -R, --recursive                       Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string                 Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching objects must satisfy all of the specified label constraints.
       --server-side                     If true, apply runs in the server instead of the client.
@@ -81,6 +81,7 @@ kubectl apply (-f FILENAME | -k DIRECTORY)
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version

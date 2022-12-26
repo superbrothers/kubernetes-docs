@@ -6,7 +6,7 @@ Update the labels on a resource
 
 Update the labels on a resource.
 
-  *  A label key and value must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to  63 characters each.
+  *  A label key and value must begin with a letter or number, and may contain letters, numbers, hyphens, dots, and underscores, up to 63 characters each.
   *  Optionally, the key can begin with a DNS subdomain prefix and a single '/', like example.com/my-app.
   *  If --overwrite is true, then existing labels can be overwritten, otherwise attempting to overwrite a label will result in an error.
   *  If --resource-version is specified, then updates will use this resource version, otherwise the existing resource-version will be used.
@@ -73,6 +73,7 @@ kubectl label [--overwrite] (-f FILENAME | TYPE NAME) KEY_1=VAL_1 ... KEY_N=VAL_
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version

@@ -24,6 +24,7 @@ kubectl [flags]
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
   -h, --help                           help for kubectl
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
@@ -64,6 +65,7 @@ kubectl [flags]
 * [kubectl diff](kubectl_diff.md)	 - Diff the live version against a would-be applied version
 * [kubectl drain](kubectl_drain.md)	 - Drain node in preparation for maintenance
 * [kubectl edit](kubectl_edit.md)	 - Edit a resource on the server
+* [kubectl events](kubectl_events.md)	 - List events
 * [kubectl exec](kubectl_exec.md)	 - Execute a command in a container
 * [kubectl explain](kubectl_explain.md)	 - Get documentation for a resource
 * [kubectl expose](kubectl_expose.md)	 - Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service

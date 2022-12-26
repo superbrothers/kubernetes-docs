@@ -1,50 +1,50 @@
-## kubectl create token
+## kubectl events
 
-Request a service account token
+List events
 
 ### Synopsis
 
-Request a service account token.
+Display events
+
+ Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.
 
 ```
-kubectl create token SERVICE_ACCOUNT_NAME
+kubectl events [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file] [--for TYPE/NAME] [--watch] [--event=Normal,Warning]
 ```
 
 ### Examples
 
 ```
-  # Request a token to authenticate to the kube-apiserver as the service account "myapp" in the current namespace
-  kubectl create token myapp
+  # List recent events in the default namespace.
+  kubectl events
   
-  # Request a token for a service account in a custom namespace
-  kubectl create token myapp --namespace myns
+  # List recent events in all namespaces.
+  kubectl events --all-namespaces
   
-  # Request a token with a custom expiration
-  kubectl create token myapp --duration 10m
+  # List recent events for the specified pod, then wait for more events and list them as they arrive.
+  kubectl events --for pod/web-pod-13je7 --watch
   
-  # Request a token with a custom audience
-  kubectl create token myapp --audience https://example.com
+  # List recent events in given format. Supported ones, apart from default, are json and yaml.
+  kubectl events -oyaml
   
-  # Request a token bound to an instance of a Secret object
-  kubectl create token myapp --bound-object-kind Secret --bound-object-name mysecret
-  
-  # Request a token bound to an instance of a Secret object with a specific uid
-  kubectl create token myapp --bound-object-kind Secret --bound-object-name mysecret --bound-object-uid 0d4691ed-659b-4935-a832-355f77ee47cc
+  # List recent only events in given event types
+  kubectl events --types=Warning,Normal
 ```
 
 ### Options
 
 ```
+  -A, --all-namespaces                If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --audience stringArray          Audience of the requested token. If unset, defaults to requesting a token for use with the Kubernetes API server. May be repeated to request a token valid for multiple audiences.
-      --bound-object-kind string      Kind of an object to bind the token to. Supported kinds are Pod, Secret. If set, --bound-object-name must be provided.
-      --bound-object-name string      Name of an object to bind the token to. The token will expire when the object is deleted. Requires --bound-object-kind.
-      --bound-object-uid string       UID of an object to bind the token to. Requires --bound-object-kind and --bound-object-name. If unset, the UID of the existing object is used.
-      --duration duration             Requested lifetime of the issued token. The server may return a token with a longer or shorter lifetime.
-  -h, --help                          help for token
+      --chunk-size int                Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future. (default 500)
+      --for string                    Filter events to only those pertaining to the specified resource.
+  -h, --help                          help for events
+      --no-headers                    When using the default output format, don't print headers.
   -o, --output string                 Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --types strings                 Output only events of given types.
+  -w, --watch                         After listing the requested events, watch for more events.
 ```
 
 ### Options inherited from parent commands
@@ -78,5 +78,5 @@ kubectl create token SERVICE_ACCOUNT_NAME
 
 ### SEE ALSO
 
-* [kubectl create](kubectl_create.md)	 - Create a resource from a file or from stdin
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
 

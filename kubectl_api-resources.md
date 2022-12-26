@@ -35,14 +35,15 @@ kubectl api-resources [flags]
 ### Options
 
 ```
-      --api-group string   Limit to resources in the specified API group.
-      --cached             Use the cached list of resources if available.
-  -h, --help               help for api-resources
-      --namespaced         If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
-      --no-headers         When using the default or custom-column output format, don't print headers (default print headers).
-  -o, --output string      Output format. One of: (wide, name).
-      --sort-by string     If non-empty, sort list of resources using specified field. The field can be either 'name' or 'kind'.
-      --verbs strings      Limit to resources that support the specified verbs.
+      --api-group string     Limit to resources in the specified API group.
+      --cached               Use the cached list of resources if available.
+      --categories strings   Limit to resources that belong the the specified categories.
+  -h, --help                 help for api-resources
+      --namespaced           If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
+      --no-headers           When using the default or custom-column output format, don't print headers (default print headers).
+  -o, --output string        Output format. One of: (wide, name).
+      --sort-by string       If non-empty, sort list of resources using specified field. The field can be either 'name' or 'kind'.
+      --verbs strings        Limit to resources that support the specified verbs.
 ```
 
 ### Options inherited from parent commands
@@ -57,6 +58,7 @@ kubectl api-resources [flags]
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
+      --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
