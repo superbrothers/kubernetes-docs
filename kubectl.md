@@ -44,7 +44,6 @@ kubectl [flags]
 
 ### SEE ALSO
 
-* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
 * [kubectl annotate](kubectl_annotate.md)	 - Update the annotations on a resource
 * [kubectl api-resources](kubectl_api-resources.md)	 - Print the supported API resources on the server
 * [kubectl api-versions](kubectl_api-versions.md)	 - Print the supported API versions on the server, in the form of "group/version"
@@ -70,7 +69,7 @@ kubectl [flags]
 * [kubectl explain](kubectl_explain.md)	 - Get documentation for a resource
 * [kubectl expose](kubectl_expose.md)	 - Take a replication controller, service, deployment or pod and expose it as a new Kubernetes service
 * [kubectl get](kubectl_get.md)	 - Display one or many resources
-* [kubectl kustomize](kubectl_kustomize.md)	 - Build a kustomization target from a directory or URL.
+* [kubectl kustomize](kubectl_kustomize.md)	 - Build a kustomization target from a directory or URL
 * [kubectl label](kubectl_label.md)	 - Update the labels on a resource
 * [kubectl logs](kubectl_logs.md)	 - Print the logs for a container in a pod
 * [kubectl options](kubectl_options.md)	 - Print the list of flags inherited by all commands

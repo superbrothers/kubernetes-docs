@@ -1,19 +1,37 @@
-## kubectl alpha auth
+## kubectl auth whoami
 
-Inspect authorization
+Experimental: Check self subject attributes
 
 ### Synopsis
 
-Inspect authorization
+Experimental: Check who you are and your attributes (groups, extra).
+
+  This command is helpful to get yourself aware of the current user attributes,
+  especially when dynamic authentication, e.g., token webhook, auth proxy, or OIDC provider,
+  is enabled in the Kubernetes cluster.
 
 ```
-kubectl alpha auth [flags]
+kubectl auth whoami
+```
+
+### Examples
+
+```
+  # Get your subject attributes.
+  kubectl auth whoami
+  
+  # Get your subject attributes in JSON format.
+  kubectl auth whoami -o json
 ```
 
 ### Options
 
 ```
-  -h, --help   help for auth
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -h, --help                          help for whoami
+  -o, --output string                 Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands
@@ -47,6 +65,5 @@ kubectl alpha auth [flags]
 
 ### SEE ALSO
 
-* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
-* [kubectl alpha auth whoami](kubectl_alpha_auth_whoami.md)	 - Experimental: Check self subject attributes
+* [kubectl auth](kubectl_auth.md)	 - Inspect authorization
 

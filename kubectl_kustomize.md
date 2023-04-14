@@ -1,6 +1,6 @@
 ## kubectl kustomize
 
-Build a kustomization target from a directory or URL.
+Build a kustomization target from a directory or URL
 
 ### Synopsis
 
@@ -37,7 +37,6 @@ kubectl kustomize DIR [flags]
       --network                  enable network access for functions that declare it
       --network-name string      the docker network to run the container in (default "bridge")
   -o, --output string            If specified, write output to this path.
-      --reorder string           Reorder the resources just before output. Use 'legacy' to apply a legacy reordering (Namespaces first, Webhooks last, etc). Use 'none' to suppress a final reordering. (default "legacy")
 ```
 
 ### Options inherited from parent commands
