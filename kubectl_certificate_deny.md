@@ -6,7 +6,7 @@ Deny a certificate signing request
 
 Deny a certificate signing request.
 
- kubectl certificate deny allows a cluster admin to deny a certificate signing request (CSR). This action tells a certificate signing controller to not to issue a certificate to the requestor.
+ kubectl certificate deny allows a cluster admin to deny a certificate signing request (CSR). This action tells a certificate signing controller to not to issue a certificate to the requester.
 
 ```
 kubectl certificate deny (-f FILENAME | NAME)
@@ -64,5 +64,5 @@ kubectl certificate deny (-f FILENAME | NAME)
 
 ### SEE ALSO
 
-* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
+* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources
 

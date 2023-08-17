@@ -52,7 +52,7 @@ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|
   # List one or more resources by their type and names
   kubectl get rc/web service/frontend pods/web-pod-13je7
   
-  # List status subresource for a single pod.
+  # List the 'status' subresource for a single pod
   kubectl get pod web-pod-13je7 --subresource status
 ```
 

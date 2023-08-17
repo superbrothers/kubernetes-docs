@@ -5,7 +5,7 @@ Manage the rollout of a resource
 ### Synopsis
 
 Manage the rollout of one or many resources.
-  
+        
  Valid resource types include:
 
   *  deployments
@@ -28,7 +28,7 @@ kubectl rollout SUBCOMMAND
   # Restart a deployment
   kubectl rollout restart deployment/abc
   
-  # Restart deployments with the app=nginx label
+  # Restart deployments with the 'app=nginx' label
   kubectl rollout restart deployment --selector=app=nginx
 ```
 

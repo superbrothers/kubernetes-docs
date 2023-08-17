@@ -37,7 +37,7 @@ kubectl api-resources [flags]
 ```
       --api-group string     Limit to resources in the specified API group.
       --cached               Use the cached list of resources if available.
-      --categories strings   Limit to resources that belong the the specified categories.
+      --categories strings   Limit to resources that belong to the specified categories.
   -h, --help                 help for api-resources
       --namespaced           If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
       --no-headers           When using the default or custom-column output format, don't print headers (default print headers).

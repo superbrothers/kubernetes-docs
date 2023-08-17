@@ -6,9 +6,9 @@ Experimental: Check self subject attributes
 
 Experimental: Check who you are and your attributes (groups, extra).
 
-  This command is helpful to get yourself aware of the current user attributes,
-  especially when dynamic authentication, e.g., token webhook, auth proxy, or OIDC provider,
-  is enabled in the Kubernetes cluster.
+        This command is helpful to get yourself aware of the current user attributes,
+        especially when dynamic authentication, e.g., token webhook, auth proxy, or OIDC provider,
+        is enabled in the Kubernetes cluster.
 
 ```
 kubectl auth whoami

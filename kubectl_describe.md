@@ -8,8 +8,8 @@ Show details of a specific resource or group of resources.
 
  Print a detailed description of the selected resources, including related resources such as events or controllers. You may select a single object by name, all objects of that type, provide a name prefix, or label selector. For example:
 
-  $ kubectl describe TYPE NAME_PREFIX
-  
+        $ kubectl describe TYPE NAME_PREFIX
+        
  will first check for an exact match on TYPE and NAME_PREFIX. If no such resource exists, it will output details for every resource that has a name prefixed with NAME_PREFIX.
 
 Use "kubectl api-resources" for a complete list of supported resources.
@@ -34,7 +34,7 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
   kubectl describe pods
   
   # Describe pods by label name=myLabel
-  kubectl describe po -l name=myLabel
+  kubectl describe pods -l name=myLabel
   
   # Describe all pods managed by the 'frontend' replication controller
   # (rc-created pods get the name of the rc as a prefix in the pod name)

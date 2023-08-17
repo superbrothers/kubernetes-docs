@@ -6,7 +6,7 @@ Restart a resource
 
 Restart a resource.
 
-  Resource rollout will be restarted.
+        Resource rollout will be restarted.
 
 ```
 kubectl rollout restart RESOURCE

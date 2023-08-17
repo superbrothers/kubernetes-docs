@@ -70,5 +70,5 @@ kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file [
 
 ### SEE ALSO
 
-* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using specified subcommand
+* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using a specified subcommand
 

@@ -4,7 +4,7 @@ Inspect authorization
 
 ### Synopsis
 
-Inspect authorization
+Inspect authorization.
 
 ```
 kubectl auth [flags]

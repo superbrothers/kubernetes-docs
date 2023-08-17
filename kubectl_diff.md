@@ -33,6 +33,7 @@ kubectl diff -f FILENAME
 ### Options
 
 ```
+      --concurrency int               Number of objects to process in parallel when diffing against the live version. Larger number = faster, but more memory, I/O and CPU over that shorter period of time. (default 1)
       --field-manager string          Name of the manager used to track field ownership. (default "kubectl-client-side-apply")
   -f, --filename strings              Filename, directory, or URL to files contains the configuration to diff
       --force-conflicts               If true, server-side apply will force the changes against conflicts.

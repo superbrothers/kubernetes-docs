@@ -1,6 +1,6 @@
 ## kubectl certificate
 
-Modify certificate resources.
+Modify certificate resources
 
 ### Synopsis
 

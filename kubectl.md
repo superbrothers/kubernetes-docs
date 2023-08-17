@@ -51,7 +51,7 @@ kubectl [flags]
 * [kubectl attach](kubectl_attach.md)	 - Attach to a running container
 * [kubectl auth](kubectl_auth.md)	 - Inspect authorization
 * [kubectl autoscale](kubectl_autoscale.md)	 - Auto-scale a deployment, replica set, stateful set, or replication controller
-* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
+* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources
 * [kubectl cluster-info](kubectl_cluster-info.md)	 - Display cluster information
 * [kubectl completion](kubectl_completion.md)	 - Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
 * [kubectl config](kubectl_config.md)	 - Modify kubeconfig files

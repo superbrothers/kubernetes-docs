@@ -4,7 +4,7 @@ Modify kubeconfig files
 
 ### Synopsis
 
-Modify kubeconfig files using subcommands like "kubectl config set current-context my-context"
+Modify kubeconfig files using subcommands like "kubectl config set current-context my-context".
 
  The loading order follows these rules:
 

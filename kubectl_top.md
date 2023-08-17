@@ -4,7 +4,7 @@ Display resource (CPU/memory) usage
 
 ### Synopsis
 
-Display Resource (CPU/Memory) usage.
+Display resource (CPU/memory) usage.
 
  The top command allows you to see the resource consumption for nodes or pods.
 

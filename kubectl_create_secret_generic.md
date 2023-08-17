@@ -88,5 +88,5 @@ kubectl create secret generic NAME [--type=string] [--from-file=[key=]source] [-
 
 ### SEE ALSO
 
-* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using specified subcommand
+* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using a specified subcommand
 

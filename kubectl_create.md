@@ -94,7 +94,7 @@ kubectl create -f FILENAME
 * [kubectl create quota](kubectl_create_quota.md)	 - Create a quota with the specified name
 * [kubectl create role](kubectl_create_role.md)	 - Create a role with single rule
 * [kubectl create rolebinding](kubectl_create_rolebinding.md)	 - Create a role binding for a particular role or cluster role
-* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using specified subcommand
+* [kubectl create secret](kubectl_create_secret.md)	 - Create a secret using a specified subcommand
 * [kubectl create service](kubectl_create_service.md)	 - Create a service using a specified subcommand
 * [kubectl create serviceaccount](kubectl_create_serviceaccount.md)	 - Create a service account with the specified name
 * [kubectl create token](kubectl_create_token.md)	 - Request a service account token

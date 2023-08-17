@@ -6,7 +6,7 @@ Approve a certificate signing request
 
 Approve a certificate signing request.
 
- kubectl certificate approve allows a cluster admin to approve a certificate signing request (CSR). This action tells a certificate signing controller to issue a certificate to the requestor with the attributes requested in the CSR.
+ kubectl certificate approve allows a cluster admin to approve a certificate signing request (CSR). This action tells a certificate signing controller to issue a certificate to the requester with the attributes requested in the CSR.
 
  SECURITY NOTICE: Depending on the requested attributes, the issued certificate can potentially grant a requester access to cluster resources or to authenticate as a requested identity. Before approving a CSR, ensure you understand what the signed certificate can do.
 
@@ -66,5 +66,5 @@ kubectl certificate approve (-f FILENAME | NAME)
 
 ### SEE ALSO
 
-* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources.
+* [kubectl certificate](kubectl_certificate.md)	 - Modify certificate resources
 
