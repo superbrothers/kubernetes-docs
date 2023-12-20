@@ -9,7 +9,7 @@ Display events.
  Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.
 
 ```
-kubectl events [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file] [--for TYPE/NAME] [--watch] [--event=Normal,Warning]
+kubectl events [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file] [--for TYPE/NAME] [--watch] [--types=Normal,Warning]
 ```
 
 ### Examples
@@ -53,7 +53,7 @@ kubectl events [(-o|--output=)json|yaml|name|go-template|go-template-file|templa
       --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
       --as-uid string                  UID to impersonate for the operation.
-      --cache-dir string               Default cache directory (default "/root/.kube/cache")
+      --cache-dir string               Default cache directory (default "/home/username/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS

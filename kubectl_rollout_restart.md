@@ -15,6 +15,9 @@ kubectl rollout restart RESOURCE
 ### Examples
 
 ```
+  # Restart all deployments in test-namespace namespace
+  kubectl rollout restart deployment -n test-namespace
+  
   # Restart a deployment
   kubectl rollout restart deployment/nginx
   
@@ -46,7 +49,7 @@ kubectl rollout restart RESOURCE
       --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
       --as-uid string                  UID to impersonate for the operation.
-      --cache-dir string               Default cache directory (default "/root/.kube/cache")
+      --cache-dir string               Default cache directory (default "/home/username/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS

@@ -40,7 +40,7 @@ kubectl create token SERVICE_ACCOUNT_NAME
       --bound-object-kind string      Kind of an object to bind the token to. Supported kinds are Pod, Secret. If set, --bound-object-name must be provided.
       --bound-object-name string      Name of an object to bind the token to. The token will expire when the object is deleted. Requires --bound-object-kind.
       --bound-object-uid string       UID of an object to bind the token to. Requires --bound-object-kind and --bound-object-name. If unset, the UID of the existing object is used.
-      --duration duration             Requested lifetime of the issued token. The server may return a token with a longer or shorter lifetime.
+      --duration duration             Requested lifetime of the issued token. If not set, the lifetime will be determined by the server automatically. The server may return a token with a longer or shorter lifetime.
   -h, --help                          help for token
   -o, --output string                 Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
@@ -53,7 +53,7 @@ kubectl create token SERVICE_ACCOUNT_NAME
       --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
       --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
       --as-uid string                  UID to impersonate for the operation.
-      --cache-dir string               Default cache directory (default "/root/.kube/cache")
+      --cache-dir string               Default cache directory (default "/home/username/.kube/cache")
       --certificate-authority string   Path to a cert file for the certificate authority
       --client-certificate string      Path to a client certificate file for TLS
       --client-key string              Path to a client key file for TLS
