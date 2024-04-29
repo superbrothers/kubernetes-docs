@@ -64,7 +64,7 @@ kubectl delete ([-f FILENAME] | [-k DIRECTORY] | TYPE [(NAME | -l label | --all)
       --grace-period int                Period of time in seconds given to the resource to terminate gracefully. Ignored if negative. Set to 1 for immediate shutdown. Can only be set to 0 when --force is true (force deletion). (default -1)
   -h, --help                            help for delete
       --ignore-not-found                Treat "resource not found" as a successful delete. Defaults to "true" when --all is specified.
-  -i, --interactive                     If true, delete resource only when user confirms. This flag is in Alpha.
+  -i, --interactive                     If true, delete resource only when user confirms.
   -k, --kustomize string                Process a kustomization directory. This flag can't be used together with -f or -R.
       --now                             If true, resources are signaled for immediate shutdown (same as --grace-period=1).
   -o, --output string                   Output mode. Use "-o name" for shorter output (resource/name).

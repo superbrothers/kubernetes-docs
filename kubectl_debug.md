@@ -60,7 +60,7 @@ kubectl debug (POD | TYPE[[.VERSION].GROUP]/NAME) [ -- COMMAND [args...] ]
   -h, --help                       help for debug
       --image string               Container image to use for debug container.
       --image-pull-policy string   The image pull policy for the container. If left empty, this value will not be specified by the client and defaulted by the server.
-      --profile string             Debugging profile. Options are "legacy", "general", "baseline", "netadmin", or "restricted". (default "legacy")
+      --profile string             Options are "legacy", "general", "baseline", "netadmin", "restricted" or "sysadmin". (default "legacy")
   -q, --quiet                      If true, suppress informational messages.
       --replace                    When used with '--copy-to', delete the original Pod.
       --same-node                  When used with '--copy-to', schedule the copy of target Pod on the same node.
