@@ -10,7 +10,7 @@ fi
 
 cd docs/
 git add .
-git commit -m "Generate kubectl docs for $version"
+git commit -m "Generate kubernetes docs for $version"
 git push origin docs
 git tag "$version"
 git push origin "$version"
