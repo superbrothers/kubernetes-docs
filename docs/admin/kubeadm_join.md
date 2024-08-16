@@ -52,14 +52,13 @@ The "join [api-server-endpoint]" command executes the following phases:
 ```
 preflight              Run join pre-flight checks
 control-plane-prepare  Prepare the machine for serving a control plane
-  /download-certs        [EXPERIMENTAL] Download certificates shared among control-plane nodes from the kubeadm-certs Secret
+  /download-certs        Download certificates shared among control-plane nodes from the kubeadm-certs Secret
   /certs                 Generate the certificates for the new control plane components
   /kubeconfig            Generate the kubeconfig for the new control plane components
   /control-plane         Generate the manifests for the new control plane components
 kubelet-start          Write kubelet settings, certificates and (re)start the kubelet
 control-plane-join     Join a machine as a control plane instance
   /etcd                  Add a new local etcd member
-  /update-status         Register the new control-plane node into the ClusterStatus maintained in the kubeadm-config ConfigMap (DEPRECATED)
   /mark-control-plane    Mark a node as a control-plane
 wait-control-plane     EXPERIMENTAL: Wait for the control plane to start
 ```
@@ -86,7 +85,7 @@ kubeadm join [api-server-endpoint] [flags]
   -h, --help                                          help for join
       --ignore-preflight-errors strings               A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --node-name string                              Specify the node name.
-      --patches string                                Path to a directory that contains files named "target[suffix][+patchtype].extension". For example, "kube-apiserver0+merge.yaml" or just "etcd.json". "target" can be one of "kube-apiserver", "kube-controller-manager", "kube-scheduler", "etcd", "kubeletconfiguration". "patchtype" can be one of "strategic", "merge" or "json" and they match the patch formats supported by kubectl. The default "patchtype" is "strategic". "extension" must be either "json" or "yaml". "suffix" is an optional string that can be used to determine which patches are applied first alpha-numerically.
+      --patches string                                Path to a directory that contains files named "target[suffix][+patchtype].extension". For example, "kube-apiserver0+merge.yaml" or just "etcd.json". "target" can be one of "kube-apiserver", "kube-controller-manager", "kube-scheduler", "etcd", "kubeletconfiguration", "corednsdeployment". "patchtype" can be one of "strategic", "merge" or "json" and they match the patch formats supported by kubectl. The default "patchtype" is "strategic". "extension" must be either "json" or "yaml". "suffix" is an optional string that can be used to determine which patches are applied first alpha-numerically.
       --skip-phases strings                           List of phases to be skipped
       --tls-bootstrap-token string                    Specify the token used to temporarily authenticate with the Kubernetes Control Plane while joining the node.
       --token string                                  Use this token for both discovery-token and tls-bootstrap-token when those values are not provided.
@@ -95,5 +94,5 @@ kubeadm join [api-server-endpoint] [flags]
 ### Options inherited from parent commands
 
 ```
-      --rootfs string   [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string   The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

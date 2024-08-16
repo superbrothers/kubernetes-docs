@@ -1,5 +1,5 @@
 
-Enable kubelet client certificate rotation
+Enable kubelet client certificate rotation (DEPRECATED: use 'enable-client-cert-rotation' instead)
 
 ```
 kubeadm init phase kubelet-finalize experimental-cert-rotation [flags]
@@ -17,5 +17,5 @@ kubeadm init phase kubelet-finalize experimental-cert-rotation [flags]
 ### Options inherited from parent commands
 
 ```
-      --rootfs string   [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string   The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

@@ -21,9 +21,8 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
   # Check to see if I can list deployments in my current namespace
   kubectl auth can-i list deployments.apps
   
-  # Check to see if service account "foo" of namespace "dev" can list pods
-  # in the namespace "prod".
-  # You must be allowed to use impersonation for the global option "--as".
+  # Check to see if service account "foo" of namespace "dev" can list pods in the namespace "prod"
+  # You must be allowed to use impersonation for the global option "--as"
   kubectl auth can-i list pods --as=system:serviceaccount:dev:foo -n prod
   
   # Check to see if I can do everything in my current namespace ("*" means all)
@@ -37,6 +36,9 @@ kubectl auth can-i VERB [TYPE | TYPE/NAME | NONRESOURCEURL]
   
   # Check to see if I can access the URL /logs/
   kubectl auth can-i get /logs/
+  
+  # Check to see if I can approve certificates.k8s.io
+  kubectl auth can-i approve certificates.k8s.io
   
   # List all allowed actions in namespace "foo"
   kubectl auth can-i --list --namespace=foo

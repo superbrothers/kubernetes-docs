@@ -11,7 +11,7 @@ fields with invalid values will also trigger errors. Any other errors or warning
 depending on contents of the input file.
 
 In this version of kubeadm, the following API versions are supported:
-- kubeadm.k8s.io/v1beta3
+- kubeadm.k8s.io/v1beta4
 
 
 ```
@@ -30,5 +30,5 @@ kubeadm config validate [flags]
 
 ```
       --kubeconfig string   The kubeconfig file to use when talking to the cluster. If the flag is not set, a set of standard locations can be searched for an existing kubeconfig file. (default "/etc/kubernetes/admin.conf")
-      --rootfs string       [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string       The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

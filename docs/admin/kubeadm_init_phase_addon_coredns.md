@@ -15,10 +15,10 @@ kubeadm init phase addon coredns [flags]
       --config string               Path to a kubeadm configuration file.
       --dry-run                     Don't apply any changes; just output what would be done.
       --feature-gates string        A set of key=value pairs that describe feature gates for various features. Options are:
+                                    ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
                                     EtcdLearnerMode=true|false (BETA - default=true)
                                     PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                     RootlessControlPlane=true|false (ALPHA - default=false)
-                                    UpgradeAddonsBeforeControlPlane=true|false (DEPRECATED - default=false)
                                     WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)
   -h, --help                        help for coredns
       --image-repository string     Choose a container registry to pull control plane images from (default "registry.k8s.io")
@@ -32,5 +32,5 @@ kubeadm init phase addon coredns [flags]
 ### Options inherited from parent commands
 
 ```
-      --rootfs string   [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string   The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

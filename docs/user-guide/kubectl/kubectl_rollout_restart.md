@@ -15,7 +15,7 @@ kubectl rollout restart RESOURCE
 ### Examples
 
 ```
-  # Restart all deployments in test-namespace namespace
+  # Restart all deployments in the test-namespace namespace
   kubectl rollout restart deployment -n test-namespace
   
   # Restart a deployment

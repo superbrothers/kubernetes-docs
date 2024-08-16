@@ -39,5 +39,5 @@ Example usage:
 
 ```
   -h, --help            help for kubeadm
-      --rootfs string   [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string   The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

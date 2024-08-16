@@ -6,7 +6,7 @@ Display one or many resources
 
 Display one or many resources.
 
- Prints a table of the most important information about the specified resources. You can filter the list using a label selector and the --selector flag. If the desired resource type is namespaced you will only see results in your current namespace unless you pass --all-namespaces.
+ Prints a table of the most important information about the specified resources. You can filter the list using a label selector and the --selector flag. If the desired resource type is namespaced you will only see results in the current namespace if you don't specify any namespace.
 
  By specifying the output as 'template' and providing a Go template as the value of the --template flag, you can filter the attributes of the fetched resources.
 
@@ -54,6 +54,12 @@ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|
   
   # List the 'status' subresource for a single pod
   kubectl get pod web-pod-13je7 --subresource status
+  
+  # List all deployments in namespace 'backend'
+  kubectl get deployments.apps --namespace backend
+  
+  # List all pods existing in all namespaces
+  kubectl get pods --all-namespaces
 ```
 
 ### Options

@@ -51,6 +51,7 @@ kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]
 
 ```
       --all-containers                     Get all containers' logs in the pod(s).
+      --all-pods                           Get logs from all pod(s). Sets prefix to true.
   -c, --container string                   Print the logs of this container
   -f, --follow                             Specify if the logs should be streamed.
   -h, --help                               help for logs

@@ -1,5 +1,5 @@
 
-[EXPERIMENTAL] Download certificates shared among control-plane nodes from the kubeadm-certs Secret
+Download certificates shared among control-plane nodes from the kubeadm-certs Secret
 
 ```
 kubeadm join phase control-plane-prepare download-certs [api-server-endpoint] [flags]
@@ -24,5 +24,5 @@ kubeadm join phase control-plane-prepare download-certs [api-server-endpoint] [f
 ### Options inherited from parent commands
 
 ```
-      --rootfs string   [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string   The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

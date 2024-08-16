@@ -34,5 +34,5 @@ kubeadm token create [token]
 ```
       --dry-run             Whether to enable dry-run mode or not
       --kubeconfig string   The kubeconfig file to use when talking to the cluster. If the flag is not set, a set of standard locations can be searched for an existing kubeconfig file. (default "/etc/kubernetes/admin.conf")
-      --rootfs string       [EXPERIMENTAL] The path to the 'real' host root filesystem.
+      --rootfs string       The path to the 'real' host root filesystem. This will cause kubeadm to chroot into the provided path.
 ```

@@ -17,10 +17,10 @@ kubectl auth whoami
 ### Examples
 
 ```
-  # Get your subject attributes.
+  # Get your subject attributes
   kubectl auth whoami
   
-  # Get your subject attributes in JSON format.
+  # Get your subject attributes in JSON format
   kubectl auth whoami -o json
 ```
 

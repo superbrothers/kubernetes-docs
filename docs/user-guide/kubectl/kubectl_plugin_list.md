@@ -4,7 +4,7 @@ List all visible plugin executables on a user's PATH
 
 ### Synopsis
 
-List all available plugin files on a user's PATH.
+List all available plugin files on a user's PATH. To see plugins binary names without the full path use --name-only flag.
 
  Available plugin files are those that are: - executable - anywhere on the user's PATH - begin with "kubectl-"
 
@@ -17,6 +17,9 @@ kubectl plugin list [flags]
 ```
   # List all available plugins
   kubectl plugin list
+  
+  # List only binary names of available plugins without paths
+  kubectl plugin list --name-only
 ```
 
 ### Options
