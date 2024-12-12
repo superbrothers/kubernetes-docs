@@ -16,7 +16,7 @@ kube-apiserver [flags]
 ### Options
 
 ```
-      --admission-control strings                               Admission is divided into two phases. In the first phase, only mutating admission plugins run. In the second phase, only validating admission plugins run. The names in the below list may represent a validating plugin, a mutating plugin, or both. The order of plugins in which they are passed to this flag does not matter. Comma-delimited list of: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. (DEPRECATED: Use --enable-admission-plugins or --disable-admission-plugins instead. Will be removed in a future version.)
+      --admission-control strings                               Admission is divided into two phases. In the first phase, only mutating admission plugins run. In the second phase, only validating admission plugins run. The names in the below list may represent a validating plugin, a mutating plugin, or both. The order of plugins in which they are passed to this flag does not matter. Comma-delimited list of: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionPolicy, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. (DEPRECATED: Use --enable-admission-plugins or --disable-admission-plugins instead. Will be removed in a future version.)
       --admission-control-config-file string                    File with admission control configuration.
       --advertise-address ip                                    The IP address on which to advertise the apiserver to members of the cluster. This address must be reachable by the rest of the cluster. If blank, the --bind-address will be used. If --bind-address is unspecified, the host's default interface will be used.
       --aggregator-reject-forwarding-redirect                   Aggregator reject forwarding redirect response back to client. (default true)
@@ -56,11 +56,11 @@ kube-apiserver [flags]
       --audit-webhook-truncate-max-batch-size int               Maximum size of the batch sent to the underlying backend. Actual serialized size can be several hundreds of bytes greater. If a batch exceeds this limit, it is split into several batches of smaller size. (default 10485760)
       --audit-webhook-truncate-max-event-size int               Maximum size of the audit event sent to the underlying backend. If the size of an event is greater than this number, first request and response are removed, and if this doesn't reduce the size enough, event is discarded. (default 102400)
       --audit-webhook-version string                            API group and version used for serializing audit events written to webhook. (default "audit.k8s.io/v1")
-      --authentication-config string                            File with Authentication Configuration to configure the JWT Token authenticator or the anonymous authenticator. Note: This feature is in Alpha since v1.29.--feature-gate=StructuredAuthenticationConfiguration=true needs to be set for enabling this feature.This feature is mutually exclusive with the oidc-* flags.To configure anonymous authenticator you need to enable --feature-gate=AnonymousAuthConfigurableEndpoints.When you configure anonymous authenticator in the authentication config you cannot use the --anonymous-auth flag.
+      --authentication-config string                            File with Authentication Configuration to configure the JWT Token authenticator or the anonymous authenticator. Requires the StructuredAuthenticationConfiguration feature gate. Also requires the feature gate AnonymousAuthConfigurableEndpoints to configure the anonymous authenticator in the config file. This flag is mutually exclusive with the --oidc-* flags if the file configures the JWT Token authenticator. This flag is mutually exclusive with --anonymous-auth if the file configures the Anonymous authenticator.
       --authentication-token-webhook-cache-ttl duration         The duration to cache responses from the webhook token authenticator. (default 2m0s)
       --authentication-token-webhook-config-file string         File with webhook configuration for token authentication in kubeconfig format. The API server will query the remote service to determine authentication for bearer tokens.
       --authentication-token-webhook-version string             The API version of the authentication.k8s.io TokenReview to send to and expect from the webhook. (default "v1beta1")
-      --authorization-config string                             File with Authorization Configuration to configure the authorizer chain.Note: This feature is in Alpha since v1.29.--feature-gate=StructuredAuthorizationConfiguration=true feature flag needs to be set to true for enabling the functionality.This feature is mutually exclusive with the other --authorization-mode and --authorization-webhook-* flags.
+      --authorization-config string                             File with Authorization Configuration to configure the authorizer chain. Requires feature gate StructuredAuthorizationConfiguration. This flag is mutually exclusive with the other --authorization-mode and --authorization-webhook-* flags.
       --authorization-mode strings                              Ordered list of plug-ins to do authorization on secure port. Defaults to AlwaysAllow if --authorization-config is not used. Comma-delimited list of: AlwaysAllow,AlwaysDeny,ABAC,Webhook,RBAC,Node.
       --authorization-policy-file string                        File with authorization policy in json line by line format, used with --authorization-mode=ABAC, on the secure port.
       --authorization-webhook-cache-authorized-ttl duration     The duration to cache 'authorized' responses from the webhook authorizer. (default 5m0s)
@@ -76,15 +76,15 @@ kube-apiserver [flags]
       --default-not-ready-toleration-seconds int                Indicates the tolerationSeconds of the toleration for notReady:NoExecute that is added by default to every pod that does not already have such a toleration. (default 300)
       --default-unreachable-toleration-seconds int              Indicates the tolerationSeconds of the toleration for unreachable:NoExecute that is added by default to every pod that does not already have such a toleration. (default 300)
       --delete-collection-workers int                           Number of workers spawned for DeleteCollection call. These are used to speed up namespace cleanup. (default 1)
-      --disable-admission-plugins strings                       admission plugins that should be disabled although they are in the default enabled plugins list (NamespaceLifecycle, LimitRanger, ServiceAccount, TaintNodesByCondition, PodSecurity, Priority, DefaultTolerationSeconds, DefaultStorageClass, StorageObjectInUseProtection, PersistentVolumeClaimResize, RuntimeClass, CertificateApproval, CertificateSigning, ClusterTrustBundleAttest, CertificateSubjectRestriction, DefaultIngressClass, MutatingAdmissionWebhook, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook, ResourceQuota). Comma-delimited list of admission plugins: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. The order of plugins in this flag does not matter.
+      --disable-admission-plugins strings                       admission plugins that should be disabled although they are in the default enabled plugins list (NamespaceLifecycle, LimitRanger, ServiceAccount, TaintNodesByCondition, PodSecurity, Priority, DefaultTolerationSeconds, DefaultStorageClass, StorageObjectInUseProtection, PersistentVolumeClaimResize, RuntimeClass, CertificateApproval, CertificateSigning, ClusterTrustBundleAttest, CertificateSubjectRestriction, DefaultIngressClass, MutatingAdmissionPolicy, MutatingAdmissionWebhook, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook, ResourceQuota). Comma-delimited list of admission plugins: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionPolicy, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. The order of plugins in this flag does not matter.
       --disable-http2-serving                                   If true, HTTP2 serving will be disabled [default=false]
       --disabled-metrics strings                                This flag provides an escape hatch for misbehaving metrics. You must provide the fully qualified metric name in order to disable it. Disclaimer: disabling metrics is higher in precedence than showing hidden metrics.
       --egress-selector-config-file string                      File with apiserver egress selector configuration.
       --emulated-version strings                                The versions different components emulate their capabilities (APIs, features, ...) of.
                                                                 If set, the component will emulate the behavior of this version instead of the underlying binary version.
                                                                 Version format could only be major.minor, for example: '--emulated-version=wardle=1.2,kube=1.31'. Options are:
-                                                                kube=1.31..1.31 (default=1.31)If the component is not specified, defaults to "kube"
-      --enable-admission-plugins strings                        admission plugins that should be enabled in addition to default enabled ones (NamespaceLifecycle, LimitRanger, ServiceAccount, TaintNodesByCondition, PodSecurity, Priority, DefaultTolerationSeconds, DefaultStorageClass, StorageObjectInUseProtection, PersistentVolumeClaimResize, RuntimeClass, CertificateApproval, CertificateSigning, ClusterTrustBundleAttest, CertificateSubjectRestriction, DefaultIngressClass, MutatingAdmissionWebhook, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook, ResourceQuota). Comma-delimited list of admission plugins: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. The order of plugins in this flag does not matter.
+                                                                kube=1.32..1.32 (default=1.32)If the component is not specified, defaults to "kube"
+      --enable-admission-plugins strings                        admission plugins that should be enabled in addition to default enabled ones (NamespaceLifecycle, LimitRanger, ServiceAccount, TaintNodesByCondition, PodSecurity, Priority, DefaultTolerationSeconds, DefaultStorageClass, StorageObjectInUseProtection, PersistentVolumeClaimResize, RuntimeClass, CertificateApproval, CertificateSigning, ClusterTrustBundleAttest, CertificateSubjectRestriction, DefaultIngressClass, MutatingAdmissionPolicy, MutatingAdmissionWebhook, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook, ResourceQuota). Comma-delimited list of admission plugins: AlwaysAdmit, AlwaysDeny, AlwaysPullImages, CertificateApproval, CertificateSigning, CertificateSubjectRestriction, ClusterTrustBundleAttest, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, DenyServiceExternalIPs, EventRateLimit, ExtendedResourceToleration, ImagePolicyWebhook, LimitPodHardAntiAffinityTopology, LimitRanger, MutatingAdmissionPolicy, MutatingAdmissionWebhook, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, NodeRestriction, OwnerReferencesPermissionEnforcement, PersistentVolumeClaimResize, PodNodeSelector, PodSecurity, PodTolerationRestriction, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook. The order of plugins in this flag does not matter.
       --enable-aggregator-routing                               Turns on aggregator routing requests to endpoints IP rather than cluster IP.
       --enable-bootstrap-token-auth                             Enable to allow secrets of type 'bootstrap.kubernetes.io/token' in the 'kube-system' namespace to be used for TLS bootstrapping authentication.
       --enable-garbage-collector                                Enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-controller-manager. (default true)
@@ -113,34 +113,39 @@ kube-apiserver [flags]
                                                                 kube:APIServingWithRoutine=true|false (ALPHA - default=false)
                                                                 kube:AllAlpha=true|false (ALPHA - default=false)
                                                                 kube:AllBeta=true|false (BETA - default=false)
-                                                                kube:AnonymousAuthConfigurableEndpoints=true|false (ALPHA - default=false)
+                                                                kube:AllowUnsafeMalformedObjectDeletion=true|false (ALPHA - default=false)
+                                                                kube:AnonymousAuthConfigurableEndpoints=true|false (BETA - default=true)
                                                                 kube:AnyVolumeDataSource=true|false (BETA - default=true)
-                                                                kube:AuthorizeNodeWithSelectors=true|false (ALPHA - default=false)
-                                                                kube:AuthorizeWithSelectors=true|false (ALPHA - default=false)
+                                                                kube:AuthorizeNodeWithSelectors=true|false (BETA - default=true)
+                                                                kube:AuthorizeWithSelectors=true|false (BETA - default=true)
+                                                                kube:BtreeWatchCache=true|false (BETA - default=true)
+                                                                kube:CBORServingAndStorage=true|false (ALPHA - default=false)
                                                                 kube:CPUManagerPolicyAlphaOptions=true|false (ALPHA - default=false)
                                                                 kube:CPUManagerPolicyBetaOptions=true|false (BETA - default=true)
                                                                 kube:CPUManagerPolicyOptions=true|false (BETA - default=true)
                                                                 kube:CRDValidationRatcheting=true|false (BETA - default=true)
                                                                 kube:CSIMigrationPortworx=true|false (BETA - default=true)
                                                                 kube:CSIVolumeHealth=true|false (ALPHA - default=false)
+                                                                kube:ClientsAllowCBOR=true|false (ALPHA - default=false)
+                                                                kube:ClientsPreferCBOR=true|false (ALPHA - default=false)
                                                                 kube:CloudControllerManagerWebhook=true|false (ALPHA - default=false)
                                                                 kube:ClusterTrustBundle=true|false (ALPHA - default=false)
                                                                 kube:ClusterTrustBundleProjection=true|false (ALPHA - default=false)
-                                                                kube:ComponentSLIs=true|false (BETA - default=true)
+                                                                kube:ComponentFlagz=true|false (ALPHA - default=false)
+                                                                kube:ComponentStatusz=true|false (ALPHA - default=false)
                                                                 kube:ConcurrentWatchObjectDecode=true|false (BETA - default=false)
                                                                 kube:ConsistentListFromCache=true|false (BETA - default=true)
                                                                 kube:ContainerCheckpoint=true|false (BETA - default=true)
                                                                 kube:ContextualLogging=true|false (BETA - default=true)
                                                                 kube:CoordinatedLeaderElection=true|false (ALPHA - default=false)
-                                                                kube:CronJobsScheduledAnnotation=true|false (BETA - default=true)
                                                                 kube:CrossNamespaceVolumeDataSource=true|false (ALPHA - default=false)
                                                                 kube:CustomCPUCFSQuotaPeriod=true|false (ALPHA - default=false)
-                                                                kube:CustomResourceFieldSelectors=true|false (BETA - default=true)
-                                                                kube:DRAControlPlaneController=true|false (ALPHA - default=false)
+                                                                kube:DRAAdminAccess=true|false (ALPHA - default=false)
+                                                                kube:DRAResourceClaimDeviceStatus=true|false (ALPHA - default=false)
                                                                 kube:DisableAllocatorDualWrite=true|false (ALPHA - default=false)
-                                                                kube:DisableNodeKubeProxyVersion=true|false (BETA - default=true)
-                                                                kube:DynamicResourceAllocation=true|false (ALPHA - default=false)
+                                                                kube:DynamicResourceAllocation=true|false (BETA - default=false)
                                                                 kube:EventedPLEG=true|false (ALPHA - default=false)
+                                                                kube:ExternalServiceAccountTokenSigner=true|false (ALPHA - default=false)
                                                                 kube:GracefulNodeShutdown=true|false (BETA - default=true)
                                                                 kube:GracefulNodeShutdownBasedOnPodPriority=true|false (BETA - default=true)
                                                                 kube:HPAScaleToZero=true|false (ALPHA - default=false)
@@ -148,26 +153,28 @@ kube-apiserver [flags]
                                                                 kube:ImageMaximumGCAge=true|false (BETA - default=true)
                                                                 kube:ImageVolume=true|false (ALPHA - default=false)
                                                                 kube:InPlacePodVerticalScaling=true|false (ALPHA - default=false)
+                                                                kube:InPlacePodVerticalScalingAllocatedStatus=true|false (ALPHA - default=false)
+                                                                kube:InPlacePodVerticalScalingExclusiveCPUs=true|false (ALPHA - default=false)
                                                                 kube:InTreePluginPortworxUnregister=true|false (ALPHA - default=false)
                                                                 kube:InformerResourceVersion=true|false (ALPHA - default=false)
                                                                 kube:JobBackoffLimitPerIndex=true|false (BETA - default=true)
-                                                                kube:JobManagedBy=true|false (ALPHA - default=false)
+                                                                kube:JobManagedBy=true|false (BETA - default=true)
                                                                 kube:JobPodReplacementPolicy=true|false (BETA - default=true)
                                                                 kube:JobSuccessPolicy=true|false (BETA - default=true)
                                                                 kube:KubeletCgroupDriverFromCRI=true|false (BETA - default=true)
+                                                                kube:KubeletCrashLoopBackOffMax=true|false (ALPHA - default=false)
+                                                                kube:KubeletFineGrainedAuthz=true|false (ALPHA - default=false)
                                                                 kube:KubeletInUserNamespace=true|false (ALPHA - default=false)
                                                                 kube:KubeletPodResourcesDynamicResources=true|false (ALPHA - default=false)
                                                                 kube:KubeletPodResourcesGet=true|false (ALPHA - default=false)
                                                                 kube:KubeletSeparateDiskGC=true|false (BETA - default=true)
                                                                 kube:KubeletTracing=true|false (BETA - default=true)
-                                                                kube:LoadBalancerIPMode=true|false (BETA - default=true)
                                                                 kube:LocalStorageCapacityIsolationFSQuotaMonitoring=true|false (BETA - default=false)
                                                                 kube:LoggingAlphaOptions=true|false (ALPHA - default=false)
                                                                 kube:LoggingBetaOptions=true|false (BETA - default=true)
                                                                 kube:MatchLabelKeysInPodAffinity=true|false (BETA - default=true)
                                                                 kube:MatchLabelKeysInPodTopologySpread=true|false (BETA - default=true)
                                                                 kube:MaxUnavailableStatefulSet=true|false (ALPHA - default=false)
-                                                                kube:MemoryManager=true|false (BETA - default=true)
                                                                 kube:MemoryQoS=true|false (ALPHA - default=false)
                                                                 kube:MultiCIDRServiceAllocator=true|false (BETA - default=false)
                                                                 kube:MutatingAdmissionPolicy=true|false (ALPHA - default=false)
@@ -178,47 +185,45 @@ kube-apiserver [flags]
                                                                 kube:OpenAPIEnums=true|false (BETA - default=true)
                                                                 kube:PodAndContainerStatsFromCRI=true|false (ALPHA - default=false)
                                                                 kube:PodDeletionCost=true|false (BETA - default=true)
-                                                                kube:PodIndexLabel=true|false (BETA - default=true)
+                                                                kube:PodLevelResources=true|false (ALPHA - default=false)
                                                                 kube:PodLifecycleSleepAction=true|false (BETA - default=true)
+                                                                kube:PodLifecycleSleepActionAllowZero=true|false (ALPHA - default=false)
+                                                                kube:PodLogsQuerySplitStreams=true|false (ALPHA - default=false)
                                                                 kube:PodReadyToStartContainersCondition=true|false (BETA - default=true)
                                                                 kube:PortForwardWebsockets=true|false (BETA - default=true)
                                                                 kube:ProcMountType=true|false (BETA - default=false)
                                                                 kube:QOSReserved=true|false (ALPHA - default=false)
-                                                                kube:RecoverVolumeExpansionFailure=true|false (ALPHA - default=false)
+                                                                kube:RecoverVolumeExpansionFailure=true|false (BETA - default=true)
                                                                 kube:RecursiveReadOnlyMounts=true|false (BETA - default=true)
-                                                                kube:RelaxedEnvironmentVariableValidation=true|false (ALPHA - default=false)
+                                                                kube:RelaxedDNSSearchValidation=true|false (ALPHA - default=false)
+                                                                kube:RelaxedEnvironmentVariableValidation=true|false (BETA - default=true)
                                                                 kube:ReloadKubeletServerCertificateFile=true|false (BETA - default=true)
+                                                                kube:RemoteRequestHeaderUID=true|false (ALPHA - default=false)
                                                                 kube:ResilientWatchCacheInitialization=true|false (BETA - default=true)
                                                                 kube:ResourceHealthStatus=true|false (ALPHA - default=false)
-                                                                kube:RetryGenerateName=true|false (BETA - default=true)
                                                                 kube:RotateKubeletServerCertificate=true|false (BETA - default=true)
                                                                 kube:RuntimeClassInImageCriApi=true|false (ALPHA - default=false)
+                                                                kube:SELinuxChangePolicy=true|false (ALPHA - default=false)
                                                                 kube:SELinuxMount=true|false (ALPHA - default=false)
                                                                 kube:SELinuxMountReadWriteOncePod=true|false (BETA - default=true)
-                                                                kube:SchedulerQueueingHints=true|false (BETA - default=false)
+                                                                kube:SchedulerAsyncPreemption=true|false (ALPHA - default=false)
+                                                                kube:SchedulerQueueingHints=true|false (BETA - default=true)
                                                                 kube:SeparateCacheWatchRPC=true|false (BETA - default=true)
                                                                 kube:SeparateTaintEvictionController=true|false (BETA - default=true)
-                                                                kube:ServiceAccountTokenJTI=true|false (BETA - default=true)
+                                                                kube:ServiceAccountNodeAudienceRestriction=true|false (BETA - default=true)
                                                                 kube:ServiceAccountTokenNodeBinding=true|false (BETA - default=true)
-                                                                kube:ServiceAccountTokenNodeBindingValidation=true|false (BETA - default=true)
-                                                                kube:ServiceAccountTokenPodNodeInfo=true|false (BETA - default=true)
                                                                 kube:ServiceTrafficDistribution=true|false (BETA - default=true)
                                                                 kube:SidecarContainers=true|false (BETA - default=true)
-                                                                kube:SizeMemoryBackedVolumes=true|false (BETA - default=true)
-                                                                kube:StatefulSetAutoDeletePVC=true|false (BETA - default=true)
                                                                 kube:StorageNamespaceIndex=true|false (BETA - default=true)
                                                                 kube:StorageVersionAPI=true|false (ALPHA - default=false)
                                                                 kube:StorageVersionHash=true|false (BETA - default=true)
                                                                 kube:StorageVersionMigrator=true|false (ALPHA - default=false)
-                                                                kube:StrictCostEnforcementForVAP=true|false (BETA - default=false)
-                                                                kube:StrictCostEnforcementForWebhooks=true|false (BETA - default=false)
                                                                 kube:StructuredAuthenticationConfiguration=true|false (BETA - default=true)
-                                                                kube:StructuredAuthorizationConfiguration=true|false (BETA - default=true)
                                                                 kube:SupplementalGroupsPolicy=true|false (ALPHA - default=false)
+                                                                kube:SystemdWatchdog=true|false (BETA - default=true)
                                                                 kube:TopologyAwareHints=true|false (BETA - default=true)
                                                                 kube:TopologyManagerPolicyAlphaOptions=true|false (ALPHA - default=false)
                                                                 kube:TopologyManagerPolicyBetaOptions=true|false (BETA - default=true)
-                                                                kube:TopologyManagerPolicyOptions=true|false (BETA - default=true)
                                                                 kube:TranslateStreamCloseWebsocketRequests=true|false (BETA - default=true)
                                                                 kube:UnauthenticatedHTTP2DOSMitigation=true|false (BETA - default=true)
                                                                 kube:UnknownVersionInteroperabilityProxy=true|false (ALPHA - default=false)
@@ -228,10 +233,12 @@ kube-apiserver [flags]
                                                                 kube:VolumeCapacityPriority=true|false (ALPHA - default=false)
                                                                 kube:WatchCacheInitializationPostStartHook=true|false (BETA - default=false)
                                                                 kube:WatchFromStorageWithoutResourceVersion=true|false (BETA - default=false)
-                                                                kube:WatchList=true|false (ALPHA - default=false)
+                                                                kube:WatchList=true|false (BETA - default=true)
                                                                 kube:WatchListClient=true|false (BETA - default=false)
                                                                 kube:WinDSR=true|false (ALPHA - default=false)
                                                                 kube:WinOverlay=true|false (BETA - default=true)
+                                                                kube:WindowsCPUAndMemoryAffinity=true|false (ALPHA - default=false)
+                                                                kube:WindowsGracefulNodeShutdown=true|false (ALPHA - default=false)
                                                                 kube:WindowsHostNetwork=true|false (ALPHA - default=true)
       --goaway-chance float                                     To prevent HTTP/2 clients from getting stuck on a single apiserver, randomly close a connection (GOAWAY). The client's other in-flight requests won't be affected, and the client will reconnect, likely landing on a different apiserver after going through the load balancer again. This argument sets the fraction of requests that will be sent a GOAWAY. Clusters with single apiservers, or which don't use a load balancer, should NOT enable this. Min is 0 (off), Max is .02 (1/50 requests); .001 (1/1000) is a recommended starting point.
   -h, --help                                                    help for kube-apiserver
@@ -274,6 +281,7 @@ kube-apiserver [flags]
       --requestheader-client-ca-file string                     Root certificate bundle to use to verify client certificates on incoming requests before trusting usernames in headers specified by --requestheader-username-headers. WARNING: generally do not depend on authorization being already done for incoming requests.
       --requestheader-extra-headers-prefix strings              List of request header prefixes to inspect. X-Remote-Extra- is suggested.
       --requestheader-group-headers strings                     List of request headers to inspect for groups. X-Remote-Group is suggested.
+      --requestheader-uid-headers strings                       List of request headers to inspect for UIDs. X-Remote-Uid is suggested. Requires the RemoteRequestHeaderUID feature to be enabled.
       --requestheader-username-headers strings                  List of request headers to inspect for usernames. X-Remote-User is common.
       --runtime-config mapStringString                          A set of key=value pairs that enable or disable built-in APIs. Supported options are:
                                                                 v1=true|false for the core API group
@@ -290,6 +298,7 @@ kube-apiserver [flags]
       --service-account-key-file stringArray                    File containing PEM-encoded x509 RSA or ECDSA private or public keys, used to verify ServiceAccount tokens. The specified file can contain multiple keys, and the flag can be specified multiple times with different files. If unspecified, --tls-private-key-file is used. Must be specified when --service-account-signing-key-file is provided
       --service-account-lookup                                  If true, validate ServiceAccount tokens exist in etcd as part of authentication. (default true)
       --service-account-max-token-expiration duration           The maximum validity duration of a token created by the service account token issuer. If an otherwise valid TokenRequest with a validity duration larger than this value is requested, a token will be issued with a validity duration of this value.
+      --service-account-signing-endpoint string                 Path to socket where a external JWT signer is listening. This flag is mutually exclusive with --service-account-signing-key-file and --service-account-key-file. Requires enabling feature gate (ExternalServiceAccountTokenSigner)
       --service-account-signing-key-file string                 Path to the file that contains the current private key of the service account token issuer. The issuer will sign issued ID tokens with this private key.
       --service-cluster-ip-range string                         A CIDR notation IP range from which to assign service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two dual-stack CIDRs is allowed.
       --service-node-port-range portRange                       A port range to reserve for services with NodePort visibility.  This must not overlap with the ephemeral port range on nodes.  Example: '30000-32767'. Inclusive at both ends of the range. (default 30000-32767)

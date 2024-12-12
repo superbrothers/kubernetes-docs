@@ -1,5 +1,9 @@
 
-Use this command to invoke single phase of the reset workflow
+Use this command to invoke single phase of the "reset" workflow
+
+```
+kubeadm reset phase [flags]
+```
 
 ### Options
 

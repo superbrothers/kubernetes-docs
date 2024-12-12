@@ -1,5 +1,9 @@
 
-Use this command to invoke single phase of the join workflow
+Use this command to invoke single phase of the "join" workflow
+
+```
+kubeadm join phase [flags]
+```
 
 ### Options
 

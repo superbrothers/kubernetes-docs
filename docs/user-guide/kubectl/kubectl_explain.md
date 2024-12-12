@@ -15,7 +15,7 @@ Describe fields and structure of various resources.
 Use "kubectl api-resources" for a complete list of supported resources.
 
 ```
-kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] [--output=plaintext|plaintext-openapiv2]
+kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] [-o|--output=plaintext|plaintext-openapiv2]
 ```
 
 ### Examples
@@ -42,7 +42,7 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 ```
       --api-version string   Use given api-version (group/version) of the resource.
   -h, --help                 help for explain
-      --output string        Format in which to render the schema. Valid values are: (plaintext, plaintext-openapiv2). (default "plaintext")
+  -o, --output string        Format in which to render the schema. Valid values are: (plaintext, plaintext-openapiv2). (default "plaintext")
       --recursive            When true, print the name of all the fields recursively. Otherwise, print the available fields with their description.
 ```
 

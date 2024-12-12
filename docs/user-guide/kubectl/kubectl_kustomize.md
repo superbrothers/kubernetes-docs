@@ -32,6 +32,7 @@ kubectl kustomize DIR [flags]
   -e, --env stringArray                 a list of environment variables to be used by functions
       --helm-api-versions stringArray   Kubernetes api versions used by Helm for Capabilities.APIVersions
       --helm-command string             helm command (path to executable) (default "helm")
+      --helm-debug                      Enable debug output from the Helm chart inflator generator.
       --helm-kube-version string        Kubernetes version used by Helm for Capabilities.KubeVersion
   -h, --help                            help for kustomize
       --load-restrictor string          if set to 'LoadRestrictionsNone', local kustomizations may load files from outside their root. This does, however, break the relocatability of the kustomization. (default "LoadRestrictionsRootOnly")

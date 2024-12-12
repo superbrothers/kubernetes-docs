@@ -12,6 +12,7 @@ kubeadm upgrade node phase preflight [flags]
 ### Options
 
 ```
+      --config string                     Path to a kubeadm configuration file.
   -h, --help                              help for preflight
       --ignore-preflight-errors strings   A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
 ```

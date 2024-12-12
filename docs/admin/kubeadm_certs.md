@@ -1,5 +1,5 @@
 
-Commands related to handling kubernetes certificates
+Commands related to handling Kubernetes certificates
 
 ```
 kubeadm certs [flags]

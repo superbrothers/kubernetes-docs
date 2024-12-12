@@ -27,7 +27,8 @@ kubeadm init phase control-plane all [flags]
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
                                              ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                             EtcdLearnerMode=true|false (BETA - default=true)
+                                             EtcdLearnerMode=true|false (default=true)
+                                             NodeLocalCRISocket=true|false (ALPHA - default=false)
                                              PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
                                              WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)

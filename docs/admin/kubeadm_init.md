@@ -41,7 +41,6 @@ mark-control-plane            Mark a node as a control-plane
 bootstrap-token               Generates bootstrap tokens used to join a node to a cluster
 kubelet-finalize              Updates settings relevant to the kubelet after TLS bootstrap
   /enable-client-cert-rotation  Enable kubelet client certificate rotation
-  /experimental-cert-rotation   Enable kubelet client certificate rotation (DEPRECATED: use 'enable-client-cert-rotation' instead)
 addon                         Install required addons for passing conformance tests
   /coredns                      Install the CoreDNS addon to a Kubernetes cluster
   /kube-proxy                   Install the kube-proxy addon to a Kubernetes cluster
@@ -67,7 +66,8 @@ kubeadm init [flags]
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
                                              ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                             EtcdLearnerMode=true|false (BETA - default=true)
+                                             EtcdLearnerMode=true|false (default=true)
+                                             NodeLocalCRISocket=true|false (ALPHA - default=false)
                                              PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
                                              WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)

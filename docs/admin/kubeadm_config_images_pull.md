@@ -12,7 +12,8 @@ kubeadm config images pull [flags]
       --cri-socket string           Path to the CRI socket to connect. If empty kubeadm will try to auto-detect this value; use this option only if you have more than one CRI installed or if you have non-standard CRI socket.
       --feature-gates string        A set of key=value pairs that describe feature gates for various features. Options are:
                                     ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                    EtcdLearnerMode=true|false (BETA - default=true)
+                                    EtcdLearnerMode=true|false (default=true)
+                                    NodeLocalCRISocket=true|false (ALPHA - default=false)
                                     PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                     RootlessControlPlane=true|false (ALPHA - default=false)
                                     WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)

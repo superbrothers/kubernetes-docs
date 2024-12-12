@@ -1,5 +1,9 @@
 
-Use this command to invoke single phase of the node workflow
+Use this command to invoke single phase of the "node" workflow
+
+```
+kubeadm upgrade node phase [flags]
+```
 
 ### Options
 

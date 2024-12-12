@@ -9,6 +9,7 @@ kubeadm upgrade node phase control-plane [flags]
 
 ```
       --certificate-renewal   Perform the renewal of certificates used by component changed during upgrades. (default true)
+      --config string         Path to a kubeadm configuration file.
       --dry-run               Do not change any state, just output the actions that would be performed.
       --etcd-upgrade          Perform the upgrade of etcd. (default true)
   -h, --help                  help for control-plane
