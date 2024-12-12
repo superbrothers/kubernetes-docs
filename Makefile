@@ -1,4 +1,4 @@
-KUBERNETES_VERSION ?= v1.31.0
+KUBERNETES_VERSION ?= v1.32.0
 GO_VERSION ?= $(shell curl -s "https://raw.githubusercontent.com/kubernetes/kubernetes/${KUBERNETES_VERSION}/.go-version")
 
 .PHONY: generate-docs
