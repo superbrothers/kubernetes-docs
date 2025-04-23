@@ -42,7 +42,7 @@ kubectl diff -f FILENAME
       --prune                         Include resources that would be deleted by pruning. Can be used with -l and default shows all resources would be pruned
       --prune-allowlist stringArray   Overwrite the default allowlist with <group/version/kind> for --prune
   -R, --recursive                     Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-  -l, --selector string               Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching objects must satisfy all of the specified label constraints.
+  -l, --selector string               Selector (label query) to filter on, supports '=', '==', '!=', 'in', 'notin'.(e.g. -l key1=value1,key2=value2,key3 in (value3)). Matching objects must satisfy all of the specified label constraints.
       --server-side                   If true, apply runs in the server instead of the client.
       --show-managed-fields           If true, include managed fields in the diff.
 ```

@@ -65,12 +65,11 @@ kubeadm init [flags]
       --cri-socket string                    Path to the CRI socket to connect. If empty kubeadm will try to auto-detect this value; use this option only if you have more than one CRI installed or if you have non-standard CRI socket.
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
-                                             ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                             EtcdLearnerMode=true|false (default=true)
+                                             ControlPlaneKubeletLocalMode=true|false (BETA - default=true)
                                              NodeLocalCRISocket=true|false (ALPHA - default=false)
                                              PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
-                                             WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)
+                                             WaitForAllControlPlaneComponents=true|false (BETA - default=true)
   -h, --help                                 help for init
       --ignore-preflight-errors strings      A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --image-repository string              Choose a container registry to pull control plane images from (default "registry.k8s.io")

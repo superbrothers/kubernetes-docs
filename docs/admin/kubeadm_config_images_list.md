@@ -11,12 +11,11 @@ kubeadm config images list [flags]
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --config string                 Path to a kubeadm configuration file.
       --feature-gates string          A set of key=value pairs that describe feature gates for various features. Options are:
-                                      ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                      EtcdLearnerMode=true|false (default=true)
+                                      ControlPlaneKubeletLocalMode=true|false (BETA - default=true)
                                       NodeLocalCRISocket=true|false (ALPHA - default=false)
                                       PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                       RootlessControlPlane=true|false (ALPHA - default=false)
-                                      WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)
+                                      WaitForAllControlPlaneComponents=true|false (BETA - default=true)
   -h, --help                          help for list
       --image-repository string       Choose a container registry to pull control plane images from (default "registry.k8s.io")
       --kubernetes-version string     Choose a specific Kubernetes version for the control plane. (default "stable-1")

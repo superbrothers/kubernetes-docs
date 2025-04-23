@@ -40,10 +40,10 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 ### Options
 
 ```
-      --api-version string   Use given api-version (group/version) of the resource.
+      --api-version string   Get different explanations for particular API version (API group/version)
   -h, --help                 help for explain
-  -o, --output string        Format in which to render the schema. Valid values are: (plaintext, plaintext-openapiv2). (default "plaintext")
-      --recursive            When true, print the name of all the fields recursively. Otherwise, print the available fields with their description.
+      --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
+      --recursive            Print the fields of fields (Currently only 1 level deep)
 ```
 
 ### Options inherited from parent commands

@@ -31,7 +31,7 @@ kubectl apply view-last-applied (TYPE [NAME | -l label] | TYPE/NAME | -f FILENAM
   -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.
   -o, --output string      Output format. Must be one of (yaml, json) (default "yaml")
   -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
-  -l, --selector string    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2). Matching objects must satisfy all of the specified label constraints.
+  -l, --selector string    Selector (label query) to filter on, supports '=', '==', '!=', 'in', 'notin'.(e.g. -l key1=value1,key2=value2,key3 in (value3)). Matching objects must satisfy all of the specified label constraints.
 ```
 
 ### Options inherited from parent commands

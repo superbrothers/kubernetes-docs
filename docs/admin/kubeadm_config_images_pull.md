@@ -11,12 +11,11 @@ kubeadm config images pull [flags]
       --config string               Path to a kubeadm configuration file.
       --cri-socket string           Path to the CRI socket to connect. If empty kubeadm will try to auto-detect this value; use this option only if you have more than one CRI installed or if you have non-standard CRI socket.
       --feature-gates string        A set of key=value pairs that describe feature gates for various features. Options are:
-                                    ControlPlaneKubeletLocalMode=true|false (ALPHA - default=false)
-                                    EtcdLearnerMode=true|false (default=true)
+                                    ControlPlaneKubeletLocalMode=true|false (BETA - default=true)
                                     NodeLocalCRISocket=true|false (ALPHA - default=false)
                                     PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                     RootlessControlPlane=true|false (ALPHA - default=false)
-                                    WaitForAllControlPlaneComponents=true|false (ALPHA - default=false)
+                                    WaitForAllControlPlaneComponents=true|false (BETA - default=true)
   -h, --help                        help for pull
       --image-repository string     Choose a container registry to pull control plane images from (default "registry.k8s.io")
       --kubernetes-version string   Choose a specific Kubernetes version for the control plane. (default "stable-1")

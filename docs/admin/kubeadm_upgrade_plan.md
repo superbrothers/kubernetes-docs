@@ -16,6 +16,7 @@ kubeadm upgrade plan [version] [flags]
       --allow-missing-template-keys        If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --allow-release-candidate-upgrades   Show release candidate versions of Kubernetes as an upgrade alternative and allow upgrading to a release candidate versions of Kubernetes.
       --config string                      Path to a kubeadm configuration file.
+      --etcd-upgrade                       Perform the upgrade of etcd. (default true)
   -h, --help                               help for plan
       --ignore-preflight-errors strings    A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --kubeconfig string                  The kubeconfig file to use when talking to the cluster. If the flag is not set, a set of standard locations can be searched for an existing kubeconfig file. (default "/etc/kubernetes/admin.conf")
