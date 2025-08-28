@@ -35,15 +35,16 @@ kubectl api-resources [flags]
 ### Options
 
 ```
-      --api-group string     Limit to resources in the specified API group.
-      --cached               Use the cached list of resources if available.
-      --categories strings   Limit to resources that belong to the specified categories.
-  -h, --help                 help for api-resources
-      --namespaced           If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
-      --no-headers           When using the default or custom-column output format, don't print headers (default print headers).
-  -o, --output string        Output format. One of: (wide, name).
-      --sort-by string       If non-empty, sort list of resources using specified field. The field can be either 'name' or 'kind'.
-      --verbs strings        Limit to resources that support the specified verbs.
+      --api-group string      Limit to resources in the specified API group.
+      --cached                Use the cached list of resources if available.
+      --categories strings    Limit to resources that belong to the specified categories.
+  -h, --help                  help for api-resources
+      --namespaced            If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
+      --no-headers            When using the default or custom-column output format, don't print headers (default print headers).
+  -o, --output string         Output format. One of: (json, yaml, name, wide).
+      --show-managed-fields   If true, keep the managedFields when printing objects in JSON or YAML format.
+      --sort-by string        If non-empty, sort list of resources using specified field. The field can be either 'name' or 'kind'.
+      --verbs strings         Limit to resources that support the specified verbs.
 ```
 
 ### Options inherited from parent commands
@@ -61,6 +62,7 @@ kubectl api-resources [flags]
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server

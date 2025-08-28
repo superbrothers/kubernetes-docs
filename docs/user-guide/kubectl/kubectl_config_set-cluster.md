@@ -56,6 +56,7 @@ kubectl config set-cluster NAME [--server=server] [--certificate-authority=path/
       --context string              The name of the kubeconfig context to use
       --disable-compression         If true, opt-out of response compression for all requests to the server
       --kubeconfig string           use a particular kubeconfig file
+      --kuberc string               Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version        Require server version to match client version
   -n, --namespace string            If present, the namespace scope for this CLI request
       --password string             Password for basic authentication to the API server

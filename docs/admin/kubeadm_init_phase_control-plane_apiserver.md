@@ -16,10 +16,10 @@ kubeadm init phase control-plane apiserver [flags]
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
                                              ControlPlaneKubeletLocalMode=true|false (BETA - default=true)
-                                             NodeLocalCRISocket=true|false (ALPHA - default=false)
+                                             NodeLocalCRISocket=true|false (BETA - default=true)
                                              PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
-                                             WaitForAllControlPlaneComponents=true|false (BETA - default=true)
+                                             WaitForAllControlPlaneComponents=true|false (default=true)
   -h, --help                                 help for apiserver
       --image-repository string              Choose a container registry to pull control plane images from (default "registry.k8s.io")
       --kubernetes-version string            Choose a specific Kubernetes version for the control plane. (default "stable-1")

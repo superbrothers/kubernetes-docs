@@ -71,7 +71,7 @@ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|
       --field-selector string         Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
   -f, --filename strings              Filename, directory, or URL to files identifying the resource to get from a server.
   -h, --help                          help for get
-      --ignore-not-found              If the requested object does not exist the command will return exit code 0.
+      --ignore-not-found              If set to true, suppresses NotFound error for specific objects that do not exist. Using this flag with commands that query for collections of resources has no effect when no resources are found.
   -k, --kustomize string              Process the kustomization directory. This flag can't be used together with -f or -R.
   -L, --label-columns strings         Accepts a comma separated list of labels that are going to be presented as columns. Names are case-sensitive. You can also use multiple flag options like -L label1 -L label2...
       --no-headers                    When using the default or custom-column output format, don't print headers (default print headers).
@@ -106,6 +106,7 @@ kubectl get [(-o|--output=)json|yaml|name|go-template|go-template-file|template|
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server

@@ -33,6 +33,7 @@ control-plane                 Generate all static Pod manifest files necessary t
   /controller-manager           Generates the kube-controller-manager static Pod manifest
   /scheduler                    Generates the kube-scheduler static Pod manifest
 kubelet-start                 Write kubelet settings and (re)start the kubelet
+wait-control-plane            Wait for the control plane to start
 upload-config                 Upload the kubeadm and kubelet configuration to a ConfigMap
   /kubeadm                      Upload the kubeadm ClusterConfiguration to a ConfigMap
   /kubelet                      Upload the kubelet component config to a ConfigMap
@@ -66,10 +67,10 @@ kubeadm init [flags]
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
                                              ControlPlaneKubeletLocalMode=true|false (BETA - default=true)
-                                             NodeLocalCRISocket=true|false (ALPHA - default=false)
+                                             NodeLocalCRISocket=true|false (BETA - default=true)
                                              PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
-                                             WaitForAllControlPlaneComponents=true|false (BETA - default=true)
+                                             WaitForAllControlPlaneComponents=true|false (default=true)
   -h, --help                                 help for init
       --ignore-preflight-errors strings      A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --image-repository string              Choose a container registry to pull control plane images from (default "registry.k8s.io")

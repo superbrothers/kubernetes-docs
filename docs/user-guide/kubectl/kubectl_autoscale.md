@@ -9,7 +9,7 @@ Creates an autoscaler that automatically chooses and sets the number of pods tha
  Looks up a deployment, replica set, stateful set, or replication controller by name and creates an autoscaler that uses the given resource as a reference. An autoscaler can automatically increase or decrease number of pods deployed within the system as needed.
 
 ```
-kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MAXPODS [--cpu-percent=CPU]
+kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MAXPODS [--cpu=CPU] [--memory=MEMORY]
 ```
 
 ### Examples
@@ -19,20 +19,27 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
   kubectl autoscale deployment foo --min=2 --max=10
   
   # Auto scale a replication controller "foo", with the number of pods between 1 and 5, target CPU utilization at 80%
-  kubectl autoscale rc foo --max=5 --cpu-percent=80
+  kubectl autoscale rc foo --max=5 --cpu=80%
+  
+  # Auto scale a deployment "bar", with the number of pods between 3 and 6, target average CPU of 500m and memory of 200Mi
+  kubectl autoscale deployment bar --min=3 --max=6 --cpu=500m --memory=200Mi
+  
+  # Auto scale a deployment "bar", with the number of pods between 2 and 8, target CPU utilization 60% and memory utilization 70%
+  kubectl autoscale deployment bar --min=3 --max=6 --cpu=60% --memory=70%
 ```
 
 ### Options
 
 ```
       --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --cpu-percent int32              The target average CPU utilization (represented as a percent of requested CPU) over all the pods. If it's not specified or negative, a default autoscaling policy will be used. (default -1)
+      --cpu string                     Target CPU utilization over all the pods. When specified as a percentage (e.g."70%" for 70% of requested CPU) it will target average utilization. When specified as quantity (e.g."500m" for 500 milliCPU) it will target average value. Value without units is treated as a quantity with miliCPU being the unit (e.g."500" is "500m").
       --dry-run string[="unchanged"]   Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string           Name of the manager used to track field ownership. (default "kubectl-autoscale")
   -f, --filename strings               Filename, directory, or URL to files identifying the resource to autoscale.
   -h, --help                           help for autoscale
   -k, --kustomize string               Process the kustomization directory. This flag can't be used together with -f or -R.
       --max int32                      The upper limit for the number of pods that can be set by the autoscaler. Required. (default -1)
+      --memory string                  Target memory utilization over all the pods. When specified  as a percentage (e.g."60%" for 60% of requested memory) it will target average utilization. When specified as quantity (e.g."200Mi" for 200 MiB, "1Gi" for 1 GiB) it will target average value. Value without units is treated as a quantity with mebibytes being the unit (e.g."200" is "200Mi").
       --min int32                      The lower limit for the number of pods that can be set by the autoscaler. If it's not specified or negative, the server will apply a default value. (default -1)
       --name string                    The name for the newly created object. If not specified, the name of the input resource will be used.
   -o, --output string                  Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
@@ -57,6 +64,7 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server

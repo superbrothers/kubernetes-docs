@@ -2,7 +2,7 @@
 Wait for the control plane to start
 
 ```
-kubeadm join phase wait-control-plane [flags]
+kubeadm init phase wait-control-plane [flags]
 ```
 
 ### Options

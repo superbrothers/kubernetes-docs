@@ -42,7 +42,7 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 ```
       --api-version string   Get different explanations for particular API version (API group/version)
   -h, --help                 help for explain
-      --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
+  -o, --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
       --recursive            Print the fields of fields (Currently only 1 level deep)
 ```
 
@@ -61,6 +61,7 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
