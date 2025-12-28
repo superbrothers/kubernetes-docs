@@ -1,26 +1,15 @@
-## kubectl config delete-context
+## kubectl alpha
 
-Delete the specified context from the kubeconfig
+Commands for features in alpha
 
 ### Synopsis
 
-Delete the specified context from the kubeconfig.
-
-```
-kubectl config delete-context NAME
-```
-
-### Examples
-
-```
-  # Delete the context for the minikube cluster
-  kubectl config delete-context minikube
-```
+These commands correspond to alpha features that are not enabled in Kubernetes clusters by default.
 
 ### Options
 
 ```
-  -h, --help   help for delete-context
+  -h, --help   help for alpha
 ```
 
 ### Options inherited from parent commands
@@ -38,7 +27,7 @@ kubectl config delete-context NAME
       --context string                 The name of the kubeconfig context to use
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              use a particular kubeconfig file
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
@@ -56,5 +45,6 @@ kubectl config delete-context NAME
 
 ### SEE ALSO
 
-* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
+* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl alpha kuberc](kubectl_alpha_kuberc.md)	 - Manage kuberc configuration files
 

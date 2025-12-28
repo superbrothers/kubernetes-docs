@@ -16,7 +16,7 @@ kubeadm token list [flags]
 ```
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -h, --help                          help for list
-  -o, --output string                 Output format. One of: text|json|yaml|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file. (default "text")
+  -o, --output string                 Output format. One of: text|json|yaml|kyaml|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file. (default "text")
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
 ```
 

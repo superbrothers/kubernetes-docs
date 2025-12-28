@@ -1,26 +1,34 @@
-## kubectl config delete-context
+## kubectl alpha kuberc
 
-Delete the specified context from the kubeconfig
+Manage kuberc configuration files
 
 ### Synopsis
 
-Delete the specified context from the kubeconfig.
+Manage user preferences (kuberc) file.
+
+ The kuberc file allows you to customize your kubectl experience.
 
 ```
-kubectl config delete-context NAME
+kubectl alpha kuberc SUBCOMMAND
 ```
 
 ### Examples
 
 ```
-  # Delete the context for the minikube cluster
-  kubectl config delete-context minikube
+  # View the current kuberc configuration
+  kubectl alpha kuberc view
+  
+  # Set a default value for a command flag
+  kubectl alpha kuberc set --section defaults --command get --option output=wide
+  
+  # Create an alias for a command
+  kubectl alpha kuberc set --section aliases --name getn --command get --prependarg nodes --option output=wide
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete-context
+  -h, --help   help for kuberc
 ```
 
 ### Options inherited from parent commands
@@ -38,7 +46,7 @@ kubectl config delete-context NAME
       --context string                 The name of the kubeconfig context to use
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              use a particular kubeconfig file
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
@@ -56,5 +64,7 @@ kubectl config delete-context NAME
 
 ### SEE ALSO
 
-* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
+* [kubectl alpha](kubectl_alpha.md)	 - Commands for features in alpha
+* [kubectl alpha kuberc set](kubectl_alpha_kuberc_set.md)	 - Set values in the kuberc configuration
+* [kubectl alpha kuberc view](kubectl_alpha_kuberc_view.md)	 - Display the current kuberc configuration
 

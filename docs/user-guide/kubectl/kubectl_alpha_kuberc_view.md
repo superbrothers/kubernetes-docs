@@ -1,26 +1,37 @@
-## kubectl config delete-context
+## kubectl alpha kuberc view
 
-Delete the specified context from the kubeconfig
+Display the current kuberc configuration
 
 ### Synopsis
 
-Delete the specified context from the kubeconfig.
+Display the contents of the kuberc file in the specified output format.
 
 ```
-kubectl config delete-context NAME
+kubectl alpha kuberc view
 ```
 
 ### Examples
 
 ```
-  # Delete the context for the minikube cluster
-  kubectl config delete-context minikube
+  # View kuberc configuration in YAML format (default)
+  kubectl alpha kuberc view
+  
+  # View kuberc configuration in JSON format
+  kubectl alpha kuberc view --output json
+  
+  # View a specific kuberc file
+  kubectl alpha kuberc view --kuberc /path/to/kuberc
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete-context
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -h, --help                          help for view
+      --kuberc string                 Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+  -o, --output string                 Output format. One of: (json, yaml, kyaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file). (default "yaml")
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands
@@ -38,8 +49,7 @@ kubectl config delete-context NAME
       --context string                 The name of the kubeconfig context to use
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              use a particular kubeconfig file
-      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -56,5 +66,5 @@ kubectl config delete-context NAME
 
 ### SEE ALSO
 
-* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
+* [kubectl alpha kuberc](kubectl_alpha_kuberc.md)	 - Manage kuberc configuration files
 

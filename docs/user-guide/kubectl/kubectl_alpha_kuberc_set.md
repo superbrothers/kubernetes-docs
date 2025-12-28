@@ -1,26 +1,52 @@
-## kubectl config delete-context
+## kubectl alpha kuberc set
 
-Delete the specified context from the kubeconfig
+Set values in the kuberc configuration
 
 ### Synopsis
 
-Delete the specified context from the kubeconfig.
+Set values in the kuberc configuration file.
+
+ Use --section to specify whether to set defaults or aliases.
+
+ For defaults: Sets default flag values for kubectl commands. The --command flag should specify only the command (e.g., "get", "create", "set env"), not resources.
+
+ For aliases: Creates command aliases with optional default flag values and arguments. Use --prependarg and --appendarg to include resources or other arguments.
 
 ```
-kubectl config delete-context NAME
+kubectl alpha kuberc set --section (defaults|aliases) --command COMMAND
 ```
 
 ### Examples
 
 ```
-  # Delete the context for the minikube cluster
-  kubectl config delete-context minikube
+  # Set default output format for 'get' command
+  kubectl alpha kuberc set --section defaults --command get --option output=wide
+  
+  # Set default output format for a subcommand
+  kubectl alpha kuberc set --section defaults --command "set env" --option output=yaml
+  
+  # Create an alias 'getn' for 'get' command with prepended 'nodes' resource
+  kubectl alpha kuberc set --section aliases --name getn --command get --prependarg nodes --option output=wide
+  
+  # Create an alias 'runx' for 'run' command with appended arguments
+  kubectl alpha kuberc set --section aliases --name runx --command run --option image=nginx --appendarg "--" --appendarg custom-arg1
+  
+  # Overwrite an existing default
+  kubectl alpha kuberc set --section defaults --command get --option output=json --overwrite
 ```
 
 ### Options
 
 ```
-  -h, --help   help for delete-context
+      --appendarg stringArray    Argument to append to the command (can be specified multiple times, for aliases only)
+      --command string           Command to configure (e.g., 'get', 'create', 'set env')
+  -h, --help                     help for set
+      --kuberc string            Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+      --name string              Alias name (required for --section=aliases)
+      --option stringArray       Flag option in the form flag=value (can be specified multiple times)
+      --overwrite                Allow overwriting existing entries
+      --prependarg stringArray   Argument to prepend to the command (can be specified multiple times, for aliases only)
+      --section string           Section to modify: 'defaults' or 'aliases'
 ```
 
 ### Options inherited from parent commands
@@ -38,8 +64,7 @@ kubectl config delete-context NAME
       --context string                 The name of the kubeconfig context to use
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
-      --kubeconfig string              use a particular kubeconfig file
-      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -56,5 +81,5 @@ kubectl config delete-context NAME
 
 ### SEE ALSO
 
-* [kubectl config](kubectl_config.md)	 - Modify kubeconfig files
+* [kubectl alpha kuberc](kubectl_alpha_kuberc.md)	 - Manage kuberc configuration files
 

@@ -20,7 +20,7 @@ kubeadm upgrade plan [version] [flags]
   -h, --help                               help for plan
       --ignore-preflight-errors strings    A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --kubeconfig string                  The kubeconfig file to use when talking to the cluster. If the flag is not set, a set of standard locations can be searched for an existing kubeconfig file. (default "/etc/kubernetes/admin.conf")
-  -o, --output string                      Output format. One of: text|json|yaml|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file. (default "text")
+  -o, --output string                      Output format. One of: text|json|yaml|kyaml|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file. (default "text")
       --print-config                       Specifies whether the configuration file that will be used in the upgrade should be printed or not.
       --show-managed-fields                If true, keep the managedFields when printing objects in JSON or YAML format.
 ```
