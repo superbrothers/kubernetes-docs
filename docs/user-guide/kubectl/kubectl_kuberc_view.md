@@ -1,49 +1,37 @@
-## kubectl explain
+## kubectl kuberc view
 
-Get documentation for a resource
+Display the current kuberc configuration
 
 ### Synopsis
 
-Describe fields and structure of various resources.
-
- This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
-
-        <type>.<fieldName>[.<fieldName>]
-        
- Information about each field is retrieved from the server in OpenAPI format.
-
-Use "kubectl api-resources" for a complete list of supported resources.
+Display the contents of the kuberc file in the specified output format.
 
 ```
-kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] [-o|--output=plaintext|plaintext-openapiv2]
+kubectl kuberc view
 ```
 
 ### Examples
 
 ```
-  # Get the documentation of the resource and its fields
-  kubectl explain pods
+  # View kuberc configuration in YAML format (default)
+  kubectl kuberc view
   
-  # Get all the fields in the resource
-  kubectl explain pods --recursive
+  # View kuberc configuration in JSON format
+  kubectl kuberc view --output json
   
-  # Get the explanation for deployment in supported api versions
-  kubectl explain deployments --api-version=apps/v1
-  
-  # Get the documentation of a specific field of a resource
-  kubectl explain pods.spec.containers
-  
-  # Get the documentation of resources in different format
-  kubectl explain deployment --output=plaintext-openapiv2
+  # View a specific kuberc file
+  kubectl kuberc view --kuberc /path/to/kuberc
 ```
 
 ### Options
 
 ```
-      --api-version string   Get different explanations for particular API version (API group/version)
-  -h, --help                 help for explain
-  -o, --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
-  -R, --recursive            Print the fields of fields (Currently only 1 level deep)
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -h, --help                          help for view
+      --kuberc string                 Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+  -o, --output string                 Output format. One of: (json, yaml, kyaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file). (default "yaml")
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
 ```
 
 ### Options inherited from parent commands
@@ -62,7 +50,6 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
-      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -79,5 +66,5 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl kuberc](kubectl_kuberc.md)	 - Manage kuberc configuration files
 

@@ -21,6 +21,7 @@ kubeadm config validate [flags]
 ### Options
 
 ```
+      --allow-deprecated-api     Allow validation of deprecated APIs.
       --allow-experimental-api   Allow validation of experimental, unreleased APIs.
       --config string            Path to a kubeadm configuration file.
   -h, --help                     help for validate

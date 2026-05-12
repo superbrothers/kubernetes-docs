@@ -45,6 +45,7 @@ kubectl diff -f FILENAME
   -l, --selector string               Selector (label query) to filter on, supports '=', '==', '!=', 'in', 'notin'.(e.g. -l key1=value1,key2=value2,key3 in (value3)). Matching objects must satisfy all of the specified label constraints.
       --server-side                   If true, apply runs in the server instead of the client.
       --show-managed-fields           If true, include managed fields in the diff.
+      --show-secrets                  If true, do not mask secret values in the diff.
 ```
 
 ### Options inherited from parent commands

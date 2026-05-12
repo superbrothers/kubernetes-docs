@@ -1,49 +1,34 @@
-## kubectl explain
+## kubectl kuberc
 
-Get documentation for a resource
+Manage kuberc configuration files
 
 ### Synopsis
 
-Describe fields and structure of various resources.
+Manage user preferences (kuberc) file.
 
- This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
-
-        <type>.<fieldName>[.<fieldName>]
-        
- Information about each field is retrieved from the server in OpenAPI format.
-
-Use "kubectl api-resources" for a complete list of supported resources.
+ The kuberc file allows you to customize your kubectl experience.
 
 ```
-kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] [-o|--output=plaintext|plaintext-openapiv2]
+kubectl kuberc SUBCOMMAND
 ```
 
 ### Examples
 
 ```
-  # Get the documentation of the resource and its fields
-  kubectl explain pods
+  # View the current kuberc configuration
+  kubectl kuberc view
   
-  # Get all the fields in the resource
-  kubectl explain pods --recursive
+  # Set a default value for a command flag
+  kubectl kuberc set --section defaults --command get --option output=wide
   
-  # Get the explanation for deployment in supported api versions
-  kubectl explain deployments --api-version=apps/v1
-  
-  # Get the documentation of a specific field of a resource
-  kubectl explain pods.spec.containers
-  
-  # Get the documentation of resources in different format
-  kubectl explain deployment --output=plaintext-openapiv2
+  # Create an alias for a command
+  kubectl kuberc set --section aliases --name getn --command get --prependarg nodes --option output=wide
 ```
 
 ### Options
 
 ```
-      --api-version string   Get different explanations for particular API version (API group/version)
-  -h, --help                 help for explain
-  -o, --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
-  -R, --recursive            Print the fields of fields (Currently only 1 level deep)
+  -h, --help   help for kuberc
 ```
 
 ### Options inherited from parent commands
@@ -80,4 +65,6 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 ### SEE ALSO
 
 * [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl kuberc set](kubectl_kuberc_set.md)	 - Set values in the kuberc configuration
+* [kubectl kuberc view](kubectl_kuberc_view.md)	 - Display the current kuberc configuration
 

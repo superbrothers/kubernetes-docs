@@ -69,7 +69,7 @@ kubectl debug (POD | TYPE[[.VERSION].GROUP]/NAME) [ -- COMMAND [args...] ]
       --keep-liveness              If true, keep the original pod liveness probes.(This flag only works when used with '--copy-to')
       --keep-readiness             If true, keep the original pod readiness probes.(This flag only works when used with '--copy-to')
       --keep-startup               If true, keep the original startup probes.(This flag only works when used with '--copy-to')
-      --profile string             Options are "legacy", "general", "baseline", "netadmin", "restricted" or "sysadmin". (default "legacy")
+      --profile string             Options are "general", "baseline", "restricted", "netadmin" or "sysadmin". Defaults to "general" (default "general")
   -q, --quiet                      If true, suppress informational messages.
       --replace                    When used with '--copy-to', delete the original Pod.
       --same-node                  When used with '--copy-to', schedule the copy of target Pod on the same node.

@@ -49,6 +49,7 @@ kubectl run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=serv
       --attach                          If true, wait for the Pod to start running, and then attach to the Pod as if 'kubectl attach ...' were called.  Default false, unless '-i/--stdin' is set, in which case the default is true. With '--restart=Never' the exit code of the container process is returned.
       --cascade string[="background"]   Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background. (default "background")
       --command                         If true and extra arguments are present, use them as the 'command' field in the container, rather than the 'args' field which is the default.
+      --detach-keys string              Override the key sequence for detaching a container. (default "ctrl-p,ctrl-q")
       --dry-run string[="unchanged"]    Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --env stringArray                 Environment variables to set in the container.
       --expose --port                   If true, create a ClusterIP service associated with the pod.  Requires --port.

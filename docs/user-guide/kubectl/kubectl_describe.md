@@ -51,7 +51,7 @@ kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
   -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.
   -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
   -l, --selector string    Selector (label query) to filter on, supports '=', '==', '!=', 'in', 'notin'.(e.g. -l key1=value1,key2=value2,key3 in (value3)). Matching objects must satisfy all of the specified label constraints.
-      --show-events        If true, display events related to the described object. (default true)
+      --show-events        If true, display events related to the described object. Defaults to true for a single object, false for multiple objects and prefix matching. (default true)
 ```
 
 ### Options inherited from parent commands

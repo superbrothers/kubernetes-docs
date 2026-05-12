@@ -1,49 +1,57 @@
-## kubectl explain
+## kubectl kuberc set
 
-Get documentation for a resource
+Set values in the kuberc configuration
 
 ### Synopsis
 
-Describe fields and structure of various resources.
+Set values in the kuberc configuration file.
 
- This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
+ Use --section to specify whether to set defaults or aliases.
 
-        <type>.<fieldName>[.<fieldName>]
-        
- Information about each field is retrieved from the server in OpenAPI format.
+ For defaults: Sets default flag values for kubectl commands. The --command flag should specify only the command (e.g., "get", "create", "set env"), not resources.
 
-Use "kubectl api-resources" for a complete list of supported resources.
+ For aliases: Creates command aliases with optional default flag values and arguments. Use --prependarg and --appendarg to include resources or other arguments.
 
 ```
-kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] [-o|--output=plaintext|plaintext-openapiv2]
+kubectl kuberc set --section (defaults|aliases) --command COMMAND
 ```
 
 ### Examples
 
 ```
-  # Get the documentation of the resource and its fields
-  kubectl explain pods
+  # Set default output format for 'get' command
+  kubectl kuberc set --section defaults --command get --option output=wide
   
-  # Get all the fields in the resource
-  kubectl explain pods --recursive
+  # Set default output format for a subcommand
+  kubectl kuberc set --section defaults --command "set env" --option output=yaml
   
-  # Get the explanation for deployment in supported api versions
-  kubectl explain deployments --api-version=apps/v1
+  # Create an alias 'getn' for 'get' command with prepended 'nodes' resource
+  kubectl kuberc set --section aliases --name getn --command get --prependarg nodes --option output=wide
   
-  # Get the documentation of a specific field of a resource
-  kubectl explain pods.spec.containers
+  # Create an alias 'runx' for 'run' command with appended arguments
+  kubectl kuberc set --section aliases --name runx --command run --option image=nginx --appendarg "--" --appendarg custom-arg1
   
-  # Get the documentation of resources in different format
-  kubectl explain deployment --output=plaintext-openapiv2
+  # Overwrite an existing default
+  kubectl kuberc set --section defaults --command get --option output=json --overwrite
+  
+  # Set the credential plugin policy and allowlist
+  kubectl kuberc set --section credentialplugin --policy Allowlist --allowlist-entry command=cloud-credential-helper
 ```
 
 ### Options
 
 ```
-      --api-version string   Get different explanations for particular API version (API group/version)
-  -h, --help                 help for explain
-  -o, --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
-  -R, --recursive            Print the fields of fields (Currently only 1 level deep)
+      --allowlist-entry stringArray   Allowlist entry the form field=value (can be specified multiple times)
+      --appendarg stringArray         Argument to append to the command (can be specified multiple times, for aliases only)
+      --command string                Command to configure (e.g., 'get', 'create', 'set env')
+  -h, --help                          help for set
+      --kuberc string                 Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
+      --name string                   Alias name (required for --section=aliases)
+      --option stringArray            Flag option in the form flag=value (can be specified multiple times)
+      --overwrite                     Allow overwriting existing entries
+      --policy string                 Plugin policy to use for exec credential plugins, must be one of 'AllowAll', 'DenyAll' or 'Allowlist'
+      --prependarg stringArray        Argument to prepend to the command (can be specified multiple times, for aliases only)
+      --section string                Section to modify: 'defaults', 'aliases', or 'credentialplugin'
 ```
 
 ### Options inherited from parent commands
@@ -62,7 +70,6 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
       --disable-compression            If true, opt-out of response compression for all requests to the server
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
-      --kuberc string                  Path to the kuberc file to use for preferences. This can be disabled by exporting KUBECTL_KUBERC=false feature gate or turning off the feature KUBERC=off.
       --match-server-version           Require server version to match client version
   -n, --namespace string               If present, the namespace scope for this CLI request
       --password string                Password for basic authentication to the API server
@@ -79,5 +86,5 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 
 ### SEE ALSO
 
-* [kubectl](kubectl.md)	 - kubectl controls the Kubernetes cluster manager
+* [kubectl kuberc](kubectl_kuberc.md)	 - Manage kuberc configuration files
 

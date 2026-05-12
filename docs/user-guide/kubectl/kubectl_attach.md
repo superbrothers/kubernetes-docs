@@ -32,6 +32,7 @@ kubectl attach (POD | TYPE/NAME) -c CONTAINER
 
 ```
   -c, --container string               Container name. If omitted, use the kubectl.kubernetes.io/default-container annotation for selecting the container to be attached or the first container in the pod will be chosen
+      --detach-keys string             Override the key sequence for detaching a container (default "ctrl-p,ctrl-q")
   -h, --help                           help for attach
       --pod-running-timeout duration   The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one pod is running (default 1m0s)
   -q, --quiet                          Only print output from the remote session
