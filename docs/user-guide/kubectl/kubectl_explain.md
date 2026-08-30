@@ -8,7 +8,7 @@ Describe fields and structure of various resources.
 
  This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
 
-        <type>.<fieldName>[.<fieldName>]
+        TYPE.FIELDNAME[.FIELDNAME]
         
  Information about each field is retrieved from the server in OpenAPI format.
 
@@ -27,6 +27,9 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
   # Get all the fields in the resource
   kubectl explain pods --recursive
   
+  # Get fields in the resource up to a specific recursive depth
+  kubectl explain pods --recursive --max-depth=2
+  
   # Get the explanation for deployment in supported api versions
   kubectl explain deployments --api-version=apps/v1
   
@@ -42,8 +45,9 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
 ```
       --api-version string   Get different explanations for particular API version (API group/version)
   -h, --help                 help for explain
+      --max-depth int        Maximum recursion depth when printing nested fields with --recursive. 0 means no limit. Requires --recursive when greater than 0.
   -o, --output string        Format in which to render the schema (plaintext, plaintext-openapiv2) (default "plaintext")
-  -R, --recursive            Print the fields of fields (Currently only 1 level deep)
+  -R, --recursive            Print the fields of fields. Use --max-depth to cap the recursion depth.
 ```
 
 ### Options inherited from parent commands
@@ -68,6 +72,7 @@ kubectl explain TYPE [--recursive=FALSE|TRUE] [--api-version=api-version-group] 
       --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex|trace) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
+      --proxy-url string               Proxy URL to use for requests to the API server
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used

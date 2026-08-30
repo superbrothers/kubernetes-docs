@@ -37,7 +37,7 @@ kubectl replace -f FILENAME
       --cascade string[="background"]   Must be "background", "orphan", or "foreground". Selects the deletion cascading strategy for the dependents (e.g. Pods created by a ReplicationController). Defaults to background. (default "background")
       --dry-run string[="unchanged"]    Must be "none", "server", or "client". If client strategy, only print the object that would be sent, without sending it. If server strategy, submit server-side request without persisting the resource. (default "none")
       --field-manager string            Name of the manager used to track field ownership. (default "kubectl-replace")
-  -f, --filename strings                The files that contain the configurations to replace.
+  -f, --filename strings                The files, directories or URLs that contain the configurations to replace.
       --force                           If true, immediately remove resources from API and bypass graceful deletion. Note that immediate deletion of some resources may result in inconsistency or data loss and requires confirmation.
       --grace-period int                Period of time in seconds given to the resource to terminate gracefully. Ignored if negative. Set to 1 for immediate shutdown. Can only be set to 0 when --force is true (force deletion). (default -1)
   -h, --help                            help for replace
@@ -76,6 +76,7 @@ kubectl replace -f FILENAME
       --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex|trace) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
+      --proxy-url string               Proxy URL to use for requests to the API server
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used

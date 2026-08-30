@@ -15,8 +15,6 @@ kubeadm init phase addon coredns [flags]
       --config string               Path to a kubeadm configuration file.
       --dry-run                     Don't apply any changes; just output what would be done.
       --feature-gates string        A set of key=value pairs that describe feature gates for various features. Options are:
-                                    NodeLocalCRISocket=true|false (default=true)
-                                    PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                     RootlessControlPlane=true|false (ALPHA - default=false)
   -h, --help                        help for coredns
       --image-repository string     Choose a container registry to pull control plane images from (default "registry.k8s.io")

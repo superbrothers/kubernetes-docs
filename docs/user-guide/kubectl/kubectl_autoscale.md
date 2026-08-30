@@ -25,7 +25,7 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
   kubectl autoscale deployment bar --min=3 --max=6 --cpu=500m --memory=200Mi
   
   # Auto scale a deployment "bar", with the number of pods between 2 and 8, target CPU utilization 60% and memory utilization 70%
-  kubectl autoscale deployment bar --min=3 --max=6 --cpu=60% --memory=70%
+  kubectl autoscale deployment bar --min=2 --max=8 --cpu=60% --memory=70%
 ```
 
 ### Options
@@ -71,6 +71,7 @@ kubectl autoscale (-f FILENAME | TYPE NAME | TYPE/NAME) [--min=MINPODS] --max=MA
       --password string                Password for basic authentication to the API server
       --profile string                 Name of profile to capture. One of (none|cpu|heap|goroutine|threadcreate|block|mutex|trace) (default "none")
       --profile-output string          Name of the file to write the profile to (default "profile.pprof")
+      --proxy-url string               Proxy URL to use for requests to the API server
       --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
   -s, --server string                  The address and port of the Kubernetes API server
       --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used

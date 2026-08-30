@@ -66,15 +66,13 @@ kubeadm init [flags]
       --cri-socket string                    Path to the CRI socket to connect. If empty kubeadm will try to auto-detect this value; use this option only if you have more than one CRI installed or if you have non-standard CRI socket.
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
-                                             NodeLocalCRISocket=true|false (default=true)
-                                             PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
   -h, --help                                 help for init
       --ignore-preflight-errors strings      A list of checks whose errors will be shown as warnings. Example: 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.
       --image-repository string              Choose a container registry to pull control plane images from (default "registry.k8s.io")
       --kubernetes-version string            Choose a specific Kubernetes version for the control plane. (default "stable-1")
       --node-name string                     Specify the node name.
-      --patches string                       Path to a directory that contains files named "target[suffix][+patchtype].extension". For example, "kube-apiserver0+merge.yaml" or just "etcd.json". "target" can be one of "kube-apiserver", "kube-controller-manager", "kube-scheduler", "etcd", "kubeletconfiguration", "corednsdeployment". "patchtype" can be one of "strategic", "merge" or "json" and they match the patch formats supported by kubectl. The default "patchtype" is "strategic". "extension" must be either "json" or "yaml". "suffix" is an optional string that can be used to determine which patches are applied first alpha-numerically.
+      --patches string                       Path to a directory that contains files named "target[suffix][+patchtype].extension". For example, "kube-apiserver0+merge.yaml" or just "etcd.json". "target" can be one of "kube-apiserver", "kube-controller-manager", "kube-scheduler", "etcd", "kubeletconfiguration", "corednsdeployment", "kubeproxydaemonset". "patchtype" can be one of "strategic", "merge" or "json" and they match the patch formats supported by kubectl. The default "patchtype" is "strategic". "extension" must be either "json" or "yaml". "suffix" is an optional string that can be used to determine which patches are applied first alpha-numerically.
       --pod-network-cidr string              Specify range of IP addresses for the pod network. If set, the control plane will automatically allocate CIDRs for every node.
       --service-cidr string                  Use alternative range of IP address for service VIPs. (default "10.96.0.0/12")
       --service-dns-domain string            Use alternative domain for services, e.g. "myorg.internal". (default "cluster.local")

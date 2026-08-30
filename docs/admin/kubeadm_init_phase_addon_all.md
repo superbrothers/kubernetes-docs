@@ -14,8 +14,6 @@ kubeadm init phase addon all [flags]
       --control-plane-endpoint string        Specify a stable IP address or DNS name for the control plane.
       --dry-run                              Don't apply any changes; just output what would be done.
       --feature-gates string                 A set of key=value pairs that describe feature gates for various features. Options are:
-                                             NodeLocalCRISocket=true|false (default=true)
-                                             PublicKeysECDSA=true|false (DEPRECATED - default=false)
                                              RootlessControlPlane=true|false (ALPHA - default=false)
   -h, --help                                 help for all
       --image-repository string              Choose a container registry to pull control plane images from (default "registry.k8s.io")
